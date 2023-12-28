@@ -1,1 +1,5 @@
 _tmpdb
+*.log
+*.pot
+*.pyc
+perpus/__pycache__
