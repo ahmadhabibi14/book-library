@@ -3,3 +3,4 @@ _tmpdb
 *.pot
 *.pyc
 perpus/__pycache__
+perpus/migrations/__pycache__
