@@ -1,0 +1,43 @@
+version: "3.2"
+
+services:
+
+  db:
+    image: mariadb
+    container_name: perpus-db
+    environment:
+      MARIADB_DATABASE: "${MARIADB_DATABASE}"
+      MARIADB_USER: "${MARIADB_USER}"
+      MARIADB_PASSWORD: "${MARIADB_PASSWORD}"
+      MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD}"
+      MARIADB_TZ: "Asia/Makassar"
+    command: "--default-time-zone=+08:00"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./_tmpdb/mariadb:/var/lib/mysql
+    networks:
+      - perpus-app
+
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    links:
+      - db:mysql
+    environment:
+      PMA_HOST: db
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      PMA_ARBITRARY: 1
+    volumes:
+      - ./_tmpdb/phpmyadmin
+    networks:
+      - perpus-app
+
+networks:
+  perpus-app:
