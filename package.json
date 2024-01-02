@@ -1,0 +1,16 @@
+{
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build"
+	},
+	"dependencies": {
+		"@babel/plugin-syntax-dynamic-import": "^7.8.3",
+		"@inertiajs/inertia": "^0.11.1",
+		"@inertiajs/inertia-svelte": "^0.8.0",
+		"@inertiajs/progress": "^0.2.7",
+		"@sveltejs/vite-plugin-svelte": "^3.0.1",
+		"svelte": "^4.2.8",
+		"vite": "^5.0.10"
+	}
+}
