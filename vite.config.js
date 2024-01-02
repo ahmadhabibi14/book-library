@@ -1,4 +1,4 @@
-import path from 'path';
+import { resolve } from 'path';
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 
@@ -7,36 +7,33 @@ export default defineConfig({
   plugins: [
     svelte()
   ],
-  root: path.resolve('./static'),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./static"),
+  root: resolve('./web/src'),
+  base: '/static/',
+  server: {
+    host: 'localhost',
+    port: 3000,
+    open: false,
+    watch: {
+      usePolling: true,
+      disableGlobbing: false,
     },
+  },
+  resolve: {
     extensions: ['.js', '.jsx', '.json', '.svelte'],
   },
-  base: '/static/',
-  publicDir: false,
   build: {
+    outDir: resolve('./web/dist'),
+    assetsDir: '',
     manifest: true,
-    target: 'es2015',
     emptyOutDir: true,
-    outDir: path.resolve('./static/dist'),
+    target: 'es2015',
     rollupOptions: {
       input: {
-        main: path.resolve('./static/js/main.js'),
+        main: resolve('./web/src/js/main.js'),
       },
       output: {
         chunkFileNames: undefined,
       },
-      external: [
-        "svelte",
-        "@babel/plugin-syntax-dynamic-import",
-        "@inertiajs/inertia",
-        "@inertiajs/inertia-svelte",
-        "@inertiajs/progress",
-        "@sveltejs/vite-plugin-svelte"
-      ]
     },
-    assetsInlineLimit: 0
   },
 })

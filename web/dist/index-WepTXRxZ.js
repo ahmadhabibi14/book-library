@@ -1,0 +1,1 @@
+import{S as o,i as r,s as i,e as l,a as c,n as s,d}from"./main-eeEkhlOd.js";function u(a){let e;return{c(){e=l("div"),e.innerHTML="<h1>Hello world !!</h1>"},m(t,n){c(t,e,n)},p:s,i:s,o:s,d(t){t&&d(e)}}}class m extends o{constructor(e){super(),r(this,e,null,u,i,{})}}export{m as default};

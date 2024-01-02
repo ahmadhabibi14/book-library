@@ -117,7 +117,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Where ViteJS assets are built.
 DJANGO_VITE_ASSETS_PATH = BASE_DIR / "web" / "dist"
@@ -130,7 +130,10 @@ STATIC_ROOT = BASE_DIR / "collectedstatic"
 
 # Include DJANGO_VITE_ASSETS_PATH into STATICFILES_DIRS to be copied inside
 # when run command python manage.py collectstatic
-STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH]
+STATICFILES_DIRS = [
+  DJANGO_VITE_ASSETS_PATH,
+  BASE_DIR / "web" / "assets"
+]
 
 
 # Default primary key field type
@@ -138,6 +141,11 @@ STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Inertia
+
 INERTIA_LAYOUT = 'app.html'
 
-DJANGO_VITE_DEV_SERVER_PORT = 5173
+DJANGO_VITE_DEV_SERVER_PORT = 3000
+
+CSRF_HEADER_NAME = 'HTTP_X_XSRF_TOKEN'
+CSRF_COOKIE_NAME = 'XSRF-TOKEN'

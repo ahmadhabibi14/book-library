@@ -1,6 +1,6 @@
 import { createInertiaApp } from '@inertiajs/inertia-svelte'
 import { InertiaProgress } from '@inertiajs/progress'
-import Layout from '../pages/layout.svelte'
+import Layout from '../pages/_layout.svelte'
 
 InertiaProgress.init();
 

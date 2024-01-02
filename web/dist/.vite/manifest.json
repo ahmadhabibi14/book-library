@@ -1,0 +1,18 @@
+{
+  "js/main.js": {
+    "dynamicImports": [
+      "pages/index.svelte"
+    ],
+    "file": "main-eeEkhlOd.js",
+    "isEntry": true,
+    "src": "js/main.js"
+  },
+  "pages/index.svelte": {
+    "file": "index-WepTXRxZ.js",
+    "imports": [
+      "js/main.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/index.svelte"
+  }
+}
