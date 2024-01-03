@@ -1,7 +1,11 @@
 from inertia import render
+from .models import Anggota
 
 def Index(request):
-  return render(request, 'index')
+  anggota = Anggota.objects.all()
+  return render(request, 'index', props={
+    "anggota": anggota
+  })
 
 def Login(request):
   return render(request, 'authlogin')
