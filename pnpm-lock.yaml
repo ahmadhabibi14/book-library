@@ -34,6 +34,9 @@ devDependencies:
   postcss:
     specifier: ^8.4.32
     version: 8.4.32
+  svelte-icons-pack:
+    specifier: ^2.1.0
+    version: 2.1.0
   tailwindcss:
     specifier: ^3.4.0
     version: 3.4.0
@@ -1644,6 +1647,10 @@ packages:
     dependencies:
       svelte: 4.2.8
     dev: false
+
+  /svelte-icons-pack@2.1.0:
+    resolution: {integrity: sha512-6Il0vWi/6MW3wXSorZhCqhkJGH4Pcg1WTcdlfFMPXfJqafZVQgmKdhVFS1c2hXGvs4byttpLC9XmI3okV1uMWA==}
+    dev: true
 
   /svelte@4.2.8:
     resolution: {integrity: sha512-hU6dh1MPl8gh6klQZwK/n73GiAHiR95IkFsesLPbMeEZi36ydaXL/ZAb4g9sayT0MXzpxyZjR28yderJHxcmYA==}
