@@ -1,6 +1,8 @@
+// @ts-nocheck
 import { createInertiaApp } from '@inertiajs/inertia-svelte'
 import { InertiaProgress } from '@inertiajs/progress'
 import Layout from '../pages/_layout.svelte'
+import '../css/main.css'
 
 InertiaProgress.init();
 
@@ -10,7 +12,7 @@ createInertiaApp({
     const match = comps[`../pages/${name}.svelte`];
     const page = (await match());
 
-    return Object.assign({layout: Layout}, page);
+    return Object.assign({layout: name.startsWith('auth') ? undefined : Layout}, page);
   },
   setup({ el, App, props }) {
     new App({ target: el, props })
