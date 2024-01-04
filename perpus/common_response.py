@@ -1,5 +1,7 @@
 from rest_framework import status
 from django.http import JsonResponse
+from rest_framework.views import exception_handler
+from rest_framework.exceptions import Throttled
 
 class JsonResponseWrapper:
   @staticmethod
@@ -52,3 +54,17 @@ class JsonResponseWrapper:
     }
 
     return JsonResponse(response_data, status=status_code)
+
+def ThrottledHandler(exc, context):
+  response = exception_handler(exc, context)
+
+  if isinstance(exc, Throttled):
+    response_data = {
+      "code": status.HTTP_429_TOO_MANY_REQUESTS,
+      "status": "error",
+      "errors": "Too many requests !",
+      "message": "Try again in %d seconds"%exc.wait
+    }
+    response.data = response_data
+
+  return response

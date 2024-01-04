@@ -1,13 +1,13 @@
 import uuid
-from django_ratelimit.decorators import ratelimit
 from rest_framework.views import APIView
+from rest_framework.throttling import AnonRateThrottle
 from .serializers import *
 from .common_response import JsonResponseWrapper
 from .models import *
 from django.db import connection, OperationalError, Error
 
 class Register(APIView):
-  @ratelimit(key='user_or_ip', rate='30/m')
+  throttle_classes = [AnonRateThrottle]
   def post(self, request):
     serializer = Serial_Register(data=request.data)
     if serializer.is_valid():
@@ -48,6 +48,7 @@ class Register(APIView):
       return JsonResponseWrapper.error(message="Register failed !", errors=serializer.errors)
       
 class Login(APIView):
+  throttle_classes = [AnonRateThrottle]
   def post(self, request):
     serializer = Serial_Login(data=request.data)
     if serializer.is_valid():
