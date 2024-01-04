@@ -5,7 +5,7 @@ from rest_framework import status
 from .serializers import *
 from .common_response import JsonResponseWrapper
 from .models import *
-from django.db import connection
+from django.db import connection, OperationalError, Error
 
 class Register(APIView):
   def post(self, request):
@@ -15,20 +15,37 @@ class Register(APIView):
       query = ''' INSERT INTO perpus_anggota
         (id, nama, jenis_kelamin, alamat, email, telepon, password)
         VALUES (%s, %s, %s, %s, %s, %s, %s)'''
+      c = connection.cursor()
+      isError = False; errorState = ''
       try:
-        with connection.cursor() as cursor:
-          cursor.execute(query, (
-            anggota_id,
-            serializer.data['nama'],
-            serializer.data['jenis_kelamin'],
-            serializer.data['alamat'],
-            serializer.data['email'],
-            serializer.data['telepon'],
-            serializer.data['password']
-          ))
-          return JsonResponseWrapper.created(data=serializer.data, message="Register successful !")
-      except Exception as e:
-        return JsonResponseWrapper.errorserver(message="Register failed !", errors=str(e))
+        c.execute(query, (
+          anggota_id,
+          serializer.data['nama'],
+          serializer.data['jenis_kelamin'],
+          serializer.data['alamat'],
+          serializer.data['email'],
+          serializer.data['telepon'],
+          serializer.data['password']
+        ))
+        pass
+      except OperationalError as e:
+        isError = True
+        errorState = str(e)
+      except Error as e:
+        isError = True
+        errorState = str(e)
+      except:
+        isError = True
+        errorState = 'Unknown error'
+      finally:
+        c.close()
+      
+      if isError:
+        return JsonResponseWrapper.errorserver(message="Register failed !", errors=errorState)
+      
+      return JsonResponseWrapper.created(data=serializer.data, message="Register successful !")
+    else:
+      return JsonResponseWrapper.error(message="Register failed !", errors=serializer.errors)
       
 class Login(APIView):
   def post(self, request):
