@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+from django_ratelimit.middleware import RatelimitMiddleware
 
 load_dotenv()
 
@@ -42,13 +43,15 @@ MIDDLEWARE = [
   'django.middleware.security.SecurityMiddleware',
   'django.contrib.sessions.middleware.SessionMiddleware',
   'django.middleware.common.CommonMiddleware',
-  'django.middleware.csrf.CsrfViewMiddleware',
   'django.contrib.auth.middleware.AuthenticationMiddleware',
   'django.contrib.messages.middleware.MessageMiddleware',
   'django.middleware.clickjacking.XFrameOptionsMiddleware',
   'inertia.middleware.InertiaMiddleware',
   'corsheaders.middleware.CorsMiddleware',
+  'django_ratelimit.middleware.RatelimitMiddleware',
 ]
+
+RATELIMIT_VIEW = 'perpus.views.ratelimited_error'
 
 ROOT_URLCONF = 'perpus.urls'
 
@@ -71,7 +74,7 @@ TEMPLATES = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-  "http://localhost:8000",
+  'http://localhost:8000',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -107,7 +110,7 @@ SIMPLE_JWT = {
 
   # custom
   'AUTH_COOKIE': 'access_token',  # Cookie name. Enables cookies if value is set.
-  'AUTH_COOKIE_DOMAIN': None,     # A string like "example.com", or None for standard domain cookie.
+  'AUTH_COOKIE_DOMAIN': None,     # A string like 'example.com', or None for standard domain cookie.
   'AUTH_COOKIE_SECURE': False,    # Whether the auth cookies should be secure (https:// only).
   'AUTH_COOKIE_HTTP_ONLY' : True, # Http only cookie flag.It's not fetch by javascript.
   'AUTH_COOKIE_PATH': '/',        # The path of the auth cookie.
@@ -172,18 +175,18 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Where ViteJS assets are built.
-DJANGO_VITE_ASSETS_PATH = BASE_DIR / "web" / "dist"
+DJANGO_VITE_ASSETS_PATH = BASE_DIR / 'web' / 'dist'
 DJANGO_VITE_DEV_MODE = True
 DJANGO_VITE_DEV_SERVER_PORT = 3000
 
 # Name of static files folder (after called python manage.py collectstatic)
-STATIC_ROOT = BASE_DIR / "web" / "dist" / ".vite" 
+STATIC_ROOT = BASE_DIR / 'web' / 'dist' / '.vite' 
 
 # Include DJANGO_VITE_ASSETS_PATH into STATICFILES_DIRS to be copied inside
 # when run command python manage.py collectstatic
 STATICFILES_DIRS = [
   DJANGO_VITE_ASSETS_PATH,
-  BASE_DIR / "web" / "assets"
+  BASE_DIR / 'web' / 'assets'
 ]
 
 # Default primary key field type
@@ -195,3 +198,67 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INERTIA_LAYOUT = 'app.html'
 CSRF_HEADER_NAME = 'HTTP_X_XSRF_TOKEN'
 CSRF_COOKIE_NAME = 'XSRF-TOKEN'
+
+LOGGING = {
+  'version': 1,
+  'disable_existing_loggers': False,
+  'formatters': {
+    'verbose': {
+      'format': '{asctime} {levelname} {filename} {funcName} {lineno} {message}',
+      'style': '{',
+    },
+    'simple': {
+      'format': '{asctime} {levelname} - {message}',
+      'style': '{',
+    },
+  },
+  'filters': {
+    'require_debug_false': {
+      '()': 'django.utils.log.RequireDebugFalse',
+    },
+    'require_debug_true': {
+      '()': 'django.utils.log.RequireDebugTrue',
+    },
+  },
+  'handlers': {
+    'console': {
+      'level': 'DEBUG',
+      'class': 'logging.StreamHandler',
+      'filters': ['require_debug_true'],
+      'formatter': 'simple',
+    },
+    'log_file': {
+      'level': 'DEBUG',
+      'class': 'logging.handlers.RotatingFileHandler',
+      'filename': 'api.log',
+      'maxBytes': 1024 * 1024 * 5,
+      'backupCount': 5,
+      'formatter': 'verbose',
+    },
+    'error_file': {
+      'level': 'ERROR',
+      'class': 'logging.handlers.RotatingFileHandler',
+      'filename': 'api_error.log',
+      'maxBytes': 1024 * 1024 * 5,
+      'backupCount': 5,
+      'formatter': 'verbose',
+    },
+    'mail_admins': {
+      'level': 'ERROR',
+      'class': 'django.utils.log.AdminEmailHandler',
+      'filters': ['require_debug_false'],
+      'formatter': 'verbose',
+    },
+  },
+  'loggers': {
+    'django_project_api': {
+      'handlers': ['console', 'log_file', 'error_file', 'mail_admins'],
+      'level': 'DEBUG',
+    },
+    'django.request': {
+      'handlers': ['mail_admins', 'error_file'],
+      'level': 'ERROR',
+      'propagate': False,
+    },
+  },
+}
