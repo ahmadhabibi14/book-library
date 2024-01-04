@@ -6,3 +6,4 @@ perpus/__pycache__
 perpus/migrations/__pycache__
 node_modules
 web/dist
+collectedstatic

@@ -17,7 +17,10 @@ SECRET_KEY = 'django-insecure-_w3igt4)kvso#_)9cq3-daz!@8xobw55jdk=x((m1h#5lwd2z-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+  'localhost',
+  '127.0.0.1',
+]
 
 # Application definition
 
@@ -170,11 +173,11 @@ STATIC_URL = '/static/'
 
 # Where ViteJS assets are built.
 DJANGO_VITE_ASSETS_PATH = BASE_DIR / "web" / "dist"
-DJANGO_VITE_DEV_MODE = DEBUG
+DJANGO_VITE_DEV_MODE = True
 DJANGO_VITE_DEV_SERVER_PORT = 3000
 
 # Name of static files folder (after called python manage.py collectstatic)
-STATIC_ROOT = BASE_DIR / "collectedstatic"
+STATIC_ROOT = BASE_DIR / "web" / "dist" / ".vite" 
 
 # Include DJANGO_VITE_ASSETS_PATH into STATICFILES_DIRS to be copied inside
 # when run command python manage.py collectstatic

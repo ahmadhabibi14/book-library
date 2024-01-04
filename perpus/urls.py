@@ -12,4 +12,5 @@ urlpatterns = [
 
 urlpatterns += [
   path('api/register', apis.Register.as_view()),
+  path('api/login', apis.Login.as_view()),
 ]
