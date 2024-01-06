@@ -1,10 +1,20 @@
 setup-python:
+	python3 -m pip install pip==21.3.1
 	python -m venv .env
 	source .venv/bin/activate
 	pip install -r requirements.txt
 
 setup-js:
-	pnpm install
+	npm install
 
 update-dep:
 	pip freeze > requirements.txt
+
+install-dep:
+	pip install -r requirements.txt
+
+setup-linux:
+	sudo apt update \
+	sudo apt install \
+	python3-dev default-libmysqlclient-dev python3-pip python3-venv \
+	nodejs npm
