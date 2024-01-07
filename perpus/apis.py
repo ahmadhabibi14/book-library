@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.throttling import AnonRateThrottle
 from .serializers import *
 from .common_response import JsonResponseWrapper
+from .utils import hashPassword
 from .models import *
 from django.db import connection, OperationalError, Error
 
@@ -12,6 +13,7 @@ class Register(APIView):
     serializer = Serial_Register(data=request.data)
     if serializer.is_valid():
       anggota_id = uuid.uuid4()
+      anggota_password = hashPassword(serializer.data['password'])
       query = ''' INSERT INTO perpus_anggota
         (id, nama, jenis_kelamin, alamat, email, telepon, password)
         VALUES (%s, %s, %s, %s, %s, %s, %s)'''
@@ -25,7 +27,7 @@ class Register(APIView):
           serializer.data['alamat'],
           serializer.data['email'],
           serializer.data['telepon'],
-          serializer.data['password']
+          anggota_password
         ))
         pass
       except OperationalError as e:
