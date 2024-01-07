@@ -26,7 +26,11 @@ def Login(request):
   if request.method != 'GET':
     return JsonResponseWrapper.errormethod()
   
-  return render(request, 'authlogin')
+  return render(request, 'authlogin', props={
+    'title': 'Login'
+  }, template_data={
+    'title': 'Login'
+  })
 
 @ratelimit(key='user_or_ip', rate='30/m')
 def About(request):
