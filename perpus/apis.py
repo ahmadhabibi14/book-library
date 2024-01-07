@@ -1,9 +1,14 @@
+import datetime
 import uuid
+import json
+import jwt
 from rest_framework.views import APIView
 from rest_framework.throttling import AnonRateThrottle
+
+from perpus import settings
 from .serializers import *
 from .common_response import JsonResponseWrapper
-from .utils import hashPassword
+from .utils import hashPassword, verifyPassword
 from .models import *
 from django.db import connection, OperationalError, Error
 
@@ -45,14 +50,78 @@ class Register(APIView):
       if isError:
         return JsonResponseWrapper.errorserver(message="Register failed !", errors=errorState)
       
-      return JsonResponseWrapper.created(data=serializer.data, message="Register successful !")
+      resp = JsonResponseWrapper.created(data=serializer.data, message="Register successful !")
+      token = jwt.encode({
+        'id': anggota_id,
+        'iat': datetime.datetime.utcnow(),
+        'nbf': datetime.datetime.utcnow() + datetime.timedelta(minutes=-5),
+        'exp': datetime.datetime.utcnow() + datetime.timedelta(weeks=16)
+      }, settings.SECRET_KEY)
+
+      resp.set_cookie(
+        key=settings.SIMPLE_JWT['AUTH_COOKIE'],
+        value=token,
+        expires=settings.SIMPLE_JWT['ACCESS_TOKEN_LIFETIME'],
+        secure=settings.SIMPLE_JWT['AUTH_COOKIE_SECURE'],
+        httponly=settings.SIMPLE_JWT['AUTH_COOKIE_HTTP_ONLY'],
+        samesite=settings.SIMPLE_JWT['AUTH_COOKIE_SAMESITE']
+      )
+      return resp
     else:
       return JsonResponseWrapper.error(message="Register failed !", errors=serializer.errors)
       
 class Login(APIView):
   throttle_classes = [AnonRateThrottle]
   def post(self, request):
-    serializer = Serial_Login(data=request.data)
-    if serializer.is_valid():
-      return JsonResponseWrapper.created(data=serializer.data, message="Login successful !")
-    return JsonResponseWrapper.error(message="Login failed !", errors=serializer.errors)
+    body = json.loads(request.body.decode("utf-8"))
+    email = body['email']
+    password = body['password']
+    if email is None or password is None:
+      return JsonResponseWrapper.error(message="Email and password are required !")
+
+    query = 'SELECT email, password, id FROM perpus_anggota WHERE email = %s'
+    c = connection.cursor()
+    isError = False; errorState = ''; sqlData = None
+    try:
+      c.execute(query, (email,))
+      sqlData = c.fetchone()
+      pass
+    except OperationalError as e:
+      isError = True
+      errorState = str(e)
+    except Error as e:
+      isError = True
+      errorState = str(e)
+    except:
+      isError = True
+      errorState = 'Unknown error'
+    finally:
+      c.close()
+      
+    if isError:
+      return JsonResponseWrapper.errorserver(message="Register failed !", errors=errorState)
+
+    if sqlData is None:
+      return JsonResponseWrapper.error(message="Email not found !")
+
+    if not verifyPassword(password, sqlData[1]):
+      return JsonResponseWrapper.error(message="Wrong password !")
+
+    resp = JsonResponseWrapper.created(message="Login successful !")
+    token = jwt.encode({
+      'id': sqlData[2],
+      'iat': datetime.datetime.utcnow(),
+      'nbf': datetime.datetime.utcnow() + datetime.timedelta(minutes=-5),
+      'exp': datetime.datetime.utcnow() + datetime.timedelta(weeks=16)
+    }, settings.SECRET_KEY)
+
+    resp.set_cookie(
+      key=settings.SIMPLE_JWT['AUTH_COOKIE'],
+      value=token,
+      expires=settings.SIMPLE_JWT['ACCESS_TOKEN_LIFETIME'],
+      secure=settings.SIMPLE_JWT['AUTH_COOKIE_SECURE'],
+      httponly=settings.SIMPLE_JWT['AUTH_COOKIE_HTTP_ONLY'],
+      samesite=settings.SIMPLE_JWT['AUTH_COOKIE_SAMESITE']
+    )
+    
+    return resp

@@ -6,3 +6,7 @@ def hashPassword(password):
 
   hash = bcrypt.hashpw(bytePassword, salt)
   return hash
+
+def verifyPassword(input_password, hashed_password):
+  # Check if the input password matches the hashed password
+  return bcrypt.checkpw(input_password.encode('utf-8'), hashed_password.encode('utf-8'))

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+from rest_framework_simplejwt import views as jwt_views
 from . import views
 from . import apis
 
@@ -11,6 +12,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [
+  path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
   path('api/register', apis.Register.as_view()),
   path('api/login', apis.Login.as_view()),
 ]

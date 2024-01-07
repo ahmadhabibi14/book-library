@@ -37,6 +37,7 @@ INSTALLED_APPS = [
   'django_vite',
   'rest_framework',
   'corsheaders',
+  'rest_framework_simplejwt.token_blacklist',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 from datetime import timedelta
 SIMPLE_JWT = {
-  'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+  'ACCESS_TOKEN_LIFETIME': timedelta(weeks=16),
   'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
   'ROTATE_REFRESH_TOKENS': False,
   'BLACKLIST_AFTER_ROTATION': True,
@@ -272,5 +273,8 @@ REST_FRAMEWORK = {
     'anon': '30/min',
     'user': '30/min'
   },
-  'EXCEPTION_HANDLER': 'perpus.common_response.ThrottledHandler'
+  'EXCEPTION_HANDLER': 'perpus.common_response.ThrottledHandler',
+  'DEFAULT_AUTHENTICATION_CLASSES': [
+    'perpus.authentication.JSONWebTokenAuthentication',
+  ],
 }
