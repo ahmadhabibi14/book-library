@@ -22,7 +22,7 @@
 </script>
 
 <div class="w-full max-h-screen h-screen bg-zinc-100 text-zinc-800">
-  <main class="flex flex-row justify-center items-center gap-16 w-full h-fit mx-auto pt-20">
+  <main class="flex flex-row justify-between w-[70%] items-center h-fit mx-auto pt-20">
     <div class="w-[400px]">
       <img src="static/img/woman-book.png" alt="" />
     </div>
