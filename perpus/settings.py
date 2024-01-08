@@ -2,6 +2,10 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 from django_ratelimit.middleware import RatelimitMiddleware
+import mimetypes
+
+mimetypes.add_type("image/svg+xml", ".svg", True)
+mimetypes.add_type("image/svg+xml", ".svgz", True)
 
 load_dotenv()
 
@@ -50,6 +54,7 @@ MIDDLEWARE = [
   'inertia.middleware.InertiaMiddleware',
   'corsheaders.middleware.CorsMiddleware',
   'django_ratelimit.middleware.RatelimitMiddleware',
+  'perpus.authentication.JSONWebTokenAuthentication',
 ]
 
 RATELIMIT_VIEW = 'perpus.views.ratelimited_error'
@@ -81,7 +86,7 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True
 
 from datetime import timedelta
-SIMPLE_JWT = {
+JWT = {
   'ACCESS_TOKEN_LIFETIME': timedelta(weeks=16),
   'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
   'ROTATE_REFRESH_TOKENS': False,
@@ -190,6 +195,8 @@ STATICFILES_DIRS = [
   BASE_DIR / 'web' / 'assets'
 ]
 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -274,7 +281,4 @@ REST_FRAMEWORK = {
     'user': '30/min'
   },
   'EXCEPTION_HANDLER': 'perpus.common_response.ThrottledHandler',
-  'DEFAULT_AUTHENTICATION_CLASSES': [
-    'perpus.authentication.JSONWebTokenAuthentication',
-  ],
 }

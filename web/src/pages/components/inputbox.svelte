@@ -9,6 +9,7 @@
   export let label;
   export let type = 'text';
   export let placeholder = '';
+  export let required = false;
   let isShowPassword = false;
   let inputElm;
   
@@ -20,72 +21,25 @@
   }
 </script>
 
-<div class={type === 'password' ? 'input_box with_password' :  'input_box'}>
-  <label for={id}>{label}</label>
-  <input bind:value={value} {id} bind:this={inputElm} {placeholder}/>
+<div class={`flex flex-col gap-2 ${type === 'password' ? 'relative' : ''}`} >
+  <label for={id} class="text-sm text-zinc-600 ml-2">
+    <span>{label}</span>
+    {#if required}
+      <span class="text-red-500"> *</span>
+    {/if}
+  </label>
+  <input
+    class={`rounded-md w-full border border-zinc-300 py-2 caret-sky-800 focus:border-sky-800 focus:outline focus:outline-sky-800 ${type === 'password' ? 'pl-4 pr-10' : 'px-4'}`}
+    bind:value={value} {id} bind:this={inputElm} {placeholder}/>
   {#if type === 'password'}
-    <button class="eye" on:click={toggleShowPassword}>
+    <button class="absolute right-2 top-9" title="Show/Hide Password" on:click={toggleShowPassword}>
       {#if !isShowPassword}
-        <Icon color="#495057" size="20" src={AiOutlineEye}/>
+        <Icon className="fill-zinc-700 hover:fill-sky-700" size="24" src={AiOutlineEye}/>
       {/if}
       {#if isShowPassword}
-        <Icon color="#495057" size="20" src={AiOutlineEyeInvisible}/>
+        <Icon className="fill-zinc-700 hover:fill-sky-700" size="24" src={AiOutlineEyeInvisible}/>
       {/if}
     </button>
   {/if}
 </div>
 
-<style>
-  .input_box {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    color: var(--gray-007);
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .input_box.with_password input{
-    padding-right: 40px !important;
-  }
-
-  .input_box label {
-    font-size: var(--font-base);
-    margin-left: 10px;
-  }
-
-  .input_box input {
-    width: 100%;
-    border: 1px solid var(--gray-003);
-    border-radius: 5px;
-    background-color: transparent;
-    padding: 10px 12px;
-  }
-
-  .input_box input:focus {
-    border-color: var(--sky-005);
-    outline: 1px solid var(--sky-005);
-  }
-
-  .input_box .eye {
-    position: absolute;
-    height: fit-content;
-    width: fit-content;
-    background-color: transparent;
-    padding: 0;
-    top: 30px;
-    bottom: auto;
-    right: 10px;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  :global(.input_box .eye:hover svg) {
-    fill: var(--sky-005);
-  }
-</style>

@@ -59,12 +59,12 @@ class Register(APIView):
       }, settings.SECRET_KEY)
 
       resp.set_cookie(
-        key=settings.SIMPLE_JWT['AUTH_COOKIE'],
+        key=settings.JWT['AUTH_COOKIE'],
         value=token,
-        expires=settings.SIMPLE_JWT['ACCESS_TOKEN_LIFETIME'],
-        secure=settings.SIMPLE_JWT['AUTH_COOKIE_SECURE'],
-        httponly=settings.SIMPLE_JWT['AUTH_COOKIE_HTTP_ONLY'],
-        samesite=settings.SIMPLE_JWT['AUTH_COOKIE_SAMESITE']
+        expires=settings.JWT['ACCESS_TOKEN_LIFETIME'],
+        secure=settings.JWT['AUTH_COOKIE_SECURE'],
+        httponly=settings.JWT['AUTH_COOKIE_HTTP_ONLY'],
+        samesite=settings.JWT['AUTH_COOKIE_SAMESITE']
       )
       return resp
     else:
@@ -107,7 +107,6 @@ class Login(APIView):
     if not verifyPassword(password, sqlData[1]):
       return JsonResponseWrapper.error(message="Wrong password !")
 
-    resp = JsonResponseWrapper.created(message="Login successful !")
     token = jwt.encode({
       'id': sqlData[2],
       'iat': datetime.datetime.utcnow(),
@@ -115,13 +114,21 @@ class Login(APIView):
       'exp': datetime.datetime.utcnow() + datetime.timedelta(weeks=16)
     }, settings.SECRET_KEY)
 
+    resp = JsonResponseWrapper.success(message="Login successful !", data={
+      'token': token
+    })
     resp.set_cookie(
-      key=settings.SIMPLE_JWT['AUTH_COOKIE'],
+      key=settings.JWT['AUTH_COOKIE'],
       value=token,
-      expires=settings.SIMPLE_JWT['ACCESS_TOKEN_LIFETIME'],
-      secure=settings.SIMPLE_JWT['AUTH_COOKIE_SECURE'],
-      httponly=settings.SIMPLE_JWT['AUTH_COOKIE_HTTP_ONLY'],
-      samesite=settings.SIMPLE_JWT['AUTH_COOKIE_SAMESITE']
+      expires=settings.JWT['ACCESS_TOKEN_LIFETIME'],
+      secure=settings.JWT['AUTH_COOKIE_SECURE'],
+      httponly=settings.JWT['AUTH_COOKIE_HTTP_ONLY'],
+      samesite=settings.JWT['AUTH_COOKIE_SAMESITE']
     )
     
     return resp
+  
+class DebugProtect(APIView):
+  throttle_classes = [AnonRateThrottle]
+  def post(self, request):
+    return JsonResponseWrapper.created(message="successful !")
