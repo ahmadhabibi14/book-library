@@ -28,8 +28,15 @@ def Login(request):
   
   return render(request, 'authlogin', props={
     'title': 'Login'
-  }, template_data={
-    'title': 'Login'
+  })
+
+@ratelimit(key='user_or_ip', rate='30/m')
+def Register(request):
+  if request.method != 'GET':
+    return JsonResponseWrapper.errormethod()
+  
+  return render(request, 'authregister', props={
+    'title': 'Register'
   })
 
 @ratelimit(key='user_or_ip', rate='30/m')

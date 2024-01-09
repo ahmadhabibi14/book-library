@@ -10,6 +10,7 @@ djangorestframework==3.14.0
 idna==3.6
 inertia-django==0.5.3
 mysqlclient==2.1.1
+PyJWT==2.8.0
 python-dotenv==1.0.0
 pytz==2023.3.post1
 requests==2.31.0

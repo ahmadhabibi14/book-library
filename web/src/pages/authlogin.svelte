@@ -1,28 +1,35 @@
 <script>
   import Inputbox from "./components/inputbox.svelte";
+  import Growl from "./components/growl.svelte";
   import axios from 'axios';
 
   export let title = '';
+  let growl;
 
   let email = '', password = '', isLoginSubmitted = false;
   async function Login() {
     isLoginSubmitted = true;
-    if (email == '' || password == '') return alert('Please fill all fields');
+    if (email == '' || password == '') return growl.showWarning('Please fill all fields');
 
     await axios.post('/api/login', { email, password }).then((res) => {
-      console.log(res.data)
-      alert(res.data.message);
+      growl.showSuccess(res.data.message);
       setTimeout(() => {
         window.location.href = '/';
       }, 1200);
     }).catch((err) => {
-      alert(err.response.data.message)
+      growl.showError(err.response.data.message)
     })
   }
 </script>
 
-<div class="w-full max-h-screen h-screen bg-zinc-100 text-zinc-800">
-  <main class="flex flex-row justify-between w-[70%] items-center h-fit mx-auto pt-20">
+<svelte:head>
+  <title>Register | ePerpus</title>
+</svelte:head>
+
+<Growl bind:this={growl} />
+
+<div class="w-full min-h-screen bg-zinc-100 text-zinc-800">
+  <main class="flex flex-row justify-between w-[70%] items-center h-fit mx-auto py-20">
     <div class="w-[400px]">
       <img src="static/img/woman-book.png" alt="" />
     </div>

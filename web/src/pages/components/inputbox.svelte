@@ -10,17 +10,26 @@
   export let type = 'text';
   export let placeholder = '';
   export let required = false;
+  export let values = [];
   let isShowPassword = false;
   let inputElm;
   
-  onMount(() => inputElm.type = type)
+  onMount(() => {
+    if (inputElm) inputElm.type = type
+  })
+
   function toggleShowPassword() {
     isShowPassword = !isShowPassword;
     if (isShowPassword) inputElm.type = 'text';
     else inputElm.type = 'password';
   }
+
+  function onRadio(event) {
+    value = event.currentTarget.value;
+  }
 </script>
 
+{#if type !== 'radio'}
 <div class={`flex flex-col gap-2 ${type === 'password' ? 'relative' : ''}`} >
   <label for={id} class="text-sm text-zinc-600 ml-2">
     <span>{label}</span>
@@ -42,4 +51,26 @@
     </button>
   {/if}
 </div>
+{/if}
 
+{#if type === 'radio'}
+  <div class="flex flex-col gap-2">
+    <span>{label}</span>
+    <div class="flex flex-row gap-3 items-center">
+      {#each values as v}
+        <div class="flex flex-row gap-1 items-center cursor-pointer">
+          <input
+            class="cursor-pointer"
+            id={v}
+            checked={value === v}
+            on:change={onRadio}
+            type="radio"
+            name={label}
+            value={v}
+          />
+          <label for={v}>{v}</label>
+        </div>
+      {/each}
+    </div>
+  </div>
+{/if}
