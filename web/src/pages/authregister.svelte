@@ -1,4 +1,6 @@
 <script>
+  import Icon from "svelte-icons-pack";
+  import FiLoader from "svelte-icons-pack/fi/FiLoader";
   import Inputbox from "./components/inputbox.svelte";
   import Growl from "./components/growl.svelte";
   import axios from 'axios';
@@ -7,20 +9,22 @@
   let growl;
 
   let email = '', password = '', nama = '', jenis_kelamin = 'L', alamat = '', telepon = '';
-  let isLoginSubmitted = false;
+  let isSubmitted = false;
   async function Register() {
-    isLoginSubmitted = true;
+    isSubmitted = true;
     if (email == '' || password == '' || nama == '' || jenis_kelamin == 'L' || alamat == '' || telepon == '') return growl.showWarning('Please fill all fields');
 
     await axios.post(
       '/api/register',
       { email, password, nama, jenis_kelamin, alamat, telepon}
     ).then((res) => {
+      isSubmitted = false;
       growl.showSuccess(res.data.message);
       setTimeout(() => {
         window.location.href = '/';
       }, 1200);
     }).catch((err) => {
+      isSubmitted = false;
       growl.showError(err.response.data.message)
     })
   }
@@ -91,8 +95,18 @@
         />
       </div>
       <div class="flex flex-col gap-5 mt-3">
-        <button on:click={Register} class="w-full rounded-md py-2 px-11 text-white bg-sky-800 hover:bg-sky-700 cursor-pointer">
-          Register
+        <button
+          on:click={Register}
+          disabled={isSubmitted}
+          class="w-full rounded-md py-2 px-11 text-white bg-sky-800 hover:bg-sky-700
+            cursor-pointer flex justify-center items-center disabled:bg-sky-600"
+        >
+          {#if isSubmitted}
+            <Icon className="animate-spin fill-white" size="24" src={FiLoader}/>
+          {/if}
+          {#if !isSubmitted}
+            <span>Register</span>
+          {/if}
         </button>
         <span class="text-sm text-center">Sudah punya akun? <a href="/login" class="text-sky-700 hover:text-sky-500">Login</a></span>
       </div>

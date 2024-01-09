@@ -50,7 +50,6 @@ class Register(APIView):
       if isError:
         return JsonResponseWrapper.errorserver(message="Register failed !", errors=errorState)
       
-      resp = JsonResponseWrapper.created(data=serializer.data, message="Register successful !")
       token = jwt.encode({
         'id': anggota_id,
         'iat': datetime.datetime.utcnow(),
@@ -58,6 +57,13 @@ class Register(APIView):
         'exp': datetime.datetime.utcnow() + datetime.timedelta(weeks=16)
       }, settings.SECRET_KEY)
 
+      resp = JsonResponseWrapper.created(
+        data={
+          'token': token,
+          'user': serializer.data
+        },
+        message="Register successful !"
+      )
       resp.set_cookie(
         key=settings.JWT['AUTH_COOKIE'],
         value=token,
@@ -114,9 +120,12 @@ class Login(APIView):
       'exp': datetime.datetime.utcnow() + datetime.timedelta(weeks=16)
     }, settings.SECRET_KEY)
 
-    resp = JsonResponseWrapper.success(message="Login successful !", data={
-      'token': token
-    })
+    resp = JsonResponseWrapper.success(
+      message="Login successful !",
+      data={
+        'token': token
+      }
+    )
     resp.set_cookie(
       key=settings.JWT['AUTH_COOKIE'],
       value=token,

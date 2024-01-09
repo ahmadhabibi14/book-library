@@ -15,6 +15,21 @@ class Anggota(models.Model):
 
 class Peminjaman(models.Model):
   id = models.CharField(primary_key=True, max_length=36)
-  tgl_pinjam = models.DateField()
-  tgl_kembali = models.DateField()
+  tgl_pinjam = models.DateTimeField()
+  tgl_kembali = models.DateTimeField()
   anggota = models.ForeignKey(Anggota, on_delete=models.CASCADE)
+
+class Penerbit(models.Model):
+  id = models.CharField(primary_key=True, max_length=36)
+  nama = models.CharField(max_length=255)
+
+class Penulis(models.Model):
+  id = models.CharField(primary_key=True, max_length=36)
+  nama = models.CharField(max_length=255)
+
+class Buku(models.Model):
+  id = models.CharField(primary_key=True, max_length=36)
+  judul = models.CharField(max_length=255)
+  rilis = models.DateTimeField()
+  penulis = models.ForeignKey(Penulis, on_delete=models.CASCADE)
+  penerbit = models.ForeignKey(Penerbit, on_delete=models.CASCADE)
