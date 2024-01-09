@@ -13,6 +13,10 @@ update-dep:
 install-dep:
 	pip install -r requirements.txt
 
+migration:
+	python manage.py makemigrations perpus
+	python manage.py migrate
+
 setup-linux:
 	sudo apt update \
 	sudo apt install \

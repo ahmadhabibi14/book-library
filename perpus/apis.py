@@ -17,22 +17,22 @@ class Register(APIView):
   def post(self, request):
     serializer = Serial_Register(data=request.data)
     if serializer.is_valid():
-      anggota_id = uuid.uuid4()
-      anggota_password = hashPassword(serializer.data['password'])
-      query = ''' INSERT INTO perpus_anggota
+      user_id = str(uuid.uuid4())
+      user_password = hashPassword(serializer.data['password'])
+      query = ''' INSERT INTO perpus_user
         (id, nama, jenis_kelamin, alamat, email, telepon, password)
         VALUES (%s, %s, %s, %s, %s, %s, %s)'''
       c = connection.cursor()
       isError = False; errorState = ''
       try:
         c.execute(query, (
-          anggota_id,
+          str(user_id),
           serializer.data['nama'],
           serializer.data['jenis_kelamin'],
           serializer.data['alamat'],
           serializer.data['email'],
           serializer.data['telepon'],
-          anggota_password
+          user_password
         ))
         pass
       except OperationalError as e:
@@ -51,7 +51,7 @@ class Register(APIView):
         return JsonResponseWrapper.errorserver(message="Register failed !", errors=errorState)
       
       token = jwt.encode({
-        'id': anggota_id,
+        'id': user_id,
         'iat': datetime.datetime.utcnow(),
         'nbf': datetime.datetime.utcnow() + datetime.timedelta(minutes=-5),
         'exp': datetime.datetime.utcnow() + datetime.timedelta(weeks=16)
@@ -85,7 +85,7 @@ class Login(APIView):
     if email is None or password is None:
       return JsonResponseWrapper.error(message="Email and password are required !")
 
-    query = 'SELECT email, password, id FROM perpus_anggota WHERE email = %s'
+    query = 'SELECT email, password, id FROM perpus_user WHERE email = %s'
     c = connection.cursor()
     isError = False; errorState = ''; sqlData = None
     try:

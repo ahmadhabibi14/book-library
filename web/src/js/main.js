@@ -12,7 +12,7 @@ createInertiaApp({
     const match = comps[`../pages/${name}.svelte`];
     const page = (await match());
 
-    return Object.assign({layout: name.startsWith('auth') ? undefined : Layout}, page);
+    return Object.assign({layout: name.startsWith('auth') || name.startsWith('error') ? undefined : Layout}, page);
   },
   setup({ el, App, props }) {
     new App({ target: el, props })

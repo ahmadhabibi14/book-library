@@ -4,15 +4,20 @@
   import Inputbox from "./components/inputbox.svelte";
   import Growl from "./components/growl.svelte";
   import axios from 'axios';
+  import { onMount } from "svelte";
 
   export let title = '';
+  const kelamin = [
+    {label: 'Laki Laki', value: 'L'},
+    {label: 'Perempuan', value: 'P'}
+  ];
   let growl;
 
   let email = '', password = '', nama = '', jenis_kelamin = 'L', alamat = '', telepon = '';
   let isSubmitted = false;
   async function Register() {
     isSubmitted = true;
-    if (email == '' || password == '' || nama == '' || jenis_kelamin == 'L' || alamat == '' || telepon == '') return growl.showWarning('Please fill all fields');
+    if (email == '' || password == '' || nama == '' || jenis_kelamin == '' || alamat == '' || telepon == '') return growl.showWarning('Please fill all fields');
 
     await axios.post(
       '/api/register',
@@ -24,10 +29,15 @@
         window.location.href = '/';
       }, 1200);
     }).catch((err) => {
+      console.log(err.response.data);
       isSubmitted = false;
-      growl.showError(err.response.data.message)
+      growl.showError(JSON.stringify(err.response.data.errors));
     })
   }
+
+  onMount(() => {
+    console.log('Kelamin', kelamin)
+  })
 </script>
 
 <svelte:head>
@@ -64,7 +74,7 @@
         <Inputbox
           id="alamat"
           label="Alamat"
-          type="alamat"
+          type="text"
           placeholder="Jln. Raya Sintung...."
           bind:value={alamat}
           required
@@ -72,7 +82,7 @@
         <Inputbox
           id="telepon"
           label="No. Telepon"
-          type="telepon"
+          type="tel"
           placeholder="+6283xxxxxxxx"
           bind:value={telepon}
           required
@@ -82,7 +92,7 @@
           label="Jenis Kelamin"
           type="radio"
           bind:value={jenis_kelamin}
-          values={['L', 'P']}
+          radios={kelamin}
           required
         />
         <Inputbox

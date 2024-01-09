@@ -24,7 +24,8 @@ def JSONWebTokenAuthentication(get_response):
     if request.path.startswith('/api'):
       return get_response(request)
     
-    if request.path.startswith('/api/p'):
+    if request.path == '/api/p/debug-protect':
+      print('request.path.startswith(/api/p/)')
       isAPI = True
       isProtect = True
     
@@ -37,8 +38,13 @@ def JSONWebTokenAuthentication(get_response):
             return JsonResponseWrapper.errormethod()
 
           return renderView()
-          
+
+        if isAPI and isProtect:
+          return JsonResponseWrapper.error(message="Cannot access this endpoint", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED) 
         return JsonResponseWrapper.error(message="Cannot access this endpoint", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED)
+      
+      if isAPI and isProtect:
+        return JsonResponseWrapper.error(message="Cannot access this endpoint", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED) 
     
     try:
       decoded_payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
@@ -49,6 +55,9 @@ def JSONWebTokenAuthentication(get_response):
           return JsonResponseWrapper.errormethod()
 
         return renderView()
+      
+      if isAPI and isProtect:
+        return JsonResponseWrapper.error(message="Token has expired", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED)
       return JsonResponseWrapper.error(message="Token has expired", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED)
     except jwt.InvalidTokenError:
       if isView and isProtect:
@@ -56,6 +65,9 @@ def JSONWebTokenAuthentication(get_response):
           return JsonResponseWrapper.errormethod()
 
         return renderView()
+      
+      if isAPI and isProtect:
+        return JsonResponseWrapper.error(message="Invalid token", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED)
       return JsonResponseWrapper.error(message="Invalid token", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED)
 
     return get_response(request)

@@ -6,6 +6,11 @@
   export let message = '';
 
   onMount(() => {
+    if (code == 401) {
+      setTimeout(() => {
+        window.location.href = '/login';
+      }, 1000);
+    }
     setTimeout(() => {
       window.location.href = '/login';
     }, 3000);

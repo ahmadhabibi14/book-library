@@ -1,20 +1,18 @@
 <script>
-  export let anggota = [];
-  console.log('anggota', anggota);
+  export let user = {};
+  console.log('user', user);
 </script>
 
 <div>
   <h1>Hello world !!</h1>
-  {#if anggota && anggota.length}
-    {#each anggota as anggota}
-      <ul>
-        <li>Nama: {anggota.nama}</li>
-        <li>Email: {anggota.email}</li>
-        <li>Telepon: {anggota.telepon}</li>
-        <li>Alamat: {anggota.alamat}</li>
-        <li>Jenis Kelamin: {anggota.jenis_kelamin}</li>
-      </ul>
-    {/each}
+  {#if user}
+    <ul>
+      <li>Nama: {user.nama}</li>
+      <li>Email: {user.email}</li>
+      <li>Telepon: {user.telepon}</li>
+      <li>Alamat: {user.alamat}</li>
+      <li>Jenis Kelamin: {user.jenis_kelamin}</li>
+    </ul>
   {/if}
 </div>
 

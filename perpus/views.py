@@ -2,7 +2,7 @@ from django_ratelimit.decorators import ratelimit
 from .common_response import JsonResponseWrapper
 from rest_framework import status
 from inertia import render
-from .models import Anggota
+from .utils import JWTGetUserData
 
 def ratelimited_error(request, exception):
   return JsonResponseWrapper.error(
@@ -16,9 +16,8 @@ def Index(request):
   if request.method != 'GET':
     return JsonResponseWrapper.errormethod()
   
-  anggota = Anggota.objects.all()
   return render(request, 'index', props={
-    "anggota": anggota
+    "user": JWTGetUserData(request)
   })
 
 @ratelimit(key='user_or_ip', rate='30/m')
