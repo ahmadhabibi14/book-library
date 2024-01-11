@@ -21,10 +21,6 @@ class Peminjaman(models.Model):
   tgl_kembali = models.DateTimeField()
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-class Penerbit(models.Model):
-  id = models.CharField(primary_key=True, default=uuid.uuid4, max_length=36)
-  nama = models.CharField(max_length=255)
-
 class Penulis(models.Model):
   id = models.CharField(primary_key=True, default=uuid.uuid4, max_length=36)
   nama = models.CharField(max_length=255)
@@ -32,6 +28,6 @@ class Penulis(models.Model):
 class Buku(models.Model):
   id = models.CharField(primary_key=True, default=uuid.uuid4, max_length=36)
   judul = models.CharField(max_length=255)
-  rilis = models.DateTimeField()
+  rilis = models.DateTimeField(max_length=100)
+  thumbnail = models.CharField(max_length=255, default='/media/books/default.png')
   penulis = models.ForeignKey(Penulis, on_delete=models.CASCADE)
-  penerbit = models.ForeignKey(Penerbit, on_delete=models.CASCADE)

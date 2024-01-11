@@ -17,15 +17,14 @@ def JSONWebTokenAuthentication(get_response):
     if request.path == '/login' or request.path == '/register' or request.path.startswith('/static') or request.path.startswith('/media') or request.path == '/assets':
       return get_response(request)
     
-    if request.path.startswith('/'):
+    if request.path.startswith('/') and request.method == 'GET':
       isView = True
       isProtect = True
 
-    if request.path.startswith('/api'):
+    if request.path.startswith('/api') and request.method != 'GET':
       return get_response(request)
     
-    if request.path == '/api/p/debug-protect':
-      print('request.path.startswith(/api/p/)')
+    if request.path.startswith('/api/p/debug-protect'):
       isAPI = True
       isProtect = True
     
@@ -34,17 +33,12 @@ def JSONWebTokenAuthentication(get_response):
       token = request.headers.get('Authorization', None)
       if not token:
         if isView and isProtect:
-          if request.method != 'GET':
-            return JsonResponseWrapper.errormethod()
-
           return renderView()
 
         if isAPI and isProtect:
           return JsonResponseWrapper.error(message="Cannot access this endpoint", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED) 
+        
         return JsonResponseWrapper.error(message="Cannot access this endpoint", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED)
-      
-      if isAPI and isProtect:
-        return JsonResponseWrapper.error(message="Cannot access this endpoint", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED) 
     
     try:
       decoded_payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
