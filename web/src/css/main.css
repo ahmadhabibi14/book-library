@@ -6,6 +6,11 @@ html {
   font-family: "Josefin Sans", sans-serif;
 }
 
+
+*::selection {
+  @apply bg-orange-600 text-white;
+}
+
 /* FONT FAMILY */
 @font-face {
   font-family: "Josefin Sans";

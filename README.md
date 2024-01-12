@@ -1,4 +1,6 @@
-## Perpus
+## ePerpus
+
+![My Dotties](/web/assets/img/Cover.png)
 
 #### Migration
 ```shell
