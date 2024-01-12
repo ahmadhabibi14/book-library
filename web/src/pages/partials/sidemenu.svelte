@@ -1,7 +1,7 @@
 <script>
   import Icon from 'svelte-icons-pack';
-  import FaSolidBook from "svelte-icons-pack/fa/FaSolidBook";
-  import FaSolidMapMarkerAlt from "svelte-icons-pack/fa/FaSolidMapMarkerAlt";
+  import FaSolidBook from 'svelte-icons-pack/fa/FaSolidBook';
+  import FaSolidMapMarkerAlt from 'svelte-icons-pack/fa/FaSolidMapMarkerAlt';
 
   export let user = {};
 </script>
