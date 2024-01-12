@@ -14,6 +14,13 @@ docker exec -it perpus-db mariadb -u perpus -p
 # password: perpus123
 ```
 
+##### Import books
+```shell
+make import-book
+# OR
+./scripts/import.sh
+```
+
 ##### Start development
 ```shell
 python manage.py runserver
