@@ -1,3 +1,99 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+/* FONT FAMILY */
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 100;
+  src: url('/static/fonts/JosefinSans-Thin.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: italic;
+  font-weight: 100;
+  src: url('/static/fonts/JosefinSans-ThinItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 200;
+  src: url('/static/fonts/JosefinSans-ExtraLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: italic;
+  font-weight: 200;
+  src: url('/static/fonts/JosefinSans-ExtraLightItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: url('/static/fonts/JosefinSans-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: italic;
+  font-weight: 300;
+  src: url('/static/fonts/JosefinSans-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url('/static/fonts/JosefinSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: italic;
+  font-weight: 400;
+  src: url('/static/fonts/JosefinSans-RegularItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url('/static/fonts/JosefinSans-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: italic;
+  font-weight: 500;
+  src: url('/static/fonts/JosefinSans-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url('/static/fonts/JosefinSans-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: italic;
+  font-weight: 600;
+  src: url('/static/fonts/JosefinSans-SemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url('/static/fonts/JosefinSans-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: italic;
+  font-weight: 700;
+  src: url('/static/fonts/JosefinSans-BoldItalic.ttf') format('truetype');
+}

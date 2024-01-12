@@ -19,7 +19,7 @@ JSON_AUTHOR_PATH = 'Authors.json'
 
 SQL_TABLE = 'perpus_buku'
 SQL_COLUMNS = [
-  'id', 'judul', 'rilis', 'thumbnail', 'penulis'
+  'id', 'judul', 'rilis', 'thumbnail', 'penulis_id'
 ]
 
 try:
@@ -40,7 +40,7 @@ try:
     for author in author_json:
       if author['nama'] == penulis:
         penulis = author['id']
-        query = ''' INSERT INTO ''' + SQL_TABLE + ''' (id, judul, rilis, thumbnail, penulis_id) VALUES (%s, %s, %s, %s, %s) '''
+        query = 'INSERT INTO ' + SQL_TABLE + ' ('+ ', '.join(SQL_COLUMNS) +') VALUES (%s, %s, %s, %s, %s)'
         cursor.execute(query, (id, judul, rilis, thumbnail, penulis))
         connection.commit()
 

@@ -19,5 +19,6 @@ if settings.DEBUG:
 urlpatterns += [
   path('api/register', apis.Register.as_view()),
   path('api/login', apis.Login.as_view()),
-  path('api/p/debug-protect', apis.DebugProtect.as_view()),
+  path('api/books', apis.Books.as_view()),
+  path('api/debug-protect', apis.DebugProtect.as_view()),
 ]

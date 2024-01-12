@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, Buku
 
 class Serial_Register(serializers.ModelSerializer):
   class Meta:
@@ -21,3 +21,10 @@ class Serial_ID(serializers.ModelSerializer):
     fields = [
       'id'
     ]
+
+
+class Serial_Books(serializers.Serializer):
+  judul = serializers.CharField()
+  rilis = serializers.DateTimeField()
+  thumbnail = serializers.CharField()
+  penulis = serializers.CharField()

@@ -4,6 +4,7 @@ import json
 import jwt
 from rest_framework.views import APIView
 from rest_framework.throttling import AnonRateThrottle
+from .models import *
 
 from perpus import settings
 from .serializers import *
@@ -136,7 +137,41 @@ class Login(APIView):
     )
     
     return resp
-  
+
+class Books(APIView):
+  throttle_classes = [AnonRateThrottle]
+  def post(self, request):
+    query = 'SELECT judul, rilis, thumbnail, nama AS penulis FROM perpus_buku JOIN perpus_penulis WHERE perpus_buku.penulis_id = perpus_penulis.id'
+    c = connection.cursor()
+    isError = False; errorState = ''; sqlData = None
+    try:
+      c.execute(query)
+      sqlData = c.fetchall()
+      pass
+    except OperationalError as e:
+      isError = True
+      errorState = str(e)
+    except Error as e:
+      isError = True
+      errorState = str(e)
+    except:
+      isError = True
+      errorState = 'Unknown error'
+    finally:
+      c.close()
+    
+    if isError:
+      return JsonResponseWrapper.errorserver(message="Cannot get books !", errors=errorState)
+
+    books_list = [
+      {'judul': item[0], 'rilis': item[1], 'thumbnail': item[2], 'penulis': item[3]} for item in sqlData
+    ]
+    books = Serial_Books(data=books_list, many=True)
+    if books.is_valid():
+      return JsonResponseWrapper.success(data=books.data, message="Success !")
+    
+    return JsonResponseWrapper.error(message="Cannot get books !", errors=books.errors)
+
 class DebugProtect(APIView):
   throttle_classes = [AnonRateThrottle]
   def post(self, request):
