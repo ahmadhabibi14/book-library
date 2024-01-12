@@ -24,7 +24,7 @@
     <div class="relative h-fit w-fit">
       <input
         type="text"
-        class="bg-zinc-100 py-2 px-5 rounded-full w-72 focus:outline-none"
+        class="bg-zinc-100 py-2 px-5 rounded-full w-96 focus:outline-none"
         placeholder="Cari buku, penulis ..."
       />
       <Icon src={BsSearch} size="16" className="absolute top-3 right-3 fill-zinc-500"/>
