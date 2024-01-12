@@ -1,6 +1,6 @@
 ## ePerpus
 
-![My Dotties](/web/assets/img/Cover.png)
+![My Dotties](/web/assets/img/Covers.png)
 
 #### Migration
 ```shell
