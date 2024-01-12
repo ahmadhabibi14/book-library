@@ -19,7 +19,8 @@ migration:
 
 import-book:
 	chmod +x ./scripts/import.sh
-	./scripts/import.sh
+	cd scripts
+	./import.sh
 
 setup-linux:
 	sudo apt update \
