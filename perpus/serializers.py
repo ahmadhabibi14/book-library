@@ -27,4 +27,5 @@ class Serial_Books(serializers.Serializer):
   judul = serializers.CharField()
   rilis = serializers.DateTimeField()
   thumbnail = serializers.CharField()
+  slug = serializers.CharField()
   penulis = serializers.CharField()

@@ -53,7 +53,7 @@
     <div class="grid grid-cols-5 gap-4">
       {#if books && books.length}
         {#each books as book}
-          <a href="/" class="flex flex-col gap-2 w-40 p-3 bg-white rounded shadow group">
+          <a href={'books/'+book.slug} class="flex flex-col gap-2 w-40 p-3 bg-white rounded shadow group">
             <div class="w-full h-48 overflow-hidden rounded">
               <img src={book.thumbnail} alt="" class="hover:scale-110 w-full h-full object-cover duration-75"/>
             </div>

@@ -144,7 +144,7 @@ class Books(APIView):
     OFFSET = request.GET.get('offset', 0)
     LIMIT = request.GET.get('limit', 10)
 
-    query = ''' SELECT judul, rilis, thumbnail, nama AS penulis
+    query = ''' SELECT judul, rilis, thumbnail, slug, nama AS penulis
             FROM perpus_buku JOIN perpus_penulis
             WHERE perpus_buku.penulis_id = perpus_penulis.id
             LIMIT ''' + str(LIMIT) + ''' OFFSET ''' + str(OFFSET)
@@ -170,7 +170,7 @@ class Books(APIView):
       return JsonResponseWrapper.errorserver(message="Cannot get books !", errors=errorState)
 
     books_list = [
-      {'judul': item[0], 'rilis': item[1], 'thumbnail': item[2], 'penulis': item[3]} for item in sqlData
+      {'judul': item[0], 'rilis': item[1], 'thumbnail': item[2], 'slug': item[3], 'penulis': item[4]} for item in sqlData
     ]
     books = Serial_Books(data=books_list, many=True)
     if books.is_valid():

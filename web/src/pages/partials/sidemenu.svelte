@@ -4,8 +4,6 @@
   import FaSolidMapMarkerAlt from "svelte-icons-pack/fa/FaSolidMapMarkerAlt";
 
   export let user = {};
-
-  console.log(user);
 </script>
 
 <aside class="w-[300px] bg-white p-5 rounded shadow h-fit flex flex-col gap-3">
