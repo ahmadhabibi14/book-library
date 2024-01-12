@@ -1,4 +1,7 @@
 <script>
+  import Icon from 'svelte-icons-pack';
+  import RiSystemLoader4Fill from "svelte-icons-pack/ri/RiSystemLoader4Fill";
+
   import axios from 'axios';
   import { onMount } from 'svelte';
   import Growl from './components/growl.svelte';
@@ -6,21 +9,27 @@
   import Sidemenu from './partials/sidemenu.svelte';
 
   export let user = {};
+  export let title = '';
 
   let growl, formatter;
 
-  let books = [];
-  let isLoadBook = false;
+  let books = [], isLoadBook = false;
+  let OFFSET = 0, LIMIT = 10;
+
   async function getBooks() {
     isLoadBook = true;
-    await axios.post('/api/books', {
-      Headers: {
-        'Content-Type': 'application/json'
-      }
+    await axios.post('/api/books?offset='+OFFSET+'&limit='+LIMIT, {
+      Headers: { 'Content-Type': 'application/json' }
     }).then((res) => {
       isLoadBook = false;
-      books = res.data.data;
-      console.log(res.data.data)
+      if (!books.length) {
+        OFFSET += LIMIT;
+        books = res.data.data;
+      } else {
+        OFFSET += LIMIT;
+        const DATA = res.data.data;
+        books = [...books, ...DATA];
+      }
     }).catch((err) => {
       isLoadBook = false;
       growl.showError(err.response.data.errors)
@@ -28,10 +37,12 @@
     })
   }
 
-  onMount(async () => {
-    await getBooks()
-  });
+  onMount(async () => await getBooks());
 </script>
+
+<svelte:head>
+  <title>{title} | ePerpus</title>
+</svelte:head>
 
 <XFormatter bind:this={formatter} />
 <Growl bind:this={growl} />
@@ -55,9 +66,17 @@
         {/each}
       {/if}
     </div>
-    {#if isLoadBook}
-      <div>Loading</div>
-    {/if}
+    <div class="flex justify-center text-sm">
+      {#if isLoadBook}
+        <div class="flex flex-row items-center gap-2">
+          <Icon size="14" src={RiSystemLoader4Fill} className="fill-orange-600 -mt-1 animate-spin" />
+          <span>Loading more</span>
+        </div>
+      {/if}
+      {#if !isLoadBook}
+        <button on:click={getBooks} class="text-orange-600 bg-white shadow py-2 px-5 rounded hover:bg-zinc-50">Load more</button>
+      {/if}
+    </div>
   </div>
   <Sidemenu {user} />
 </div>

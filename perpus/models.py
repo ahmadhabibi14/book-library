@@ -30,4 +30,5 @@ class Buku(models.Model):
   judul = models.CharField(max_length=255)
   rilis = models.DateTimeField(max_length=100)
   thumbnail = models.CharField(max_length=255, default='/media/books/default.png')
+  slug = models.CharField(max_length=255, default='books')
   penulis = models.ForeignKey(Penulis, on_delete=models.CASCADE)

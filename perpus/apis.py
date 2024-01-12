@@ -141,7 +141,13 @@ class Login(APIView):
 class Books(APIView):
   throttle_classes = [AnonRateThrottle]
   def post(self, request):
-    query = 'SELECT judul, rilis, thumbnail, nama AS penulis FROM perpus_buku JOIN perpus_penulis WHERE perpus_buku.penulis_id = perpus_penulis.id'
+    OFFSET = request.GET.get('offset', 0)
+    LIMIT = request.GET.get('limit', 10)
+
+    query = ''' SELECT judul, rilis, thumbnail, nama AS penulis
+            FROM perpus_buku JOIN perpus_penulis
+            WHERE perpus_buku.penulis_id = perpus_penulis.id
+            LIMIT ''' + str(LIMIT) + ''' OFFSET ''' + str(OFFSET)
     c = connection.cursor()
     isError = False; errorState = ''; sqlData = None
     try:

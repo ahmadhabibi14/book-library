@@ -20,6 +20,7 @@ if RESP.status_code == 200:
     book['judul'] = item['name']
     book['rilis'] = item['publishDateTimestamp']
     book['thumbnail'] = item['thumbnail']
+    book['slug'] = item['slug']
     if item['authors'][0]['title'] == None:
       book['penulis'] = 'unknown'
     else:

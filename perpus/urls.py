@@ -11,6 +11,7 @@ urlpatterns = [
     path('login', views.Login, name='login'),
     path('register', views.Register, name='register'),
     path('about', views.About, name='about'),
+    path('books', views.Books, name='books'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

@@ -15,9 +15,9 @@
         <span>ePerpus</span>
       </a>
       <nav class="flex items-center gap-6 text-lg font-semibold text-sky-700">
-        <a href="/" class="hover:text-sky-600">Beranda</a>
-        <a href="/" class="hover:text-sky-600">Buku</a>
-        <a href="/" class="hover:text-sky-600">Peminjaman</a>
+        <a use:inertia href="/" class="hover:text-sky-600">Beranda</a>
+        <a use:inertia href="/books" class="hover:text-sky-600">Buku</a>
+        <a use:inertia href="/" class="hover:text-sky-600">Peminjaman</a>
       </nav>
     </div>
     
@@ -39,7 +39,7 @@
       </a>
     </div>
   </header>
-  <main class="px-28 pt-24 pb-7">
+  <main class="px-28 pt-24 pb-7 min-h-[95vh]">
     <slot />
   </main>
   <Footer />

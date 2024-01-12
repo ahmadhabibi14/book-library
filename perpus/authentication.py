@@ -13,55 +13,35 @@ def JSONWebTokenAuthentication(get_response):
         'message': 'Please login first !',
       })
     
-    isView = False; isAPI = False; isProtect = False
-    if request.path == '/login' or request.path == '/register' or request.path.startswith('/static') or request.path.startswith('/media') or request.path == '/assets':
+    isView = False
+    if request.path == '/login' or request.path == '/register':
       return get_response(request)
     
     if request.path.startswith('/') and request.method == 'GET':
       isView = True
-      isProtect = True
 
-    if request.path.startswith('/api') and request.method != 'GET':
+    if request.path.startswith('/api'):
       return get_response(request)
-    
-    if request.path.startswith('/api/p/debug-protect'):
-      isAPI = True
-      isProtect = True
     
     token = request.COOKIES.get('access_token', None)
     if not token:
       token = request.headers.get('Authorization', None)
       if not token:
-        if isView and isProtect:
+        if isView:
           return renderView()
-
-        if isAPI and isProtect:
-          return JsonResponseWrapper.error(message="Cannot access this endpoint", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED) 
-        
-        return JsonResponseWrapper.error(message="Cannot access this endpoint", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED)
     
     try:
       decoded_payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
       request.jwt_payload = decoded_payload
     except jwt.ExpiredSignatureError:
-      if isView and isProtect:
-        if request.method != 'GET':
-          return JsonResponseWrapper.errormethod()
-
+      if isView:
         return renderView()
       
-      if isAPI and isProtect:
-        return JsonResponseWrapper.error(message="Token has expired", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED)
       return JsonResponseWrapper.error(message="Token has expired", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED)
     except jwt.InvalidTokenError:
-      if isView and isProtect:
-        if request.method != 'GET':
-          return JsonResponseWrapper.errormethod()
-
+      if isView:
         return renderView()
       
-      if isAPI and isProtect:
-        return JsonResponseWrapper.error(message="Invalid token", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED)
       return JsonResponseWrapper.error(message="Invalid token", errors="UNAUTHORIZED", status_code=status.HTTP_401_UNAUTHORIZED)
 
     return get_response(request)

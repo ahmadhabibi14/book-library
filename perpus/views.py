@@ -6,8 +6,8 @@ from .utils import JWTGetUserData
 
 def ratelimited_error(request, exception):
   return JsonResponseWrapper.error(
-    errors="Too many requests !",
-    message="Please try again later.",
+    errors='Too many requests !',
+    message='Please try again later.',
     status_code=status.HTTP_429_TOO_MANY_REQUESTS
   )
 
@@ -17,7 +17,8 @@ def Index(request):
     return JsonResponseWrapper.errormethod()
   
   return render(request, 'index', props={
-    "user": JWTGetUserData(request)
+    'title': 'Home',
+    'user': JWTGetUserData(request)
   })
 
 @ratelimit(key='user_or_ip', rate='30/m')
@@ -44,3 +45,10 @@ def About(request):
     return JsonResponseWrapper.errormethod()
   
   return render(request, 'about')
+
+@ratelimit(key='user_or_ip', rate='30/m')
+def Books(request):
+  if request.method != 'GET':
+    return JsonResponseWrapper.errormethod()
+  
+  return render(request, 'books')
