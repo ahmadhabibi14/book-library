@@ -2,10 +2,10 @@
   export const formatDate = (inputDate) => {
     const date = new Date(inputDate);
     const monthNames = [
-      "Januari", "Februari", "Maret",
-      "April", "Mei", "Juni", "Juli",
-      "Agustus", "September", "Oktober",
-      "November", "Desember"
+      'Januari', 'Februari', 'Maret',
+      'April', 'Mei', 'Juni', 'Juli',
+      'Agustus', 'September', 'Oktober',
+      'November', 'Desember'
     ];
 
     const day = date.getDate();

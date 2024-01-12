@@ -1,6 +1,6 @@
 <script>
   import Icon from 'svelte-icons-pack';
-  import RiSystemLoader4Fill from "svelte-icons-pack/ri/RiSystemLoader4Fill";
+  import RiSystemLoader4Fill from 'svelte-icons-pack/ri/RiSystemLoader4Fill';
 
   import axios from 'axios';
   import { onMount } from 'svelte';

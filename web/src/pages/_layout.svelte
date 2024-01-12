@@ -1,9 +1,9 @@
 <script>
   import { inertia } from '@inertiajs/inertia-svelte';
   import Icon from 'svelte-icons-pack';
-  import FaSolidUserCircle from "svelte-icons-pack/fa/FaSolidUserCircle"
-  import BsSearch from "svelte-icons-pack/bs/BsSearch";
-  import IoNotifications from "svelte-icons-pack/io/IoNotifications";
+  import FaSolidUserCircle from 'svelte-icons-pack/fa/FaSolidUserCircle'
+  import BsSearch from 'svelte-icons-pack/bs/BsSearch';
+  import IoNotifications from 'svelte-icons-pack/io/IoNotifications';
   import Footer from './partials/footer.svelte';
 </script>
 

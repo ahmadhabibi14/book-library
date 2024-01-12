@@ -1,8 +1,8 @@
 <script>
-  import Icon from "svelte-icons-pack";
-  import FiLoader from "svelte-icons-pack/fi/FiLoader";
-  import Inputbox from "./components/inputbox.svelte";
-  import Growl from "./components/growl.svelte";
+  import Icon from 'svelte-icons-pack';
+  import FiLoader from 'svelte-icons-pack/fi/FiLoader';
+  import Inputbox from './components/inputbox.svelte';
+  import Growl from './components/growl.svelte';
   import axios from 'axios';
 
   export let title = '';
