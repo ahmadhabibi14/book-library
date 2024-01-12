@@ -9,7 +9,9 @@ django-vite==3.0.1
 djangorestframework==3.14.0
 idna==3.6
 inertia-django==0.5.3
+mysql-connector-python==8.2.0
 mysqlclient==2.1.1
+protobuf==4.21.12
 PyJWT==2.8.0
 python-dotenv==1.0.0
 pytz==2023.3.post1

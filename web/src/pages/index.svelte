@@ -47,7 +47,7 @@
 <XFormatter bind:this={formatter} />
 <Growl bind:this={growl} />
 
-<div class="flex flex-row gap-10 justify-start">
+<div class="flex flex-row gap-10 justify-between">
   <div class="flex flex-col gap-6 w-fit">
     <h1 class="text-2xl text-orange-600 font-bold">Rekomendasi...</h1>
     <div class="grid grid-cols-5 gap-4">
@@ -58,8 +58,8 @@
               <img src={book.thumbnail} alt="" class="hover:scale-110 w-full h-full object-cover duration-75"/>
             </div>
             <div class="flex flex-col gap-1">
-              <span class="text-sm text-orange-600">{book.penulis}</span>
-              <span class="text-base group-hover:underline">{book.judul}</span>
+              <span class="truncate text-sm text-orange-600">{book.penulis}</span>
+              <span class="truncate text-base group-hover:underline">{book.judul}</span>
               <span class="font-light text-xs">{formatter.formatDate(book.rilis)}</span>
             </div>
           </a>

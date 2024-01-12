@@ -3,6 +3,8 @@ from .common_response import JsonResponseWrapper
 from rest_framework import status
 from inertia import render
 from .utils import JWTGetUserData
+from django.db import connection, OperationalError, Error
+from .serializers import *
 
 def ratelimited_error(request, exception):
   return JsonResponseWrapper.error(
@@ -52,3 +54,36 @@ def Books(request):
     return JsonResponseWrapper.errormethod()
   
   return render(request, 'books')
+
+@ratelimit(key='user_or_ip', rate='30/m')
+def Book(request, id):
+  if request.method != 'GET':
+    return JsonResponseWrapper.errormethod()
+  
+  query = '''SELECT judul, rilis, thumbnail, slug, nama AS penulis
+            FROM perpus_buku JOIN perpus_penulis
+            WHERE perpus_buku.penulis_id = perpus_penulis.id
+            AND slug = %s LIMIT 1'''
+  c = connection.cursor()
+  isError = False; sqlData = None
+  try:
+    c.execute(query, (id,))
+    sqlData = c.fetchone()
+    pass
+  except OperationalError as e:
+    isError = True
+  except Error as e:
+    isError = True
+  except:
+    isError = True
+  finally:
+    c.close()
+  
+  book = {}
+  if sqlData != None:
+    row_headers = [x[0] for x in c.description]
+    book = dict(zip(row_headers, sqlData))
+  
+  return render(request, 'book', props={
+    'book': book
+  })

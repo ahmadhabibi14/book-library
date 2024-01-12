@@ -12,6 +12,7 @@ urlpatterns = [
     path('register', views.Register, name='register'),
     path('about', views.About, name='about'),
     path('books', views.Books, name='books'),
+    path('books/<str:id>/', views.Book, name='book'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

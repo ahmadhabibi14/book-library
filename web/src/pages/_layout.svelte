@@ -7,8 +7,8 @@
   import Footer from './partials/footer.svelte';
 </script>
 
-<section class="w-full min-h-screen text-zinc-700 bg-zinc-100">
-  <header class="px-28 w-full flex items-center justify-between fixed z-50 h-16 bg-white shadow-md">
+<section class="w-full min-h-screen text-zinc-700 bg-zinc-50">
+  <header class="md:px-10 2xl:px-28 w-full flex items-center justify-between fixed z-50 h-16 bg-white shadow-md">
     <div class="flex items-center gap-20 h-full">
       <a use:inertia href="/" class="hover:bg-zinc-100 px-2 h-full flex items-center gap-2 font-bold text-2xl">
         <img src="/static/favicons/favicon.png" alt="" class="w-9 h-auto"/>
@@ -39,7 +39,7 @@
       </a>
     </div>
   </header>
-  <main class="px-28 pt-24 pb-7 min-h-[95vh]">
+  <main class="md:px-10 2xl:px-28 mx-auto pt-24 pb-7 min-h-[95vh]">
     <slot />
   </main>
   <Footer />
