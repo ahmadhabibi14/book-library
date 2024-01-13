@@ -1,3 +1,7 @@
+/**
+ * @param {string | number | Date} inputDate
+ * @returns {string}
+ */
 export function formatDate(inputDate) {
   const date = new Date(inputDate);
   const monthNames = [

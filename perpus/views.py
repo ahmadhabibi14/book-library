@@ -89,10 +89,12 @@ def Book(request, id):
   if isError:
     book = {}
   
-  return render(request, 'book', props={
+  resp = render(request, 'book', props={
     'book': book,
     'title': book['judul']
   })
+  resp.status_code = 200
+  return resp
 
 @ratelimit(key='user_or_ip', rate='30/m')
 def Peminjaman(request):
