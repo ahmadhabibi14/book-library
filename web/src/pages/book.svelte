@@ -3,17 +3,18 @@
   import IoBagHandle from 'svelte-icons-pack/io/IoBagHandle';
   import { onMount } from 'svelte';
   import { formatDate } from './components/xFormatter.js';
+
   export let book = {};
+  export let title = '';
 
   let deskripsi = '';
   onMount(() => {
-    console.log('Book: ', book)
     if (book.deskripsi) deskripsi = book.deskripsi;
   })
 </script>
 
 <svelte:head>
-  <title>{book.judul} | ePerpus</title>
+  <title>{title} | ePerpus</title>
 </svelte:head>
 
 <div>
