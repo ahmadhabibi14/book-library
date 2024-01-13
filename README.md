@@ -18,9 +18,8 @@ docker exec -it perpus-db mariadb -u perpus -p
 
 ##### Import books
 ```shell
-make import-book
-# OR
-./scripts/import.sh
+cd scripts
+./xImportBook.sh
 ```
 
 ##### Start development

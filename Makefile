@@ -17,11 +17,6 @@ migration:
 	python manage.py makemigrations perpus
 	python manage.py migrate
 
-import-book:
-	chmod +x ./scripts/import.sh
-	cd scripts
-	./import.sh
-
 setup-linux:
 	sudo apt update \
 	sudo apt install \

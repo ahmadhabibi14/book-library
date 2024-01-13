@@ -8,6 +8,9 @@ echo "Importing..."
 python ./import_book_to_json.py
 echo "Imported book to JSON!"
 
+python ./import_bookdesc_to_json.py
+echo "Imported book description to JSON!"
+
 python ./import_author_to_json.py
 echo "Imported author to JSON!"
 
