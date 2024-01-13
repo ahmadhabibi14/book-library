@@ -5,13 +5,13 @@
   import axios from 'axios';
   import { onMount } from 'svelte';
   import Growl from './components/growl.svelte';
-  import XFormatter from './components/xFormatter.svelte';
+  import {formatDate} from './components/xFormatter.js';
   import Sidemenu from './partials/sidemenu.svelte';
 
   export let user = {};
   export let title = '';
 
-  let growl, formatter;
+  let growl;
 
   let books = [], isLoadBook = false;
   let OFFSET = 0, LIMIT = 10;
@@ -44,7 +44,6 @@
   <title>{title} | ePerpus</title>
 </svelte:head>
 
-<XFormatter bind:this={formatter} />
 <Growl bind:this={growl} />
 
 <div class="flex flex-row gap-10 justify-between">
@@ -55,12 +54,12 @@
         {#each books as book}
           <a href={'books/'+book.slug} class="flex flex-col gap-2 w-40 p-3 bg-white rounded shadow group">
             <div class="w-full h-48 overflow-hidden rounded">
-              <img src={book.thumbnail} alt="" class="hover:scale-110 w-full h-full object-cover duration-75"/>
+              <img src={book.thumbnail} alt="" class="hover:scale-110 hover:grayscale w-full h-full object-cover duration-75"/>
             </div>
             <div class="flex flex-col gap-1">
               <span class="truncate text-sm text-orange-600">{book.penulis}</span>
               <span class="truncate text-base group-hover:underline">{book.judul}</span>
-              <span class="font-light text-xs">{formatter.formatDate(book.rilis)}</span>
+              <span class="font-light text-xs">{formatDate(book.rilis)}</span>
             </div>
           </a>
         {/each}

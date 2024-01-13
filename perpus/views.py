@@ -19,7 +19,7 @@ def Index(request):
     return JsonResponseWrapper.errormethod()
   
   return render(request, 'index', props={
-    'title': 'Home',
+    'title': 'Beranda',
     'user': JWTGetUserData(request)
   })
 
@@ -53,14 +53,16 @@ def Books(request):
   if request.method != 'GET':
     return JsonResponseWrapper.errormethod()
   
-  return render(request, 'books')
+  return render(request, 'books', props={
+    'title': 'Buku'
+  })
 
 @ratelimit(key='user_or_ip', rate='30/m')
 def Book(request, id):
   if request.method != 'GET':
     return JsonResponseWrapper.errormethod()
   
-  query = '''SELECT judul, rilis, thumbnail, slug, nama AS penulis
+  query = '''SELECT judul, rilis, thumbnail, slug, deskripsi, nama AS penulis
             FROM perpus_buku JOIN perpus_penulis
             WHERE perpus_buku.penulis_id = perpus_penulis.id
             AND slug = %s LIMIT 1'''
@@ -84,6 +86,19 @@ def Book(request, id):
     row_headers = [x[0] for x in c.description]
     book = dict(zip(row_headers, sqlData))
   
+  if isError:
+    book = {}
+  
   return render(request, 'book', props={
-    'book': book
+    'book': book,
+    'title': book['judul']
+  })
+
+@ratelimit(key='user_or_ip', rate='30/m')
+def Peminjaman(request):
+  if request.method != 'GET':
+    return JsonResponseWrapper.errormethod()
+  
+  return render(request, 'peminjaman', props={
+    'title': 'Peminjaman'
   })

@@ -14,12 +14,13 @@ db_config = {
   'database': os.environ.get('MARIADB_DATABASE'),
 }
 
-JSON_FILE_PATH = 'Books.json'
+JSON_BOOK_PATH = 'Books.json'
 JSON_AUTHOR_PATH = 'Authors.json'
+JSON_BOOKDESC_PATH = 'Book_Desc.json'
 
 SQL_TABLE = 'perpus_buku'
 SQL_COLUMNS = [
-  'id', 'judul', 'rilis', 'thumbnail', 'slug', 'penulis_id'
+  'id', 'judul', 'rilis', 'thumbnail', 'slug', 'deskripsi', 'penulis_id'
 ]
 
 try:
@@ -27,7 +28,8 @@ try:
   cursor = connection.cursor()
 
   author_json = json.load(open(JSON_AUTHOR_PATH))
-  book_json = json.load(open(JSON_FILE_PATH))
+  book_json = json.load(open(JSON_BOOK_PATH))
+  book_desc_json = json.load(open(JSON_BOOKDESC_PATH))
 
   for item in book_json:
     id = item['id']
@@ -36,13 +38,17 @@ try:
     rilis = datetime.datetime.utcfromtimestamp(item['rilis'])
     thumbnail = item['thumbnail']
     slug = item['slug']
+    for book_desc in book_desc_json:
+      if book_desc['slug'] == item['slug']:
+        deskripsi = book_desc['deskripsi']
+
     penulis = item['penulis']
 
     for author in author_json:
       if author['nama'] == penulis:
         penulis = author['id']
-        query = 'INSERT INTO ' + SQL_TABLE + ' ('+ ', '.join(SQL_COLUMNS) +') VALUES (%s, %s, %s, %s, %s, %s)'
-        cursor.execute(query, (id, judul, rilis, thumbnail, slug, penulis))
+        query = 'INSERT INTO ' + SQL_TABLE + ' ('+ ', '.join(SQL_COLUMNS) +') VALUES (%s, %s, %s, %s, %s, %s, %s)'
+        cursor.execute(query, (id, judul, rilis, thumbnail, slug, deskripsi, penulis))
         connection.commit()
 
 

@@ -4,9 +4,10 @@ import uuid
 
 JSON_FINAL = []
 
-TOTAL_BOOK = 50
+PAGE_START = 1
+TOTAL_BOOK = 20
 
-API_URL = f"https://www.gramedia.com/api/algolia/search/product/?page=1&per_page={TOTAL_BOOK}&category=buku&based_on=new-arrival"
+API_URL = f"https://www.gramedia.com/api/algolia/search/product/?page={PAGE_START}&per_page={TOTAL_BOOK}&category=buku&based_on=new-arrival"
 RESP = requests.get(API_URL)
 if RESP.status_code == 200:
   JSON_DATA = RESP.json()

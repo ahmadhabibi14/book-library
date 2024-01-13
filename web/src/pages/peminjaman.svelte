@@ -1,5 +1,5 @@
 <script>
-  export let title = 'Buku';
+  export let title = '';
 </script>
 
 <svelte:head>
@@ -7,5 +7,5 @@
 </svelte:head>
 
 <div>
-  Buku
+  <h1>Peminjaman</h1>
 </div>
