@@ -16,13 +16,16 @@
   NProgress.configure({ easing: 'ease', speed: 500 });
 
   router.on('start', () => NProgress.start())
-  router.on('finish', () => NProgress.done())
+  router.on('finish', () => {
+    NProgress.done()
+    path = window.location.pathname;
+  })
 </script>
 
 <section class="w-full min-h-screen text-zinc-700 bg-zinc-50">
   <header class="md:px-28 w-full flex items-center justify-between fixed z-50 h-16 bg-white shadow-md">
     <div class="flex items-center gap-20 h-full">
-      <a use:inertia href="/" class="hover:bg-zinc-100 px-2 h-full flex items-center gap-2 font-bold text-2xl">
+      <a on:click={() => path = '/'} use:inertia href="/" class="hover:bg-zinc-100 px-2 h-full flex items-center gap-2 font-bold text-2xl">
         <img src="/static/favicons/favicon.png" alt="" class="w-9 h-auto"/>
         <span>ePerpus</span>
       </a>
@@ -64,7 +67,7 @@
     </div>
 
     <div class="flex flex-row items-center gap-4">
-      <a use:inertia href="/profile" class="relative flex font-semibold flex-row group items-center text-sm gap-2">
+      <a use:inertia href="/notifikasi" class="relative flex font-semibold flex-row group items-center text-sm gap-2">
         <Icon src={IoNotifications} size="24" className="fill-orange-600 group-hover:fill-orange-500"/>
         {#if notifTotal > 0}
           <span class="absolute flex justify-center items-center -top-1 -right-1 leading-none text-[8px] bg-sky-700 rounded-full py-[3px] px-[5px] text-white h-fit w-fit">

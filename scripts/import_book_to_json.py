@@ -5,7 +5,7 @@ import uuid
 JSON_FINAL = []
 
 PAGE_START = 1
-TOTAL_BOOK = 20
+TOTAL_BOOK = 100
 
 API_URL = f"https://www.gramedia.com/api/algolia/search/product/?page={PAGE_START}&per_page={TOTAL_BOOK}&category=buku&based_on=new-arrival"
 RESP = requests.get(API_URL)

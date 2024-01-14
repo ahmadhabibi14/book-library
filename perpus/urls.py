@@ -13,8 +13,10 @@ urlpatterns = [
     path('register', views.Register, name='register'),
     path('about', views.About, name='about'),
     path('books', views.Books, name='books'),
-    path('books/<str:id>/', views.Book, name='book'),
+    path('books/<str:id>', views.Book, name='book'),
     path('peminjaman', views.Peminjaman, name='peminjaman'),
+    path('notifikasi', views.Notifikasi, name='notifikasi'),
+    path('profile', views.Profile, name='profile'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

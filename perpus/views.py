@@ -90,8 +90,7 @@ def Book(request, id):
     book = {}
   
   resp = render(request, 'book', props={
-    'book': book,
-    'title': book['judul']
+    'book': book
   })
   resp.status_code = 200
   return resp
@@ -103,6 +102,24 @@ def Peminjaman(request):
   
   return render(request, 'peminjaman', props={
     'title': 'Peminjaman'
+  })
+
+@ratelimit(key='user_or_ip', rate='30/m')
+def Notifikasi(request):
+  if request.method != 'GET':
+    return JsonResponseWrapper.errormethod()
+  
+  return render(request, 'notifikasi', props={
+    'title': 'Notifikasi'
+  })
+
+@ratelimit(key='user_or_ip', rate='30/m')
+def Profile(request):
+  if request.method != 'GET':
+    return JsonResponseWrapper.errormethod()
+  
+  return render(request, 'profile', props={
+    'title': 'Profile'
   })
 
 # ERROR Pages

@@ -1,14 +1,62 @@
 [
   {
-    "id": "fbb1cb20-25ca-420f-b609-998f77ea0420",
-    "judul": "Martin Luther",
-    "rilis": 1704387600.0,
-    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/5/zsjbkqcqssqblrtotukpxn.jpg",
-    "slug": "martin-luther",
-    "penulis": "Eric Metaxas"
+    "id": "f38d46fe-6676-4599-ae65-1ae58a69d4d2",
+    "judul": "Buku Motivasi untuk Anak: Aku Sabar",
+    "rilis": 1650560400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/_Cover_Buku_Motivasi_untuk_Anak_Aku_Sabar_.jpg",
+    "slug": "buku-motivasi-untuk-anak-aku-sabar",
+    "penulis": "Cristina Trapanese"
   },
   {
-    "id": "f4f87ffe-84f9-499d-8f28-0728f662811c",
+    "id": "a6769ecc-b29c-44b6-92d0-56cc08a20420",
+    "judul": "Kariage Kun 64",
+    "rilis": 1653152400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/722010323_Kariagekun_64.jpg",
+    "slug": "kariage-kun-64",
+    "penulis": "Masashi Ueda"
+  },
+  {
+    "id": "f49767a0-3bba-482f-bfdc-422d4f3810bd",
+    "judul": "Seri Cerita Rakyat Nusantara Lampung: Buaya Perompak",
+    "rilis": 1692896400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/25/3rvdtf6j3qxcoemqzh962l.jpg",
+    "slug": "seri-cerita-rakyat-nusantara-lampung-buaya-perompak",
+    "penulis": "Dian K."
+  },
+  {
+    "id": "ca317630-0ac1-41ca-bebb-a4e8ac401a70",
+    "judul": "Baking At Home: 50 Resep Simpel & Anti Gagal Ala Luvita Ho",
+    "rilis": 1653152400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/LUVOTA_HO_C_1_4_R2_page-0001.jpg",
+    "slug": "baking-at-home-50-resep-simpel-anti-gagal-ala-luvito-ho",
+    "penulis": "Luvito Ho"
+  },
+  {
+    "id": "40ca033f-9837-4d01-a078-8699c01d8a29",
+    "judul": "Princenton Review Sat Premium Prep, 2024: 9 Practice Tests +",
+    "rilis": 1689181200.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/3/mbumwqwf4lgbzdbnnlrb2p.jpg",
+    "slug": "princenton-review-sat-premium-prep-2024-9-practice-tests",
+    "penulis": "The Princeton Review"
+  },
+  {
+    "id": "e9cba59d-2d7e-4c4c-a914-3875bcc2f347",
+    "judul": "Black Clover 18",
+    "rilis": 1648314000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/722010155_Black_Clover_18.jpg",
+    "slug": "black-clover-18",
+    "penulis": "Yuki TABATA"
+  },
+  {
+    "id": "7e09186f-5ff3-4fc2-9ec7-3db8d79b68a3",
+    "judul": "Ensiklopedia Cilik: Dinosaurus",
+    "rilis": 1656228748.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/img20220626_14291201.jpg",
+    "slug": "buku-ensiklopedia-cilik-dinosaurus",
+    "penulis": "Majalah Gramedia"
+  },
+  {
+    "id": "21489f6e-09e4-4fb2-b199-f41588f22382",
     "judul": "Moriarty the Patriot 14",
     "rilis": 1653757200.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/722010353_Memoarty_14.jpg",
@@ -16,31 +64,7 @@
     "penulis": "Miyoshi Hikaru"
   },
   {
-    "id": "02ba2e5e-f32f-4bc2-9d1e-1b673dc616e8",
-    "judul": "Heaven",
-    "rilis": 1703610000.0,
-    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/12/18/uye3va4xkgrtmbtblvmp9j.jpg",
-    "slug": "heaven-3",
-    "penulis": "MIEKO KAWAKAMI"
-  },
-  {
-    "id": "bc4a3868-4686-4393-abd0-ccce6b425081",
-    "judul": "Tuhan Ada Di Hatimu",
-    "rilis": 1595955600.0,
-    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/2/13/qr69njg5wbf8rpagynfywx.jpg",
-    "slug": "tuhan-ada-di-hatimu",
-    "penulis": "Husein Ja`far Al Hadar"
-  },
-  {
-    "id": "697a1cbe-aa88-455e-9160-b27732801d09",
-    "judul": "The Guide Book Of SPSS",
-    "rilis": 1693414800.0,
-    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/31/v5yz3cgnjpbnppzbkz3xkg.jpg",
-    "slug": "the-guide-book-of-spss-cara-mudah-dan-cepat-mengolah-data",
-    "penulis": "V. Wiratna Sujarwen, Lila Retnani Utami"
-  },
-  {
-    "id": "f91ed28c-7cf2-46ff-b0db-a2b8132e5d52",
+    "id": "8465354e-2b8d-4fa2-8681-c08825bddedf",
     "judul": "Kaiju No. 8 Vol. 04",
     "rilis": 1663606800.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/COV_KAIJO_n08_4.jpg",
@@ -48,7 +72,7 @@
     "penulis": "Naoya Matsumoto"
   },
   {
-    "id": "9f231c2b-156b-4027-9b2e-4d9c65e8ec09",
+    "id": "df457f82-6ce0-4b96-b1e6-258d70ba3b9b",
     "judul": "Hanako Si Arwah Penasaran 09",
     "rilis": 1580835600.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/9786230012693_Cov_Hanako_09.jpg",
@@ -56,7 +80,7 @@
     "penulis": "Aida Iro"
   },
   {
-    "id": "df34d215-489a-4412-9dd1-361a88de4bac",
+    "id": "b0fb2ec9-d0c3-475d-9a10-acdb46ffa027",
     "judul": "Akasha: Record of Ragnarok 8",
     "rilis": 1656176400.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/record_of_ragnarok_8_COV_Ina.jpg",
@@ -64,7 +88,7 @@
     "penulis": "AJI Chika, Shinya UMEMURA"
   },
   {
-    "id": "601980e2-643a-4b13-8455-6567c2fcfdb9",
+    "id": "4397150a-a472-4940-93ce-7755dd51e002",
     "judul": "One Piece Party 02",
     "rilis": 1553014800.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/9786020495682_Cov_One_Piece.jpg",
@@ -72,7 +96,7 @@
     "penulis": "Eiichiro Oda"
   },
   {
-    "id": "ed0d3441-2824-4490-8a26-5373d0ba4276",
+    "id": "d1c3d71a-3dd6-49af-8c9a-c82b076369a3",
     "judul": "Detektif Conan 90",
     "rilis": 1488906000.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/9786020401270_detektif-conan-90.jpg",
@@ -80,7 +104,7 @@
     "penulis": "Aoyama Gosho"
   },
   {
-    "id": "780f1f56-f02b-4da5-a88d-67890cd485cc",
+    "id": "33db422a-70ae-4110-b9fc-0cafbf6760de",
     "judul": "Buku Seri Pahlawan Nasional: Ki Hajar Dewantara",
     "rilis": 1692982800.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/26/4s4rwoerm7zhrvkyh2srat.jpg",
@@ -88,7 +112,7 @@
     "penulis": "WATIEK IDEO & NINDIA MAYA"
   },
   {
-    "id": "28643787-66df-4b41-971b-46a8eb06c8b7",
+    "id": "83769f06-416d-467a-b114-b0d72eda750b",
     "judul": "Buku Seri Pahlawan Nasional: Soekarno",
     "rilis": 1692982800.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/26/khfdrevktsqnjjqazafmss.jpg",
@@ -96,7 +120,7 @@
     "penulis": "WATIEK IDEO & NINDIA MAYA"
   },
   {
-    "id": "a430fc5d-6a74-4439-802d-c1b2719c6ee2",
+    "id": "1f6613e4-36ec-454b-9d19-6b6ee7659323",
     "judul": "One Piece Vol. 99",
     "rilis": 1655398800.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/One_Piece_99.jpeg",
@@ -104,7 +128,7 @@
     "penulis": "Eiichiro Oda"
   },
   {
-    "id": "3a9aeb12-a9cd-4277-959f-ca62d5a19f28",
+    "id": "730b01c5-5ff0-4853-b1c7-ca0098a09c8a",
     "judul": "AKASHA : Record of Ragnarok 06",
     "rilis": 1642525200.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/record_of_ragnarok_6_COV_Ina.jpg",
@@ -112,7 +136,7 @@
     "penulis": "AJI Chika, Shinya UMEMURA"
   },
   {
-    "id": "2f34d399-f090-474d-910c-48c7bf7693e5",
+    "id": "f6a7111a-6abe-4f93-a844-f6f818f99b59",
     "judul": "DEMON SLAYER: Kimetsu no Yaiba 11",
     "rilis": 1665248400.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/9786230035388_cover_Demon_Slayer_11.jpg",
@@ -120,7 +144,7 @@
     "penulis": "Koyoharu Gotouge"
   },
   {
-    "id": "19611eff-71aa-4461-974b-ac3e8b0cfb5d",
+    "id": "ce076502-1def-4c5e-8d85-945a99748fe6",
     "judul": "Frieren: After the End 1",
     "rilis": 1653152400.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/FRIEREN_1_COV_Ina.jpg",
@@ -128,7 +152,7 @@
     "penulis": "Kanehito Yamada"
   },
   {
-    "id": "0f49533b-a756-4468-8a24-c0c9abe70d41",
+    "id": "cb066fbf-f837-4341-bae7-205835e42d3f",
     "judul": "How To Focus on Goal",
     "rilis": 1702227600.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/12/17/lbzd2xbx2g62zmvmadx8aq.jpg",
@@ -136,15 +160,7 @@
     "penulis": "unknown"
   },
   {
-    "id": "a91564e3-716e-4471-9493-b554268de74f",
-    "judul": "Dongeng Anak Hebat : Kumpulan Kisah Budi Pekerti",
-    "rilis": 1558890000.0,
-    "thumbnail": "https://cdn.gramedia.com/uploads/items/9786232162112_Dongeng-Anak-Hebat_Kumpulan-Kisah-Budi-Pekerti.jpg",
-    "slug": "dongeng-anak-hebat-kumpulan-kisah-budi-pekerti",
-    "penulis": "Fleurus"
-  },
-  {
-    "id": "17c58d92-ee72-4fb1-b6eb-2bf290767ba0",
+    "id": "6bb60fae-2837-4069-8b00-0884aadaf45e",
     "judul": "Fabel Karakter Pemberani: Pino ke Pesta Ulang Tahun",
     "rilis": 1659805200.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/COVER_Fabel_Karakter_Pemberani_Pino_ke_Pesta_Ulang_Tahun_page-0001.jpg",
@@ -152,11 +168,635 @@
     "penulis": "Nurul Ichlasiah Jaya"
   },
   {
-    "id": "933cd7d6-4e92-4fd8-9f1d-cc9a176a018c",
+    "id": "11b47bb8-2b94-46d1-aaa2-a4018aa9a9c8",
     "judul": "Black Clover 11",
     "rilis": 1582650000.0,
     "thumbnail": "https://cdn.gramedia.com/uploads/items/9786230011962_Black_Clover_11.jpg",
     "slug": "black-clover-11",
     "penulis": "Yuki TABATA"
+  },
+  {
+    "id": "7c8962d8-fa89-4aab-93c7-e14dfda58df6",
+    "judul": "Final Fantasy : Lost Stranger 3",
+    "rilis": 1645549200.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/final_fantasy_3_COV_Ina.jpg",
+    "slug": "final-fantasy-lost-stranger-03",
+    "penulis": "HAZUKI MINASE, ITSUKI KAMEYA"
+  },
+  {
+    "id": "8dff342c-aad4-44eb-9179-626741421f3f",
+    "judul": "STAR & DUST: Don`t Worry, be Happy 01",
+    "rilis": 1641315600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/9786230029967_caver_star_dust_01.jpg",
+    "slug": "star-dust-dont-worry-be-happy-01",
+    "penulis": "Kaori Hoshiya"
+  },
+  {
+    "id": "e6283395-08d6-4a27-b3a3-148536088433",
+    "judul": "Final Fantasy: Lost Stranger 4",
+    "rilis": 1649955600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/final_fantasy_4_COV_Ina.jpg",
+    "slug": "final-fantasy-lost-stranger-04",
+    "penulis": "HAZUKI MINASE, ITSUKI KAMEYA"
+  },
+  {
+    "id": "f0f16ffe-9bbd-4da3-addc-631fc7558395",
+    "judul": "Tuan Luak dan Nyonya Rubah - Tim Yang Kompak",
+    "rilis": 1656176400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/722010272_Tuan_Lunak_Yim_Yang_Kompak.jpg",
+    "slug": "tuan-luak-dan-nyonya-rubah-tim-yang-kompak",
+    "penulis": "Brigitte Luciani"
+  },
+  {
+    "id": "a499d32c-19a9-401b-96b1-2d5cd0f442f2",
+    "judul": "Tanya Jawab Seru Tentang Cuaca",
+    "rilis": 1637082000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/img20211114_16402293.jpg",
+    "slug": "tanya-jawab-seru-tentang-cuaca",
+    "penulis": "Miles Kelly"
+  },
+  {
+    "id": "bd60ec45-b670-48e2-8ba7-486ef2944ea4",
+    "judul": "The Art of War (Sc) Cover Baru Isbn Lama",
+    "rilis": 1578848400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/9786020333465_The_Art_of_War_C_1_4.jpg",
+    "slug": "the-art-of-war-1",
+    "penulis": "Andri Wang"
+  },
+  {
+    "id": "1af08ab4-1b93-4c24-9a02-0dfdfb538950",
+    "judul": "The Art Of War",
+    "rilis": 1673456400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/1/12/yqwdqnymqnvmhuezhavqmv.jpg",
+    "slug": "the-art-of-war-3",
+    "penulis": "Sun Tzu"
+  },
+  {
+    "id": "3398383a-1998-4439-a6af-1ba59f7dd195",
+    "judul": "Ensiklopedia Pertamaku: Sopan Santun",
+    "rilis": 1518368400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/9786024553463_Ensiklopedia-Pertamaku_Sopan-Santun-Cover-Baru.jpg",
+    "slug": "ensiklopedia-pertamaku-cover-baru-sopan-santun",
+    "penulis": "Fleurus"
+  },
+  {
+    "id": "1b8d28af-02ad-4442-9a25-18de1fcc9d22",
+    "judul": "A Springtime with Ninjas 3",
+    "rilis": 1652202000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/items/722010255_A_Spring_time_with_ninjas_3.jpg",
+    "slug": "a-springtime-with-ninjas-3",
+    "penulis": "NARUMI HASEGAKI"
+  },
+  {
+    "id": "e03dce02-39ec-4775-a67e-e93ba0cdea73",
+    "judul": "Buku Pintar Antariksa",
+    "rilis": 1704733200.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/9/rbumbleypb6daeebxmnfck.jpg",
+    "slug": "buku-pintar-antariksa",
+    "penulis": "Anggraeni Windi Gernia"
+  },
+  {
+    "id": "bb30539f-9b79-45c4-bcd9-1888d8d803c9",
+    "judul": "Edu Book : Ayo Menggambar Mewarnai Hewan Lucu Untuk TK dan PAUD",
+    "rilis": 1704474000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/9/nzbijv85qrqfgupkod7eaa.jpg",
+    "slug": "edu-book-ayo-menggambar-mewarnai-hewan-lucu-untuk-tk-dan-paud",
+    "penulis": "Titania Agusti"
+  },
+  {
+    "id": "edf27718-f292-4e24-9468-bdbfd2fde1e2",
+    "judul": "Mewarnai Dinosaurus Lucu",
+    "rilis": 1702054800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/9/eml9ysqrgkljnwkn379jgz.jpg",
+    "slug": "mewarnai-dinosaurus-lucu",
+    "penulis": "Eva Goya Dominika"
+  },
+  {
+    "id": "003d5d69-1867-44a6-86cb-f166abb33bb1",
+    "judul": "Mahir Menulis Huruf Besar dan Huruf Kecil",
+    "rilis": 1702054800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/9/wzkj4scyhwih6j3jmxvqlm.jpg",
+    "slug": "mahir-menulis-huruf-besar-dan-huruf-kecil",
+    "penulis": "Bunda Septi"
+  },
+  {
+    "id": "ee7160d5-98d3-412c-a6e0-085846df2f84",
+    "judul": "Terapi Shalat Tahajud 90 Hari Tanpa Henti",
+    "rilis": 1697043600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/12/12/gvyxyj3aatkbqqtxiubrvi.jpg",
+    "slug": "terapi-shalat-tahajud-90-hari-tanpa-henti",
+    "penulis": "Muhammad Al Isfari"
+  },
+  {
+    "id": "7b424742-94ba-4cd3-a6c1-703e919001f1",
+    "judul": "Buku Ajar Keperawatan Paliatif Care",
+    "rilis": 1695229200.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/21/mejm7h5xu3qxnvtenjvgs5.jpg",
+    "slug": "buku-ajar-keperawatan-paliatif-care",
+    "penulis": "Wa Min La Isa, S.Kep., Ns., M.Kep, dkk"
+  },
+  {
+    "id": "b9c9fc97-fc92-47cb-b02d-a6c486b85fac",
+    "judul": "Rahasia Sukses Budidaya Kepiting dan Rajungan",
+    "rilis": 1690218000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/25/agrkwltmhwcmswgdrcbvxe.jpg",
+    "slug": "rahasia-sukses-budidaya-kepiting-dan-rajungan",
+    "penulis": "Hadi Tribowo"
+  },
+  {
+    "id": "e9d3bbdf-ec4a-4730-b24f-9251d7f36ea4",
+    "judul": "Buku Interaktif Matematika untuk SD/MI Kelas 5",
+    "rilis": 1689526800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/17/gwjqfg8f9au4rzgqx9oa6n.jpg",
+    "slug": "buku-interaktif-matematika-untuk-sdmi-kelas-5",
+    "penulis": "Niki Aktania Renjani, Rifqi Abduh Rifai"
+  },
+  {
+    "id": "5e30f5e1-b1e8-4a4a-9d46-8c1b1e3e056a",
+    "judul": "PR Interaktif Bahasa Indonesia untuk SD/MI Kelas 5A",
+    "rilis": 1689526800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/17/mxpsvvqxkptpwv82ynfvep.jpg",
+    "slug": "pr-interaktif-bahasa-indonesia-untuk-sdmi-kelas-5a",
+    "penulis": "Apriyanto Dwi Santoso, Raden Dwi Gita Apriliyani"
+  },
+  {
+    "id": "eba42f66-378e-4c2c-b699-182fdae80eb2",
+    "judul": "PR Interaktif Biologi untuk SMA/MA Kelas 11A",
+    "rilis": 1689526800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/17/lwued8nrkemeric7ztqrul.jpg",
+    "slug": "pr-interaktif-biologi-untuk-smama-kelas-11a",
+    "penulis": "Teo Sukoco, Siti Nur Hidayah"
+  },
+  {
+    "id": "63abb275-a003-4858-ac95-0a8e94b45f59",
+    "judul": "PR Interaktif Matematika untuk SMA/MA/SMK/MAK Kelas 11A",
+    "rilis": 1689354000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/15/tldops9haqtwyuewfteqlx.jpg",
+    "slug": "pr-interaktif-matematika-untuk-smamasmkmak-kelas-11a",
+    "penulis": "Herdita Fajar Isnaini, Noviana Endah Santoso"
+  },
+  {
+    "id": "d42bb8c2-e175-4d5e-9d9b-47c3560ad5fb",
+    "judul": "PR Interaktif IPA untuk SMP/MTs Kelas 8A",
+    "rilis": 1689354000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/15/9sfkma7j3vc3hqpyxjzy9j.jpg",
+    "slug": "pr-interaktif-ipa-untuk-smpmts-kelas-8a",
+    "penulis": "Bangga Shepta Preskayana, Adip Ma\u2019rifu Sururi"
+  },
+  {
+    "id": "49622acb-64ff-444b-9cf6-2fc3c1856840",
+    "judul": "Jika Salju Turun Di Desaku",
+    "rilis": 1685638800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/2/menv5bdomykzzcb7k4qqk8.jpg",
+    "slug": "jika-salju-turun-di-desaku",
+    "penulis": "Philip Bae"
+  },
+  {
+    "id": "d28b3051-e821-4fd6-a7ff-fa386097e486",
+    "judul": "M/P Coloring Book S (So Sweet!)",
+    "rilis": 1680973200.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/9/pluqjhq42rktd29gqpccr3.jpg",
+    "slug": "mp-coloring-book-s-so-sweet",
+    "penulis": "Hasbro"
+  },
+  {
+    "id": "9cd90239-248b-418b-b4ed-8ed00971a80d",
+    "judul": "Berdamai Dengan Masa Depan Yang Tidak Pasti",
+    "rilis": 1702918800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/12/19/bvibgg4gobuufbmfb5yxmr.jpg",
+    "slug": "berdamai-dengan-masa-depan-yang-tidak-pasti",
+    "penulis": "Ayesha Nadeera"
+  },
+  {
+    "id": "4bb07a1b-6d80-4ff5-9e3c-1803d7a212a0",
+    "judul": "Edutainment : Membuat Anak Aktif, Cerdas, Ceria, Kreatif Dan Tangguh",
+    "rilis": 1702400400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/4/3uerzjhpcgdsyszgeunh9f.jpg",
+    "slug": "edutainment-membuat-anak-aktif-cerdas-ceria-kreatif-dan-tangguh",
+    "penulis": "Muhammad Indra Wahyuddin & Prof. Richardus Eko Indrajit"
+  },
+  {
+    "id": "62edf1f5-1ba3-4578-a208-6b5bbab0f4d0",
+    "judul": "Promosi Kesehatan Reproduksi Remaja Berbasis Evidence",
+    "rilis": 1695315600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/22/x8etfvdzyehd4jmuumbc3t.jpg",
+    "slug": "promosi-kesehatan-reproduksi-remaja-berbasis-evidence",
+    "penulis": "unknown"
+  },
+  {
+    "id": "cc3cb388-0b2d-4757-bf93-a5e1ffb44020",
+    "judul": "Sistem Perkemihan Pendekatan Evidence Based Nursing",
+    "rilis": 1695229200.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/21/utktzxrrdqkifxsvppzmgi.jpg",
+    "slug": "sistem-perkemihan-pendekatan-evidence-based-nursing",
+    "penulis": "Larra Fredrika, S.Kep., Ners., M.Kep, dkk"
+  },
+  {
+    "id": "138990cb-37b5-4ec7-8240-10578ae24404",
+    "judul": "Coloring Book : Beautiful Day",
+    "rilis": 1694451600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/12/nhlviqts3tdjdpqspezqzu.jpg",
+    "slug": "coloring-book-beautiful-day",
+    "penulis": "ADINATA "
+  },
+  {
+    "id": "17eaac8c-1c03-4aeb-8e59-a35ed0c6924e",
+    "judul": "PR Interaktif Seni Tari untuk SD/MI Kelas 1B",
+    "rilis": 1693674000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/10/3/6qzeiarkhx6qlsivheiz8v.jpg",
+    "slug": "pr-interaktif-seni-tari-untuk-sdmi-kelas-1b",
+    "penulis": "Sri Bawon"
+  },
+  {
+    "id": "899106e2-0d22-4c4b-aa77-368c2382f252",
+    "judul": "Pareto : Maximize The Best Of You",
+    "rilis": 1690736400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/31/qs4gnixzbmb88ef2vwzdbk.jpg",
+    "slug": "pareto-maximize-the-best-of-you",
+    "penulis": "Ares Ulia"
+  },
+  {
+    "id": "7ecad66b-ebc2-4fc1-a699-e303b255f180",
+    "judul": "PR Interaktif IPS Sosiologi untuk SMA/MA Kelas 10A",
+    "rilis": 1689354000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/15/pqiyeg2mqqxbrpd984npgi.jpg",
+    "slug": "pr-interaktif-ips-sosiologi-untuk-smama-kelas-10a",
+    "penulis": "Fera Atmawati"
+  },
+  {
+    "id": "994ec0fd-5adb-4b43-b980-f2b4824ed50e",
+    "judul": "PR Interaktif IPS untuk SMP/MTs Kelas 8A",
+    "rilis": 1689354000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/15/htgr2vztsbuqwutpjpabxd.jpg",
+    "slug": "pr-interaktif-ips-untuk-smpmts-kelas-8a",
+    "penulis": "Nova Tri Pamungkas, Eny Fatkhur Rohmah, Yan Hanif Jawangga"
+  },
+  {
+    "id": "7a81e8ee-7342-4075-8e42-ccc865285c88",
+    "judul": "Pendidikan Pancasila dan Kewarganegaraan untuk SMA/SMK/MA Kelas 12",
+    "rilis": 1663866000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/23/ksz98i6nnxa6xmgyg2hncy.jpg",
+    "slug": "pendidikan-pancasila-dan-kewarganegaraan-untuk-smasmkma-kelas-12",
+    "penulis": "Tedi Kholiludin, Ahmad Asroni, Hatim Gazali, Abdul Waidl, Ali Usman"
+  },
+  {
+    "id": "7023f439-9e64-40b2-b602-69732625e242",
+    "judul": "Menguasai Peribahasa, Puisi Baru, dan Pantun",
+    "rilis": 1702054800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/9/ezvw4yxajppe2lfyfjoh2d.jpg",
+    "slug": "menguasai-peribahasa-puisi-baru-dan-pantun",
+    "penulis": "Sekar Arum"
+  },
+  {
+    "id": "882c6c58-8cef-4eca-94fe-d1bc7dfe30eb",
+    "judul": "Cara Mudah Mengatasi Insecure",
+    "rilis": 1701795600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/6/d7z7h8utvghrijd5nt4jd6.jpg",
+    "slug": "cara-mudah-mengatasi-insecure",
+    "penulis": "Lasmana Fajar Hapriyanto"
+  },
+  {
+    "id": "8dc97e0c-cda6-4353-9a2d-02049f5d1282",
+    "judul": "Buku Hapus Tulis : Menulis Huruf Besar",
+    "rilis": 1689699600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/19/pducots2hq2wsy9z7dvgdj.jpg",
+    "slug": "buku-hapus-tulis-menulis-huruf-besar",
+    "penulis": "D. Palupi"
+  },
+  {
+    "id": "bbeef3db-d343-476a-bcf8-ddcf97aac870",
+    "judul": "PR Interaktif Ekonomi untuk SMA/MA Kelas 11A",
+    "rilis": 1689354000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/15/2vvfwdndt8wvueadszf2y2.jpg",
+    "slug": "pr-interaktif-ekonomi-untuk-smama-kelas-11a",
+    "penulis": "Agung Feryanto, Kartika Sari"
+  },
+  {
+    "id": "33df9b4e-c544-4cc4-a04d-62efb37428db",
+    "judul": "M/K Coloring Book L (Lantern Festival)",
+    "rilis": 1683565200.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/9/kuq97uyqepjkhzlqa35zau.jpg",
+    "slug": "mk-coloring-book-l-lantern-festival",
+    "penulis": "unknown"
+  },
+  {
+    "id": "0fc7fdaf-e788-4e69-840d-32b635e9c25e",
+    "judul": "Matematika untuk SMA/SMK/MA Kelas 12",
+    "rilis": 1656090000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/25/ewmmmigkyvkagylys4gzdz.jpg",
+    "slug": "matematika-untuk-smasmkma-kelas-12",
+    "penulis": "Mohammad Tohir, Ahmad Choirul Anam, Ibnu Taufiq"
+  },
+  {
+    "id": "80a8c766-d369-43a5-b2ba-237c61a509cd",
+    "judul": "Star Kids : 10 Menit Lancar Baca Tanpa Dieja : Untuk Usia 3+",
+    "rilis": 1703696400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/12/28/fnqrnzqmj2fhejccmxvzqj.jpg",
+    "slug": "star-kids-10-menit-lancar-baca-tanpa-dieja-untuk-usia-3",
+    "penulis": "Julia Irwansyah"
+  },
+  {
+    "id": "a0291ab0-cf70-4d7b-8544-22ac6338ffba",
+    "judul": "Terapi Emosi",
+    "rilis": 1701795600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/6/nkerjuzkp8rwxc4ujylxj4.jpg",
+    "slug": "terapi-emosi",
+    "penulis": "Irfan Suryana"
+  },
+  {
+    "id": "39d93217-6c3f-41bc-9a8a-8b60b3dd5456",
+    "judul": "Konsep Dasar Keperawatan Maternitas",
+    "rilis": 1695315600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/22/x3fzngryv8q9ethtxzfrtn.jpg",
+    "slug": "konsep-dasar-keperawatan-maternitas",
+    "penulis": "N. Yulianingsih Salam, SKep., Ns., MPH"
+  },
+  {
+    "id": "81e4ebe6-5c92-42ec-aeb0-87e532bd0932",
+    "judul": "PR Interaktif Pendidikan Agama Islam Dan Budi Pekerti untuk SD/MI Kelas 2A",
+    "rilis": 1689613200.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/18/5nzyhla7vwqmstbfbzfzb4.jpg",
+    "slug": "pr-interaktif-pendidikan-agama-islam-dan-budi-pekerti-untuk-sdmi-kelas-2a",
+    "penulis": "Yudi Ari Setiawan , Cindy Kusuma Dewi"
+  },
+  {
+    "id": "9cf3a115-fd7c-4f52-9428-8bed03cd1660",
+    "judul": "PR Interaktif PAI dan Budi Pekerti untuk SMP/MTs Kelas 8A",
+    "rilis": 1689354000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/15/u2h4tsdnnuzynemcjrfrjt.jpg",
+    "slug": "pr-interaktif-pai-dan-budi-pekerti-untuk-smpmts-kelas-8a",
+    "penulis": "Arief Nur Rahman Al Aziiz, Yudi Ari Setiawan"
+  },
+  {
+    "id": "7fdb9459-55a7-40f6-961f-dfa134fe7c38",
+    "judul": "B/K Coloring Book L (World Ocean Day)",
+    "rilis": 1686243600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/9/tdeyofbabaw7yl2ypuezjz.jpg",
+    "slug": "bk-coloring-book-l-world-ocean-day",
+    "penulis": "unknown"
+  },
+  {
+    "id": "85840409-4e62-4936-bc98-2c9e84e55820",
+    "judul": "Pendidikan Agama Katolik Dan Budi Pekerti untuk SMP/MTS Kelas 9",
+    "rilis": 1663866000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/23/dr2sgdappu8w6vkeysm743.jpg",
+    "slug": "pendidikan-agama-katolik-dan-budi-pekerti-untuk-smpmts-kelas-9",
+    "penulis": "Lorensius Atrik Wibawa, Dan Y. Sulisdwiyanta"
+  },
+  {
+    "id": "ab3cc6ad-54c4-43d0-a9c5-3cf39f7af23d",
+    "judul": "Valerie`s Busy Day",
+    "rilis": 1661187600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/23/7ppyg6ssuxfwui9egs8zfb.png",
+    "slug": "valeries-busy-day",
+    "penulis": "unknown"
+  },
+  {
+    "id": "b72c2d83-bab6-45c7-b4b1-b70aba27d7fa",
+    "judul": "Piano Dasar : 20 Lagu Basic Untuk Belajar Piano",
+    "rilis": 1702227600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/10/tqsetowpajjkyvzcp8ddnm.jpg",
+    "slug": "piano-dasar-20-lagu-basic-untuk-belajar-piano",
+    "penulis": "Eureka Julius Teruna Ryan"
+  },
+  {
+    "id": "fc58425f-1de2-4495-81ab-a9f2c49b0983",
+    "judul": "PR Interaktif Bahasa Inggris untuk  SMA/MA/SMK/MAK Kelas 11A",
+    "rilis": 1691686800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/11/7axqwumvjyvskgw4xxnj7t.jpg",
+    "slug": "pr-interaktif-bahasa-inggris-untuk-smamasmkmak-kelas-11a",
+    "penulis": "Bachtiar Bima Mustriana, Deby S.R. Nurvitasari"
+  },
+  {
+    "id": "bc552aee-1572-4530-9d0a-bdf1ad83479e",
+    "judul": "Pengantar Pasar Modal",
+    "rilis": 1689699600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/19/jwmpkc5k8p5b2cho38opch.jpg",
+    "slug": "pengantar-pasar-modal-5",
+    "penulis": "Drs. Hertanto., M.S.Ak."
+  },
+  {
+    "id": "d136dbe4-74b0-4e46-a314-f1f1cbf6c61d",
+    "judul": "PR Interaktif IPA Biologi untuk SM/AMA Kelas 10 A",
+    "rilis": 1689526800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/17/5xjaywd95ujm9wtrcnxtfm.jpg",
+    "slug": "pr-interaktif-ipa-biologi-untuk-smama-kelas-10-a",
+    "penulis": "Teo Sukoco"
+  },
+  {
+    "id": "cca0f2ac-7406-45f9-8c32-88ab4fc82e44",
+    "judul": "Aku Pandai Membaca : Metode Praktis Jago Membaca Anak Usia PAUD dan TK",
+    "rilis": 1704733200.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/9/vnvd7xskv4swnvulrajjf3.jpg",
+    "slug": "aku-pandai-membaca-metode-praktis-jago-membaca-anak-usia-paud-dan-tk",
+    "penulis": "Kurniati Igie"
+  },
+  {
+    "id": "764af914-40d1-43d6-ae77-210c381829f9",
+    "judul": "Kamus Santri Modern Jilid 1",
+    "rilis": 1703091600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/12/25/mtxu6p7ngbjjyabm4vwpf3.jpg",
+    "slug": "kamus-santri-modern-jilid-1",
+    "penulis": "A.R. Shohibul Ulum"
+  },
+  {
+    "id": "e3e7d1d4-0880-4172-a8c4-371a4d1c78d5",
+    "judul": "Self Awareness",
+    "rilis": 1689786000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/20/zf7rfamasndjcc6tsk5iwt.jpg",
+    "slug": "self-awareness",
+    "penulis": "Muhajjah Saratini"
+  },
+  {
+    "id": "0f62e210-2d91-4f2b-8c52-a9cfeed8c16d",
+    "judul": "Mewarnai Sambil Belajar Huruf Alfabet",
+    "rilis": 1689699600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/19/a2pqxnty85ck6h3ccez48k.jpg",
+    "slug": "mewarnai-sambil-belajar-huruf-alfabet",
+    "penulis": "Tim Redaksi"
+  },
+  {
+    "id": "8d26e6ac-2aa4-4575-b5eb-d96c32f2c564",
+    "judul": "Im Not Okay",
+    "rilis": 1689526800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/17/x9gcfah3o7q535alg6e959.png",
+    "slug": "im-not-okay",
+    "penulis": "Devi Ardiyanti dan Mirna Rahmasari"
+  },
+  {
+    "id": "7bcde575-414b-44a5-9e7c-e3b1530ce7ec",
+    "judul": "Buku Poster Mini Pendidikan : Menulis Angka 1-20",
+    "rilis": 1680627600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/16/zz4jmscj88sdpucjrkle2a.jpg",
+    "slug": "buku-poster-mini-pendidikan-menulis-angka-1-20",
+    "penulis": "unknown"
+  },
+  {
+    "id": "4e12383a-3ca3-4b2f-8384-4dc414d78272",
+    "judul": "Law Of Attraction",
+    "rilis": 1704733200.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/9/zhajrmyca6sxsqmpu4sorp.jpg",
+    "slug": "law-of-attraction",
+    "penulis": "Siti Dianah"
+  },
+  {
+    "id": "64361218-216a-4f94-a57c-340ee6999e60",
+    "judul": "Penyakit Covid-19 Dengan Penanganan, Pengendalian dan Pencegahan",
+    "rilis": 1695315600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/22/mwkxyhlskywggpu9q2v7ye.jpg",
+    "slug": "penyakit-covid-19-dengan-penanganan-pengendalian-dan-pencegahan",
+    "penulis": "Firdaus J. Kunoli, SKM, M.Kes dan Hj. Azizah Saleh, SKM., MM"
+  },
+  {
+    "id": "6aa3ce72-e484-412a-b692-5278212339f4",
+    "judul": "Coloring Book : Best Friend",
+    "rilis": 1694451600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/12/ckv45i72mykbarrvcewmxt.jpg",
+    "slug": "coloring-book-best-friend",
+    "penulis": "Hasbro"
+  },
+  {
+    "id": "844e8ee4-2046-426d-b8f6-b71afa7fd115",
+    "judul": "Toxic Parent",
+    "rilis": 1690304400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/26/kb92mqdnvkfyizweyt25vf.jpg",
+    "slug": "toxic-parent",
+    "penulis": "Agnes Chin"
+  },
+  {
+    "id": "0ad88803-afe3-4dac-8e39-5cdeff0e09a0",
+    "judul": "Projek Penguatan Profil Pelajar Pancasila untuk SD/MI Kelas 5",
+    "rilis": 1689526800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/17/dpdgkey2drquwq6tdsvq9m.jpg",
+    "slug": "projek-penguatan-profil-pelajar-pancasila-untuk-sdmi-kelas-5",
+    "penulis": "Rifqi Abduh Rifai, Eva Fitriana Susanti"
+  },
+  {
+    "id": "1f2c0bc6-bdd8-4d6f-b52a-f3c01fc4fcd9",
+    "judul": "PR Interaktif IPAS untuk SD/MI Kelas 5A",
+    "rilis": 1689526800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/17/ckuie6hf8yie5sccmrstux.jpg",
+    "slug": "pr-interaktif-ipas-untuk-sdmi-kelas-5a",
+    "penulis": "Rinawan Abadi, Wigati Hadi Omegawati, Tri Haryanto"
+  },
+  {
+    "id": "cd7d6f13-56a8-4ec4-be45-177a09a8907e",
+    "judul": "Kembang Selir",
+    "rilis": 1686848400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/16/meu7bddxcaawcs6z7skxd2.jpeg",
+    "slug": "kembang-selir",
+    "penulis": "Muna Masyari"
+  },
+  {
+    "id": "f0b08814-5029-42f4-8ede-6e46ee68c7ad",
+    "judul": "Seri Komik Ana Muslim - Pada Suatu Hari 1",
+    "rilis": 1685638800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/1/tuvsedqoeehwub2mkm84d6.jpg",
+    "slug": "seri-komik-ana-muslim-pada-suatu-hari-1",
+    "penulis": "unknown"
+  },
+  {
+    "id": "7ead4676-a065-40ef-981f-e4267727df2e",
+    "judul": "Ibnu Sina: Bapak Kedokteran yang Dermawan dan Serba Bisa",
+    "rilis": 1684774800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/23/5kiftdd7naeknsym9gfbni.jpg",
+    "slug": "ibnu-sina-bapak-kedokteran-yang-dermawan-dan-serba-bisa",
+    "penulis": "unknown"
+  },
+  {
+    "id": "2b812bd1-9ad8-447a-92b7-fe8f17cbe773",
+    "judul": "Sup Kerikil",
+    "rilis": 1679418000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/22/xecxmajnxd6jlrjhbe62ue.jpeg",
+    "slug": "sup-kerikil",
+    "penulis": "Philip Bae"
+  },
+  {
+    "id": "54933ce0-c3b8-4394-87a4-b3d7505776ab",
+    "judul": "Cerdas Cergas Berbahasa Dan Bersastra Indonesia SMA/SMK/MA Kelas 12",
+    "rilis": 1663866000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/9/23/afpnspqzv2sfgi2u88k4du.jpg",
+    "slug": "cerdas-cergas-berbahasa-dan-bersastra-indonesia-smasmkma-kelas-12",
+    "penulis": "Bambang Trimansyah"
+  },
+  {
+    "id": "92f152b8-92a0-40e5-810a-ae4914cfca4c",
+    "judul": "Menjadi Stoik",
+    "rilis": 1702054800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2024/1/9/e3qjoh8cxqer8gmlenberm.jpg",
+    "slug": "menjadi-stoik",
+    "penulis": "Fadhlun Suweleh, M.A."
+  },
+  {
+    "id": "247369f4-d91c-4563-ae1c-9d4201c43d78",
+    "judul": "Empat Dasar Mendengar Suara Tuhan",
+    "rilis": 1701795600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/12/8/wqgglpvypnt57hgkhtdeph.jpg",
+    "slug": "empat-dasar-mendengar-suara-tuhan",
+    "penulis": "Andrew Wommack"
+  },
+  {
+    "id": "3dbb47f2-3d61-46c6-b028-2951f64e88d3",
+    "judul": "Belajar Hadits dari Cerita : Yuk, Ikhlas Bersedekah",
+    "rilis": 1692723600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/10/23/2yx7jj6jidemtvcxddxmgu.jpg",
+    "slug": "belajar-hadits-dari-cerita-yuk-ikhlas-bersedekah",
+    "penulis": "Luthfi Yansyah"
+  },
+  {
+    "id": "4e81c61c-0b7b-4624-814d-c5871510aaff",
+    "judul": "Berdamai Dengan Rasa Malas",
+    "rilis": 1692378000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/19/qgqtt8llqiyviyxcuxwyee.jpg",
+    "slug": "berdamai-dengan-rasa-malas-1",
+    "penulis": "Munita Yeni"
+  },
+  {
+    "id": "e6771f22-09ce-4154-8604-8d7024dadbdb",
+    "judul": "Manajemen Sumber Daya Manusia",
+    "rilis": 1690304400.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/26/ffgojn5jmszyzhvswzkqbh.jpg",
+    "slug": "manajemen-sumber-daya-manusia-32",
+    "penulis": "Drs. Moekijat"
+  },
+  {
+    "id": "03edc196-660d-4692-b15b-51309773b020",
+    "judul": "Buku Hapus Tulis : Menulis Angka 1-20",
+    "rilis": 1689699600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/19/krkq79wwejdpgtplbsgtzw.jpg",
+    "slug": "buku-hapus-tulis-menulis-angka-1-20",
+    "penulis": "D. Palupi"
+  },
+  {
+    "id": "f84b6908-06bc-430f-a892-be975c2b28b6",
+    "judul": "PR Interaktif Seni Musik untuk SD/MI Kelas 2A",
+    "rilis": 1689526800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/17/in8jueotrenerijwhx5b8m.jpg",
+    "slug": "pr-interaktif-seni-musik-untuk-sdmi-kelas-2a",
+    "penulis": "Andi Alexander, Supriyantiningtyas"
+  },
+  {
+    "id": "869088a0-18f4-4af7-ba35-6a63dcad3d02",
+    "judul": "PR Interaktif IPA Fisika untuk SMA/MA Kelas 10A",
+    "rilis": 1689354000.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/7/15/ayzea65jwpdmrfvlhvpkbo.jpg",
+    "slug": "pr-interaktif-ipa-fisika-untuk-smama-kelas-10a",
+    "penulis": "Galih Perdana Putra"
+  },
+  {
+    "id": "fab66303-e9bc-4e6a-8e99-fccaba77a758",
+    "judul": "Mewarnai Sambil Belajar Angka 1 - 20",
+    "rilis": 1687366800.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/16/c6uc5tpwq5xfqt9bwfiiqz.jpg",
+    "slug": "mewarnai-sambil-belajar-angka-1-20",
+    "penulis": "Tim Redaksi"
+  },
+  {
+    "id": "d2badd98-7fcf-497c-9e37-4701c4bdb2b0",
+    "judul": "Yui Comes To Another World",
+    "rilis": 1661187600.0,
+    "thumbnail": "https://cdn.gramedia.com/uploads/picture_meta/2023/8/23/52da48knd4yfc8kn5y4x3n.jpg",
+    "slug": "yui-comes-to-another-world",
+    "penulis": "unknown"
   }
 ]

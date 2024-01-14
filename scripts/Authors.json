@@ -1,70 +1,334 @@
 [
   {
-    "id": "14d706de-b009-43f0-86a7-75ec9444d698",
-    "nama": "Eric Metaxas"
+    "id": "99c1ccf5-6807-4132-b233-5ad42397ecc5",
+    "nama": "Cristina Trapanese"
   },
   {
-    "id": "9469ea09-b652-4f2d-b0da-e405633586b8",
+    "id": "23f1af37-9ffc-4741-a165-6bf48dab7359",
+    "nama": "Masashi Ueda"
+  },
+  {
+    "id": "77c201fc-26f4-49d4-98c5-d7ef26fa1adc",
+    "nama": "Dian K."
+  },
+  {
+    "id": "53d7935d-a675-471d-9d3a-bc33b23819c6",
+    "nama": "Luvito Ho"
+  },
+  {
+    "id": "7b80ed39-6a07-44b1-ac33-6dbb2f2386db",
+    "nama": "The Princeton Review"
+  },
+  {
+    "id": "dc6c315b-e3c0-407a-b3c1-d72529ffa52d",
+    "nama": "Yuki TABATA"
+  },
+  {
+    "id": "d20c8316-16e8-4a8f-9eb9-647465becfce",
+    "nama": "Majalah Gramedia"
+  },
+  {
+    "id": "93ded855-1a84-47af-b548-e3f4147aff24",
     "nama": "Miyoshi Hikaru"
   },
   {
-    "id": "9d8952a3-7bb1-4161-acb4-66110e9a5ba3",
-    "nama": "MIEKO KAWAKAMI"
-  },
-  {
-    "id": "20781afc-7234-48d0-b159-942e4ac22e55",
-    "nama": "Husein Ja`far Al Hadar"
-  },
-  {
-    "id": "8f0fee48-9331-493f-a4cc-a487e52319cf",
-    "nama": "V. Wiratna Sujarwen, Lila Retnani Utami"
-  },
-  {
-    "id": "f6207d89-85f7-40e7-9901-c4e48e81bff8",
+    "id": "68d9728a-6ff3-4d76-b081-6f5ee6b50bfc",
     "nama": "Naoya Matsumoto"
   },
   {
-    "id": "5b818aba-db55-4bfb-9bed-06ac2a37d665",
+    "id": "5b07a8ce-46a1-40ff-b261-dc8ed9efc2c7",
     "nama": "Aida Iro"
   },
   {
-    "id": "7f34521d-cd4f-46b9-a685-334298091f30",
+    "id": "2f101b23-c6ac-4770-b340-d06ed04e2360",
     "nama": "AJI Chika, Shinya UMEMURA"
   },
   {
-    "id": "2d79430e-6439-4234-baae-8b05aadea899",
+    "id": "aeab9f53-15cf-4eda-b59b-a84ade9f2342",
     "nama": "Eiichiro Oda"
   },
   {
-    "id": "7ddebc63-1779-41c4-85c0-9d306ee94068",
+    "id": "7bfc7695-c915-4097-b33a-90c48906a3b2",
     "nama": "Aoyama Gosho"
   },
   {
-    "id": "85a366af-5f49-4bc1-9c03-65664c2e52a5",
+    "id": "cbd92f93-babe-4a3c-90a3-e3101f6838a7",
     "nama": "WATIEK IDEO & NINDIA MAYA"
   },
   {
-    "id": "ed8692e5-961a-4d02-8400-a79ba2d4ca4d",
+    "id": "93d3b8e5-a7f3-43d6-9a97-44f4b53011c8",
     "nama": "Koyoharu Gotouge"
   },
   {
-    "id": "64ce3a55-d802-4c5d-ae3f-694a5201c905",
+    "id": "f0a9703f-d82e-4ec7-8dd7-39e9c94527f9",
     "nama": "Kanehito Yamada"
   },
   {
-    "id": "2e0de165-b19f-466a-9698-c8d6d9a778c4",
+    "id": "b8c5136d-eea0-4fcf-8736-e71d1b980b2b",
     "nama": "unknown"
   },
   {
-    "id": "02b3c209-e29c-41fc-b27d-f7a77da558fd",
-    "nama": "Fleurus"
-  },
-  {
-    "id": "502e5522-ddd2-4276-8f18-43df64d8069c",
+    "id": "62c3821f-f92c-453e-980e-8b25c28eec6d",
     "nama": "Nurul Ichlasiah Jaya"
   },
   {
-    "id": "26aa701d-98a0-45dc-9c06-fb93193e0f14",
-    "nama": "Yuki TABATA"
+    "id": "1000f1e1-fd58-430b-85e4-cb79e186f007",
+    "nama": "HAZUKI MINASE, ITSUKI KAMEYA"
+  },
+  {
+    "id": "e23f9e90-8083-4bbb-b5ba-4124fb057877",
+    "nama": "Kaori Hoshiya"
+  },
+  {
+    "id": "ded51687-0159-4eb0-8aa6-12c09a338e5e",
+    "nama": "Brigitte Luciani"
+  },
+  {
+    "id": "a36d55eb-ef64-42d3-8351-e7737a2245e9",
+    "nama": "Miles Kelly"
+  },
+  {
+    "id": "2059951a-d8bf-49cd-87c1-109705c24ad9",
+    "nama": "Andri Wang"
+  },
+  {
+    "id": "abe546dc-a626-4f92-9546-8fb55433709f",
+    "nama": "Sun Tzu"
+  },
+  {
+    "id": "75d0f6e8-489d-4704-a277-2341ba91702e",
+    "nama": "Fleurus"
+  },
+  {
+    "id": "931b7511-1f06-4f93-ad7f-c5102e3908b6",
+    "nama": "NARUMI HASEGAKI"
+  },
+  {
+    "id": "8f4ee482-4f58-446c-bebd-5fe0d7c0285a",
+    "nama": "Anggraeni Windi Gernia"
+  },
+  {
+    "id": "37aa5ee1-a1fd-4260-94a7-278f95809900",
+    "nama": "Titania Agusti"
+  },
+  {
+    "id": "6db8a50e-2dab-4f63-940b-83ed772bc423",
+    "nama": "Eva Goya Dominika"
+  },
+  {
+    "id": "67dc8838-48ce-4d39-8984-37afa29153e4",
+    "nama": "Bunda Septi"
+  },
+  {
+    "id": "9e40ff00-65ea-46f7-85e0-93cba786e299",
+    "nama": "Muhammad Al Isfari"
+  },
+  {
+    "id": "0dd0f3de-6f98-4607-aa1d-f9d6e359db33",
+    "nama": "Wa Min La Isa, S.Kep., Ns., M.Kep, dkk"
+  },
+  {
+    "id": "4889347b-0f83-4af8-a34d-87ecfb0b6cda",
+    "nama": "Hadi Tribowo"
+  },
+  {
+    "id": "f98fb52e-5462-447c-b310-9df2f31cc3a5",
+    "nama": "Niki Aktania Renjani, Rifqi Abduh Rifai"
+  },
+  {
+    "id": "c4cec592-cd8d-4f7c-a8b3-289792aaa9bc",
+    "nama": "Apriyanto Dwi Santoso, Raden Dwi Gita Apriliyani"
+  },
+  {
+    "id": "0582ff04-0a36-48aa-b117-f05a905e16c6",
+    "nama": "Teo Sukoco, Siti Nur Hidayah"
+  },
+  {
+    "id": "ca7b146f-8a92-45bb-83b8-e05fd50cbcd9",
+    "nama": "Herdita Fajar Isnaini, Noviana Endah Santoso"
+  },
+  {
+    "id": "03bf7b31-4ece-4fec-ad44-9f40ab737a33",
+    "nama": "Bangga Shepta Preskayana, Adip Ma\u2019rifu Sururi"
+  },
+  {
+    "id": "49b6f11f-88fb-4d45-a980-4d46b0f8d4a9",
+    "nama": "Philip Bae"
+  },
+  {
+    "id": "89e93197-8670-4f57-abc8-35f6dd769542",
+    "nama": "Hasbro"
+  },
+  {
+    "id": "072cc16f-3c10-47c5-960a-88ea63a00357",
+    "nama": "Ayesha Nadeera"
+  },
+  {
+    "id": "0de12ef0-4b9d-4574-b2c7-4f8704a71291",
+    "nama": "Muhammad Indra Wahyuddin & Prof. Richardus Eko Indrajit"
+  },
+  {
+    "id": "1b845a1e-e65b-4901-bb42-4e770a658346",
+    "nama": "Larra Fredrika, S.Kep., Ners., M.Kep, dkk"
+  },
+  {
+    "id": "97d62f49-d681-4676-9e2d-055d478cbc22",
+    "nama": "ADINATA "
+  },
+  {
+    "id": "46e042f5-7ceb-4903-80f9-70a83f78cfba",
+    "nama": "Sri Bawon"
+  },
+  {
+    "id": "33f04032-e384-4300-befd-2d6906f6b315",
+    "nama": "Ares Ulia"
+  },
+  {
+    "id": "6174601e-e41f-4201-93b6-3da6d80561d5",
+    "nama": "Fera Atmawati"
+  },
+  {
+    "id": "8b74552a-77f2-4ee8-bcdc-ec268f0a9da7",
+    "nama": "Nova Tri Pamungkas, Eny Fatkhur Rohmah, Yan Hanif Jawangga"
+  },
+  {
+    "id": "0c908303-febd-4444-b537-9967cc45f12c",
+    "nama": "Tedi Kholiludin, Ahmad Asroni, Hatim Gazali, Abdul Waidl, Ali Usman"
+  },
+  {
+    "id": "0e840c6f-55cb-4c20-b5db-f0c142286514",
+    "nama": "Sekar Arum"
+  },
+  {
+    "id": "712bca39-3cba-40b7-9f18-83b6cc42946b",
+    "nama": "Lasmana Fajar Hapriyanto"
+  },
+  {
+    "id": "8a786bcf-67dd-4672-b098-37edeffe5430",
+    "nama": "D. Palupi"
+  },
+  {
+    "id": "2714e49f-92bb-4692-8851-bc312b1b0506",
+    "nama": "Agung Feryanto, Kartika Sari"
+  },
+  {
+    "id": "6b95831b-deff-4d88-9b24-9f8fd7d021b0",
+    "nama": "Mohammad Tohir, Ahmad Choirul Anam, Ibnu Taufiq"
+  },
+  {
+    "id": "b6739d41-9890-41a7-85dd-6753376164d6",
+    "nama": "Julia Irwansyah"
+  },
+  {
+    "id": "2d34ec91-cf15-4fe5-bfc7-3bc605f726ce",
+    "nama": "Irfan Suryana"
+  },
+  {
+    "id": "3fb458bc-9244-4f7e-8935-ed4931334d25",
+    "nama": "N. Yulianingsih Salam, SKep., Ns., MPH"
+  },
+  {
+    "id": "5fffea3d-8879-4ef7-a0af-dc9f1575b60e",
+    "nama": "Yudi Ari Setiawan , Cindy Kusuma Dewi"
+  },
+  {
+    "id": "1a4509b8-c6f1-430a-a255-6c6b8e97de2b",
+    "nama": "Arief Nur Rahman Al Aziiz, Yudi Ari Setiawan"
+  },
+  {
+    "id": "d4eb347d-c229-4d80-938f-009d2b6a4005",
+    "nama": "Lorensius Atrik Wibawa, Dan Y. Sulisdwiyanta"
+  },
+  {
+    "id": "b6311c1a-c269-4984-8108-6509846c0d95",
+    "nama": "Eureka Julius Teruna Ryan"
+  },
+  {
+    "id": "0d17989f-3d2e-4e52-80e2-0c52ab713483",
+    "nama": "Bachtiar Bima Mustriana, Deby S.R. Nurvitasari"
+  },
+  {
+    "id": "0d700ec3-a3ec-4a01-a93f-97e35730f52d",
+    "nama": "Drs. Hertanto., M.S.Ak."
+  },
+  {
+    "id": "6ff87aa4-46bd-4c6a-9b8a-15a9853aab46",
+    "nama": "Teo Sukoco"
+  },
+  {
+    "id": "eda251f0-5117-4d79-8eac-d83c11e11014",
+    "nama": "Kurniati Igie"
+  },
+  {
+    "id": "87804ac3-af89-42c2-8e0a-af73b3ea7642",
+    "nama": "A.R. Shohibul Ulum"
+  },
+  {
+    "id": "5308fe31-a1c8-4b3c-acc2-c4fb20f44235",
+    "nama": "Muhajjah Saratini"
+  },
+  {
+    "id": "7e760e9d-5e6f-4e92-b390-6a6dfb13a2a2",
+    "nama": "Tim Redaksi"
+  },
+  {
+    "id": "eea2bb5d-27ed-4f91-9367-22ef4f466b62",
+    "nama": "Devi Ardiyanti dan Mirna Rahmasari"
+  },
+  {
+    "id": "200a6314-4652-4738-88ad-c5bac29ab2e4",
+    "nama": "Siti Dianah"
+  },
+  {
+    "id": "943da0fa-f992-466a-bd50-f0f70a222ae5",
+    "nama": "Firdaus J. Kunoli, SKM, M.Kes dan Hj. Azizah Saleh, SKM., MM"
+  },
+  {
+    "id": "eb4a728f-4701-4ceb-afc1-68eb04789335",
+    "nama": "Agnes Chin"
+  },
+  {
+    "id": "d9ee3893-abfa-4e67-a202-02d627a3a774",
+    "nama": "Rifqi Abduh Rifai, Eva Fitriana Susanti"
+  },
+  {
+    "id": "99540d83-4550-4a33-bc30-f3baebbe264c",
+    "nama": "Rinawan Abadi, Wigati Hadi Omegawati, Tri Haryanto"
+  },
+  {
+    "id": "8b727307-279c-4de7-80b9-0be943ece26d",
+    "nama": "Muna Masyari"
+  },
+  {
+    "id": "f87a7124-ed82-4d28-9fe1-555ed74937a4",
+    "nama": "Bambang Trimansyah"
+  },
+  {
+    "id": "20bd7510-8146-4818-b951-ce4f0c4058bb",
+    "nama": "Fadhlun Suweleh, M.A."
+  },
+  {
+    "id": "ab9f4756-093d-4f95-90b8-bd144afad9e4",
+    "nama": "Andrew Wommack"
+  },
+  {
+    "id": "016075f9-ba20-43c7-a78e-6b78b89ad74c",
+    "nama": "Luthfi Yansyah"
+  },
+  {
+    "id": "fac09c94-4d48-42a3-96ad-f23faf947698",
+    "nama": "Munita Yeni"
+  },
+  {
+    "id": "37f4e91b-e5ad-44a6-b01b-6a066f9c3689",
+    "nama": "Drs. Moekijat"
+  },
+  {
+    "id": "82e83ec7-6e4d-491c-adcd-5f0f5dbc46fd",
+    "nama": "Andi Alexander, Supriyantiningtyas"
+  },
+  {
+    "id": "fe424f90-d821-4a8d-9996-8a3867e1bcb1",
+    "nama": "Galih Perdana Putra"
   }
 ]

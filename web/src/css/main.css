@@ -17,6 +17,12 @@ html {
   @apply bg-orange-600 text-white;
 }
 
+@layer base {
+  .font-outline-2 {
+    -webkit-text-stroke: 2px rgb(234 88 12 / var(--tw-bg-opacity));;
+  }
+}
+
 /* FONT FAMILY */
 @font-face {
   font-family: "Josefin Sans";

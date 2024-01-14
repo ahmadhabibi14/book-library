@@ -5,11 +5,14 @@
   import { formatDate } from './components/xFormatter.js';
 
   export let book = {};
-  export let title = '';
+  let title = 'Book';
 
   let deskripsi = '';
   onMount(() => {
-    if (book.deskripsi) deskripsi = book.deskripsi;
+    if (book.deskripsi) {
+      deskripsi = book.deskripsi;
+      title = `${book.judul}`;
+    }
   })
 </script>
 
@@ -19,12 +22,17 @@
 
 <div>
   {#if Object.keys(book).length === 0}
-    <div>book empty</div>
+    <div class="flex flex-col mt-16 gap-7 justify-center items-center w-full">
+      <div class="w-[310px]">
+        <img src="/static/img/no-book.png" alt="" />
+      </div>
+      <h1 class="font-bold text-zinc-300 text-3xl">Buku tidak ditemukan !!</h1>
+    </div>
   {/if}
 
   {#if Object.keys(book).length !== 0}
-    <div class="grid grid-cols-4 gap-4 relative">
-      <div class="col-span-1 flex flex-col gap-4 h-fit sticky top-24">
+    <div class="grid grid-cols-4 gap-10 relative">
+      <div class="col-span-1 flex flex-col gap-4 items-end h-fit sticky top-24">
         <div class="cursor-pointer w-60 h-80 overflow-hidden rounded border border-zinc-200 shadow">
           <img src={book.thumbnail} alt="" class="hover:scale-110 hover:grayscale w-full h-full object-cover duration-75"/>
         </div>
