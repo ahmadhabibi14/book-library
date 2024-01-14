@@ -2,10 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+#nprogress {
+  pointer-events: none;
+}
+#nprogress .bar {
+  @apply !bg-sky-700 !fixed !z-50 !top-0 !left-0 !w-full !h-[3px];
+}
+
 html {
   font-family: "Josefin Sans", sans-serif;
 }
-
 
 *::selection {
   @apply bg-orange-600 text-white;

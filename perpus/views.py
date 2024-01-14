@@ -104,3 +104,15 @@ def Peminjaman(request):
   return render(request, 'peminjaman', props={
     'title': 'Peminjaman'
   })
+
+# ERROR Pages
+@ratelimit(key='user_or_ip', rate='30/m')
+def Handler404(request, exception):
+  if request.method != 'GET':
+    return JsonResponseWrapper.errormethod()
+  
+  resp = render(request, '_404', props={
+    'title': '404 Page not found'
+  })
+  resp.status_code = status.HTTP_404_NOT_FOUND
+  return resp

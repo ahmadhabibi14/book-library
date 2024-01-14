@@ -4,6 +4,7 @@ from . import views
 from . import apis
 from perpus import settings
 from django.conf.urls.static import static
+from django.conf.urls import handler404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,3 +26,5 @@ urlpatterns += [
   path('api/books', apis.Books.as_view()),
   path('api/debug-protect', apis.DebugProtect.as_view()),
 ]
+
+handler404 = views.Handler404

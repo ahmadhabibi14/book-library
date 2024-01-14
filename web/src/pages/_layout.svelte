@@ -1,5 +1,8 @@
 <script>
   import { inertia } from '@inertiajs/inertia-svelte';
+  import { router } from '@inertiajs/svelte';
+  import NProgress from 'nprogress';
+
   import Icon from 'svelte-icons-pack';
   import FaSolidUserCircle from 'svelte-icons-pack/fa/FaSolidUserCircle'
   import BsSearch from 'svelte-icons-pack/bs/BsSearch';
@@ -7,9 +10,13 @@
   import Footer from './partials/footer.svelte';
 
   let notifTotal = 0;
-
   let path = '/';
   $: path = window.location.pathname;
+
+  NProgress.configure({ easing: 'ease', speed: 500 });
+
+  router.on('start', () => NProgress.start())
+  router.on('finish', () => NProgress.done())
 </script>
 
 <section class="w-full min-h-screen text-zinc-700 bg-zinc-50">

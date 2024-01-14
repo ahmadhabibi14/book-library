@@ -7,7 +7,7 @@ from inertia import render
 def JSONWebTokenAuthentication(get_response):
   def middleware(request):
     def renderView():
-      return render(request, 'error', props={
+      return render(request, '_401', props={
         'code': status.HTTP_401_UNAUTHORIZED,
         'status': 'Unauthorized',
         'message': 'Please login first !',

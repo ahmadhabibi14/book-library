@@ -1,4 +1,5 @@
 <script>
+  import { inertia } from '@inertiajs/inertia-svelte';
   import Icon from 'svelte-icons-pack';
   import RiSystemLoader4Fill from 'svelte-icons-pack/ri/RiSystemLoader4Fill';
 
@@ -6,7 +7,7 @@
   import { onMount } from 'svelte';
   import Growl from './components/growl.svelte';
   import {formatDate} from './components/xFormatter.js';
-  import Sidemenu from './partials/sidemenu.svelte';
+  import Sidebar from './partials/sidebar.svelte';
 
   export let user = {};
   export let title = '';
@@ -46,13 +47,13 @@
 
 <Growl bind:this={growl} />
 
-<div class="flex flex-row gap-10 justify-between">
+<div class="flex flex-row gap-10 justify-between relative">
   <div class="flex flex-col gap-6 w-fit">
     <h1 class="text-2xl text-orange-600 font-bold">Rekomendasi...</h1>
     <div class="grid grid-cols-5 gap-4">
       {#if books && books.length}
         {#each books as book}
-          <a href={'books/'+book.slug} class="flex flex-col gap-2 w-40 p-3 bg-white rounded shadow group">
+          <a use:inertia href={'books/'+book.slug} class="flex flex-col gap-2 w-40 p-3 bg-white rounded shadow group">
             <div class="w-full h-48 overflow-hidden rounded">
               <img src={book.thumbnail} alt="" class="hover:scale-110 hover:grayscale w-full h-full object-cover duration-75"/>
             </div>
@@ -77,6 +78,6 @@
       {/if}
     </div>
   </div>
-  <Sidemenu {user} />
+  <Sidebar {user} />
 </div>
 

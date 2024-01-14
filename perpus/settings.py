@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 from django_ratelimit.middleware import RatelimitMiddleware
 import mimetypes
+import datetime
 
 mimetypes.add_type("image/svg+xml", ".svg", True)
 mimetypes.add_type("image/svg+xml", ".svgz", True)
@@ -84,10 +85,9 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOW_CREDENTIALS = True
 
-from datetime import timedelta
 JWT = {
-  'ACCESS_TOKEN_LIFETIME': timedelta(weeks=16),
-  'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+  'ACCESS_TOKEN_LIFETIME': datetime.datetime.utcnow() + datetime.timedelta(weeks=16),
+  'REFRESH_TOKEN_LIFETIME': datetime.datetime.utcnow() + datetime.timedelta(days=1),
   'ROTATE_REFRESH_TOKENS': False,
   'BLACKLIST_AFTER_ROTATION': True,
   'UPDATE_LAST_LOGIN': False,
@@ -108,8 +108,8 @@ JWT = {
   'JTI_CLAIM': 'jti',
 
   'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-  'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
-  'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+  'SLIDING_TOKEN_LIFETIME': datetime.datetime.utcnow() + datetime.timedelta(minutes=5),
+  'SLIDING_TOKEN_REFRESH_LIFETIME': datetime.datetime.utcnow() + datetime.timedelta(days=1),
 
   # custom
   'AUTH_COOKIE': 'access_token',  # Cookie name. Enables cookies if value is set.

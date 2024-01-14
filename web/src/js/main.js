@@ -12,9 +12,18 @@ createInertiaApp({
     const match = comps[`../pages/${name}.svelte`];
     const page = (await match());
 
-    return Object.assign({layout: name.startsWith('auth') || name.startsWith('error') ? undefined : Layout}, page);
+    if (name.startsWith('auth')) return Object.assign({layout: undefined}, page);
+    else if (name.startsWith('_404')) return Object.assign({layout: Layout}, page);
+    else if (name.startsWith('_')) return Object.assign({layout: undefined}, page);
+    else return Object.assign({layout: Layout}, page);
   },
   setup({ el, App, props }) {
     new App({ target: el, props })
+  },
+  progress: {
+    delay: 250,
+    color: '#0369a1',
+    includeCSS: true,
+    showSpinner: false,
   },
 });
