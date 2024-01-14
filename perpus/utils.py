@@ -34,3 +34,22 @@ def JWTGetUserData(request) -> dict:
     c.close()
   
   return userData
+
+def JWTGetUserID(request) -> str:
+  token = request.COOKIES.get('access_token', None)
+  decoded_token = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
+  id = str(decoded_token['id'])
+
+  userId = ''
+  query = 'SELECT id FROM perpus_user WHERE id = %s'
+  c = connection.cursor()
+  try:
+    c.execute(query, (id,))
+    userId = c.fetchone()[0]
+    pass
+  except:
+    userId = ''
+  finally:
+    c.close()
+  
+  return userId

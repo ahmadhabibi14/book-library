@@ -13,7 +13,7 @@ urlpatterns = [
     path('register', views.Register, name='register'),
     path('about', views.About, name='about'),
     path('books', views.Books, name='books'),
-    path('books/<str:id>', views.Book, name='book'),
+    path('books/<str:id>/', views.Book, name='book'),
     path('peminjaman', views.Peminjaman, name='peminjaman'),
     path('notifikasi', views.Notifikasi, name='notifikasi'),
     path('profile', views.Profile, name='profile'),
@@ -26,6 +26,7 @@ urlpatterns += [
   path('api/register', apis.Register.as_view()),
   path('api/login', apis.Login.as_view()),
   path('api/books', apis.Books.as_view()),
+  path('api/pinjam-buku', apis.PinjamBuku.as_view()),
   path('api/debug-protect', apis.DebugProtect.as_view()),
 ]
 

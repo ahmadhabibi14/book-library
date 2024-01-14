@@ -2,7 +2,7 @@ from django_ratelimit.decorators import ratelimit
 from .common_response import JsonResponseWrapper
 from rest_framework import status
 from inertia import render
-from .utils import JWTGetUserData
+from .utils import JWTGetUserData, JWTGetUserID
 from django.db import connection, OperationalError, Error
 from .serializers import *
 
@@ -62,10 +62,10 @@ def Book(request, id):
   if request.method != 'GET':
     return JsonResponseWrapper.errormethod()
   
-  query = '''SELECT judul, rilis, thumbnail, slug, deskripsi, nama AS penulis
+  query = '''SELECT perpus_buku.id AS id, judul, rilis, thumbnail, slug, deskripsi, nama AS penulis
             FROM perpus_buku JOIN perpus_penulis
             WHERE perpus_buku.penulis_id = perpus_penulis.id
-            AND slug = %s LIMIT 1'''
+            AND slug = %s'''
   c = connection.cursor()
   isError = False; sqlData = None
   try:
@@ -100,8 +100,52 @@ def Peminjaman(request):
   if request.method != 'GET':
     return JsonResponseWrapper.errormethod()
   
+  user_id = JWTGetUserID(request)
+  peminjaman = []
+  query = '''SELECT
+              perpus_peminjaman.id AS `id`,
+              perpus_buku.judul AS `buku`,
+              perpus_peminjaman.tgl_pinjam,
+              perpus_peminjaman.tgl_kembali,
+              perpus_buku.slug
+            FROM `perpus_peminjaman`
+            JOIN perpus_user, perpus_buku
+            WHERE perpus_user.id = perpus_peminjaman.user_id
+	            AND perpus_buku.id = perpus_peminjaman.buku_id
+              AND perpus_user.id = %s
+          '''
+  
+  c = connection.cursor()
+  isError = False; sqlData = None
+  try:
+    c.execute(query, (user_id,))
+    sqlData = c.fetchall()
+    pass
+  except OperationalError as e:
+    isError = True
+  except Error as e:
+    isError = True
+  except:
+    isError = True
+  finally:
+    c.close()
+    
+  if isError:
+    peminjaman = []
+
+  peminjaman_list = [
+    {'id': item[0], 'buku': item[1], 'tgl_pinjam': item[2], 'tgl_kembali': item[3], 'slug': item[4]} for item in sqlData
+  ]
+  serial_peminjaman = Serial_Peminjaman(data=peminjaman_list, many=True)
+  if serial_peminjaman.is_valid():
+    peminjaman = serial_peminjaman.data
+  else:
+    print(serial_peminjaman.errors)
+    peminjaman = []
+  
   return render(request, 'peminjaman', props={
-    'title': 'Peminjaman'
+    'title': 'Peminjaman',
+    'peminjaman': peminjaman
   })
 
 @ratelimit(key='user_or_ip', rate='30/m')

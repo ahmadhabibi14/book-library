@@ -15,12 +15,6 @@ class User(models.Model):
   password = models.CharField(max_length=255)
   petugas = models.BooleanField(default=False)
 
-class Peminjaman(models.Model):
-  id = models.CharField(primary_key=True, default=uuid.uuid4, max_length=36)
-  tgl_pinjam = models.DateTimeField()
-  tgl_kembali = models.DateTimeField()
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
-
 class Penulis(models.Model):
   id = models.CharField(primary_key=True, default=uuid.uuid4, max_length=36)
   nama = models.CharField(max_length=255)
@@ -33,3 +27,10 @@ class Buku(models.Model):
   slug = models.CharField(max_length=255, default='books', unique=True)
   deskripsi = models.TextField(default='Tidak ada deskripsi')
   penulis = models.ForeignKey(Penulis, on_delete=models.CASCADE)
+
+class Peminjaman(models.Model):
+  id = models.CharField(primary_key=True, default=uuid.uuid4, max_length=36)
+  tgl_pinjam = models.DateTimeField()
+  tgl_kembali = models.DateTimeField()
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  buku = models.ForeignKey(Buku, on_delete=models.CASCADE, default=None)

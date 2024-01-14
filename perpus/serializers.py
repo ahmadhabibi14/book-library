@@ -22,10 +22,16 @@ class Serial_ID(serializers.ModelSerializer):
       'id'
     ]
 
-
 class Serial_Books(serializers.Serializer):
   judul = serializers.CharField()
   rilis = serializers.DateTimeField()
   thumbnail = serializers.CharField()
   slug = serializers.CharField()
   penulis = serializers.CharField()
+
+class Serial_Peminjaman(serializers.Serializer):
+  id = serializers.CharField()
+  buku = serializers.CharField()
+  tgl_pinjam = serializers.DateTimeField()
+  tgl_kembali = serializers.DateTimeField()
+  slug = serializers.CharField()

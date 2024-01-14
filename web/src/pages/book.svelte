@@ -1,11 +1,16 @@
 <script>
   import Icon from 'svelte-icons-pack';
   import IoBagHandle from 'svelte-icons-pack/io/IoBagHandle';
+  import RiSystemLoader4Fill from 'svelte-icons-pack/ri/RiSystemLoader4Fill';
+
   import { onMount } from 'svelte';
   import { formatDate } from './components/xFormatter.js';
+  import Growl from './components/growl.svelte';
+  import axios from 'axios';
 
   export let book = {};
   let title = 'Book';
+  let growl;
 
   let deskripsi = '';
   onMount(() => {
@@ -13,13 +18,35 @@
       deskripsi = book.deskripsi;
       title = `${book.judul}`;
     }
+
+    console.log('book', book);
   })
+
+  let isPinjamBuku = false;
+  async function pinjamBuku() {
+    isPinjamBuku = true;
+    await axios({
+      method: 'post',
+      url: '/api/pinjam-buku',
+      data: { buku_id: book.id },
+      headers: { 'Content-Type': 'multipart/form-data' },
+    }).then((res) => {
+      isPinjamBuku = false;
+      console.log(res.data);
+      growl.showSuccess(res.data.message);
+    }).catch((err) => {
+      isPinjamBuku = false;
+      growl.showError(err.response.data.message)
+      console.log(err.response);
+    })
+  }
 </script>
 
 <svelte:head>
   <title>{title} | ePerpus</title>
 </svelte:head>
 
+<Growl bind:this={growl} />
 <div>
   {#if Object.keys(book).length === 0}
     <div class="flex flex-col mt-16 gap-7 justify-center items-center w-full">
@@ -46,8 +73,13 @@
         <p class="text-sm font-normal">{@html deskripsi.replace(/\r\n|\n|\r/gm, '<br />')}</p>
       </div>
       <aside class="col-span-1 h-fit sticky top-24">
-        <button class="bg-sky-700 hover:bg-sky-600 text-white py-2 px-5 rounded text-center w-full flex flex-row items-center gap-2 justify-center">
-          <Icon size="14" src={IoBagHandle} className="fill-white -mt-1" />
+        <button on:click={pinjamBuku} class="bg-sky-700 hover:bg-sky-600 text-white py-2 px-5 rounded text-center w-full flex flex-row items-center gap-2 justify-center">
+          {#if !isPinjamBuku}
+            <Icon size="14" src={IoBagHandle} className="fill-white -mt-1" />
+          {/if}
+          {#if isPinjamBuku}
+            <Icon size="14" src={RiSystemLoader4Fill} className="fill-white -mt-1 animate-spin" />
+          {/if}
           <span>Pinjam buku ini</span>
         </button>
       </aside>

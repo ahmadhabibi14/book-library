@@ -1,15 +1,17 @@
 import datetime
 import uuid
 import json
+import time
 import jwt
 from rest_framework.views import APIView
 from rest_framework.throttling import AnonRateThrottle
 from .models import *
+from rest_framework import status
 
 from perpus import settings
 from .serializers import *
 from .common_response import JsonResponseWrapper
-from .utils import hashPassword, verifyPassword
+from .utils import hashPassword, verifyPassword, JWTGetUserID
 from .models import *
 from django.db import connection, OperationalError, Error
 
@@ -178,7 +180,53 @@ class Books(APIView):
     
     return JsonResponseWrapper.error(message="Cannot get books !", errors=books.errors)
 
+class PinjamBuku(APIView):
+  throttle_classes = [AnonRateThrottle]
+  def post(self, request):
+    user_id = JWTGetUserID(request)
+    if user_id == '':
+      return JsonResponseWrapper.error(message="User ID not found, login required !", errors='Unauthorized', status_code=status.HTTP_401_UNAUTHORIZED)
+    
+    c = connection.cursor()
+
+    buku_id = request.POST.get('buku_id', None)
+    isError = False
+    try:
+      c.execute('SELECT user_id, buku_id FROM perpus_peminjaman WHERE user_id = %s AND buku_id = %s', (user_id, buku_id,))
+      sqlData = c.fetchone()
+      if sqlData != None:
+        c.close()
+        return JsonResponseWrapper.error(message="Buku sudah dipinjam !", errors='Conflict', status_code=status.HTTP_409_CONFLICT)
+      pass
+    except Exception as e:
+      isError = False
+    
+    peminjaman_id = str(uuid.uuid4())
+    tgl_kembali = datetime.datetime.utcfromtimestamp(time.time() + 90 * 24 * 60 * 60) # 3 bulan
+    query = '''INSERT INTO perpus_peminjaman (id, tgl_pinjam, tgl_kembali, user_id, buku_id)
+            VALUES (%s, CURRENT_TIMESTAMP, %s, %s, %s)'''
+    
+    try:
+      c.execute(query, ( peminjaman_id, tgl_kembali, user_id, buku_id))
+      pass
+    except OperationalError as e:
+      print(e)
+      isError = True
+    except Error as e:
+      print(e)
+      isError = True
+    except Exception as e:
+      print(e)
+      isError = True
+    finally:
+      c.close()
+      
+    if isError:
+      return JsonResponseWrapper.errorserver(message='Tidak bisa meminjam buku !', errors='Unknown error')
+      
+    return JsonResponseWrapper.success(message='Berhasil meminjam buku !')
+
 class DebugProtect(APIView):
   throttle_classes = [AnonRateThrottle]
   def post(self, request):
-    return JsonResponseWrapper.created(message="successful !")
+    return JsonResponseWrapper.created(message='successful !')
