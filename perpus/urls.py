@@ -27,6 +27,7 @@ urlpatterns += [
   path('api/login', apis.Login.as_view()),
   path('api/books', apis.Books.as_view()),
   path('api/pinjam-buku', apis.PinjamBuku.as_view()),
+  path('api/kembalikan-buku', apis.KembalikanBuku.as_view()),
   path('api/debug-protect', apis.DebugProtect.as_view()),
 ]
 

@@ -226,6 +226,11 @@ class PinjamBuku(APIView):
       
     return JsonResponseWrapper.success(message='Berhasil meminjam buku !')
 
+class KembalikanBuku(APIView):
+  throttle_classes = [AnonRateThrottle]
+  def post(self, request):
+    return JsonResponseWrapper.success(message='Berhasil mengembalikan buku !')
+
 class DebugProtect(APIView):
   throttle_classes = [AnonRateThrottle]
   def post(self, request):

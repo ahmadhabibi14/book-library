@@ -35,3 +35,4 @@ class Serial_Peminjaman(serializers.Serializer):
   tgl_pinjam = serializers.DateTimeField()
   tgl_kembali = serializers.DateTimeField()
   slug = serializers.CharField()
+  dikembalikan = serializers.BooleanField()

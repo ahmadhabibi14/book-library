@@ -1,10 +1,13 @@
 <script>
   import Icon from 'svelte-icons-pack';
   import RiSystemShareBoxLine from "svelte-icons-pack/ri/RiSystemShareBoxLine";
+  import RiSystemLoader4Fill from 'svelte-icons-pack/ri/RiSystemLoader4Fill';
 
   import { onMount } from 'svelte';
   import { formatDate } from './components/xFormatter.js';
   import { inertia } from '@inertiajs/inertia-svelte';
+  import axios from 'axios';
+  import Growl from './components/growl.svelte';
 
   export let title = '';
 
@@ -15,20 +18,42 @@
     * @property {string} slug
     * @property {string} tgl_kembali
     * @property {string} tgl_pinjam
+    * @property {string} dikembalikan
     */
   /**
     * @type {Array<pinjam>}
     */
   export let peminjaman = [];
+  let growl;
 
   onMount(() => {
     console.log('peminjaman', peminjaman)
   })
+
+  let isSubmitKembalikan = false;
+  async function kembalikanBuku() {
+    isSubmitKembalikan = true;
+    await axios.post('/api/kembalikan-buku', {
+      Headers: { 'Content-Type': 'application/json' }
+    }).then((res) => {
+      isSubmitKembalikan = false;
+      growl.showSuccess(res.data.message)
+      setTimeout(() => {
+        window.location.reload();
+      }, 1300)
+    }).catch((err) => {
+      isSubmitKembalikan = false;
+      growl.showError(err.response.data.errors)
+      console.log(err.response)
+    })
+  }
 </script>
 
 <svelte:head>
   <title>{title} | ePerpus</title>
 </svelte:head>
+
+<Growl bind:this={growl} />
 
 <div>
   {#if peminjaman && peminjaman.length}
@@ -39,7 +64,12 @@
           <th class="py-3 px-4">Buku</th>
           <th class="py-3 px-4">Tgl. Pinjam</th>
           <th class="py-3 px-4">Tgl. Kembali</th>
-          <th class="py-3 px-4">Status</th>
+          <th class="py-3 px-4 flex flex-row gap-2 items-center">
+            <span>Status</span>
+            {#if isSubmitKembalikan}
+              <Icon size="14" src={RiSystemLoader4Fill} className="fill-sky-600 -mt-1 animate-spin" />
+            {/if}
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -55,7 +85,14 @@
           <td class="py-3 px-4">{formatDate(pinjam.tgl_pinjam)}</td>
           <td class="py-3 px-4">{formatDate(pinjam.tgl_kembali)}</td>
           <td class="py-3 px-4">
-            <button class="py-1 px-3 text-xs rounded-full bg-sky-700 hover:bg-sky-600 text-white">Kembalikan</button>
+            {#if pinjam.dikembalikan}
+              <span>Dikembalikan</span>
+            {/if}
+            {#if !pinjam.dikembalikan}
+              <button on:click={kembalikanBuku} class="py-1 px-3 text-xs rounded-full bg-sky-700 hover:bg-sky-600 text-white">
+                Kembalikan
+              </button>
+            {/if}
           </td>
         </tr>
       {/each}

@@ -32,5 +32,6 @@ class Peminjaman(models.Model):
   id = models.CharField(primary_key=True, default=uuid.uuid4, max_length=36)
   tgl_pinjam = models.DateTimeField()
   tgl_kembali = models.DateTimeField()
+  dikembalikan = models.BooleanField(default=False)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   buku = models.ForeignKey(Buku, on_delete=models.CASCADE, default=None)

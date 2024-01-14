@@ -7,6 +7,7 @@
   import FaSolidUserCircle from 'svelte-icons-pack/fa/FaSolidUserCircle'
   import BsSearch from 'svelte-icons-pack/bs/BsSearch';
   import IoNotifications from 'svelte-icons-pack/io/IoNotifications';
+  import FaSolidSwatchbook from 'svelte-icons-pack/fa/FaSolidSwatchbook';
   import Footer from './partials/footer.svelte';
 
   let notifTotal = 0;
@@ -74,6 +75,9 @@
             <p>{notifTotal}</p>
           </span>
         {/if}
+      </a>
+      <a use:inertia href="/" title="Collections" class="flex font-semibold flex-row group items-center text-sm gap-2">
+        <Icon src={FaSolidSwatchbook} size="20" className="fill-orange-600 group-hover:fill-orange-500"/>
       </a>
       <a use:inertia href="/profile" class="flex font-semibold flex-row group items-center text-sm gap-2">
         <Icon src={FaSolidUserCircle} size="24" className="fill-orange-600 group-hover:fill-orange-500"/>

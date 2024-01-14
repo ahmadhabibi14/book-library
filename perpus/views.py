@@ -107,7 +107,8 @@ def Peminjaman(request):
               perpus_buku.judul AS `buku`,
               perpus_peminjaman.tgl_pinjam,
               perpus_peminjaman.tgl_kembali,
-              perpus_buku.slug
+              perpus_buku.slug,
+              perpus_peminjaman.dikembalikan
             FROM `perpus_peminjaman`
             JOIN perpus_user, perpus_buku
             WHERE perpus_user.id = perpus_peminjaman.user_id
@@ -134,7 +135,7 @@ def Peminjaman(request):
     peminjaman = []
 
   peminjaman_list = [
-    {'id': item[0], 'buku': item[1], 'tgl_pinjam': item[2], 'tgl_kembali': item[3], 'slug': item[4]} for item in sqlData
+    {'id': item[0], 'buku': item[1], 'tgl_pinjam': item[2], 'tgl_kembali': item[3], 'slug': item[4], 'dikembalikan': item[5]} for item in sqlData
   ]
   serial_peminjaman = Serial_Peminjaman(data=peminjaman_list, many=True)
   if serial_peminjaman.is_valid():
