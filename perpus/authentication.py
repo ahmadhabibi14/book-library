@@ -3,11 +3,17 @@ from perpus import settings
 from .common_response import JsonResponseWrapper
 from rest_framework import status
 from django.shortcuts import redirect
+from inertia import render
 
 def JSONWebTokenAuthentication(get_response):
   def middleware(request):
     def renderView():
       return redirect('index')
+    
+    if request.path == '/' and request.method == 'GET':
+      return render(request, '_landingpage', props={
+        'title': 'Temukan buku favoritmu'
+      })
     
     isView = False
     if request.path == '/login' or request.path == '/register':
