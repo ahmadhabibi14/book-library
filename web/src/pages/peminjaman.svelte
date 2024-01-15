@@ -98,5 +98,12 @@
       {/each}
       </tbody>
     </table>
+  {:else}
+  <div class="flex flex-col mt-16 gap-7 justify-center items-center w-full">
+    <div class="w-[310px]">
+      <img src="/static/img/woman-book-2.png" alt="" />
+    </div>
+    <h1 class="font-bold text-zinc-300 text-3xl">Belum ada buku yang dipinjam !!</h1>
+  </div>
   {/if}
 </div>

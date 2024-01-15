@@ -17,6 +17,7 @@ urlpatterns = [
     path('peminjaman', views.Peminjaman, name='peminjaman'),
     path('notifikasi', views.Notifikasi, name='notifikasi'),
     path('profile', views.Profile, name='profile'),
+    path('koleksi', views.Koleksi, name='koleksi'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

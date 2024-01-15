@@ -7,7 +7,6 @@ from rest_framework.views import APIView
 from rest_framework.throttling import AnonRateThrottle
 from .models import *
 from rest_framework import status
-
 from perpus import settings
 from .serializers import *
 from .common_response import JsonResponseWrapper
@@ -203,8 +202,8 @@ class PinjamBuku(APIView):
     
     peminjaman_id = str(uuid.uuid4())
     tgl_kembali = datetime.datetime.utcfromtimestamp(time.time() + 90 * 24 * 60 * 60) # 3 bulan
-    query = '''INSERT INTO perpus_peminjaman (id, tgl_pinjam, tgl_kembali, user_id, buku_id)
-            VALUES (%s, CURRENT_TIMESTAMP, %s, %s, %s)'''
+    query = '''INSERT INTO perpus_peminjaman (id, tgl_pinjam, tgl_kembali, user_id, buku_id, dikembalikan)
+            VALUES (%s, CURRENT_TIMESTAMP, %s, %s, %s, FALSE)'''
     
     try:
       c.execute(query, ( peminjaman_id, tgl_kembali, user_id, buku_id))

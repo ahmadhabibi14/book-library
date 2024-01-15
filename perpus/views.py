@@ -164,7 +164,16 @@ def Profile(request):
     return JsonResponseWrapper.errormethod()
   
   return render(request, 'profile', props={
-    'title': 'Profile'
+    'title': 'Profil'
+  })
+
+@ratelimit(key='user_or_ip', rate='30/m')
+def Koleksi(request):
+  if request.method != 'GET':
+    return JsonResponseWrapper.errormethod()
+  
+  return render(request, 'koleksi', props={
+    'title': 'Koleksi'
   })
 
 # ERROR Pages
