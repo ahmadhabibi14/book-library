@@ -20,7 +20,13 @@ def JWTGetUserData(request) -> dict:
   user_id = decoded_token['id']
 
   userData = {}
-  query = 'SELECT nama, email, jenis_kelamin, alamat, telepon, petugas FROM perpus_user WHERE id = %s'
+  query = '''SELECT nama, email, jenis_kelamin, alamat, telepon, petugas,
+              COUNT(CASE WHEN perpus_peminjaman.dikembalikan = FALSE THEN perpus_peminjaman.id END)
+    	        AS `total_peminjaman`
+            FROM perpus_user
+            LEFT JOIN perpus_peminjaman
+            ON perpus_user.id = perpus_peminjaman.user_id
+            WHERE perpus_user.id = %s'''
   c = connection.cursor()
   try:
     c.execute(query, (user_id,))

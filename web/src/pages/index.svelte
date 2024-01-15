@@ -42,6 +42,8 @@
   onMount(async () => await getBooks());
 
   const init = (el) => el.focus()
+
+  console.log('User: ', user)
 </script>
 
 <svelte:head>

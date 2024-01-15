@@ -23,7 +23,7 @@
           <Icon size="11" src={FaSolidBook} className="fill-orange-600" />
           <span>Buku yang dipinjam</span>
         </div>
-        <span class="font-semibold">13 buku</span>
+        <span class="font-semibold">{user.total_peminjaman} buku</span>
       </div>
     </div>
   </div>

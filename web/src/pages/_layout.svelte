@@ -76,7 +76,7 @@
           </span>
         {/if}
       </a>
-      <a use:inertia href="/" title="Collections" class="flex font-semibold flex-row group items-center text-sm gap-2">
+      <a use:inertia href="/" class="flex font-semibold flex-row group items-center text-sm gap-2">
         <Icon src={FaSolidSwatchbook} size="20" className="fill-orange-600 group-hover:fill-orange-500"/>
       </a>
       <a use:inertia href="/profile" class="flex font-semibold flex-row group items-center text-sm gap-2">
