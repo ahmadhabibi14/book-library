@@ -12,9 +12,7 @@ createInertiaApp({
     const match = comps[`../pages/${name}.svelte`];
     const page = (await match());
 
-    if (name.startsWith('auth')) return Object.assign({layout: undefined}, page);
-    else if (name.startsWith('_404')) return Object.assign({layout: Layout}, page);
-    else if (name.startsWith('_')) return Object.assign({layout: undefined}, page);
+    if (name.startsWith('auth') || name.startsWith('_')) return Object.assign({layout: undefined}, page);
     else return Object.assign({layout: Layout}, page);
   },
   setup({ el, App, props }) {

@@ -18,6 +18,11 @@ def Index(request):
   if request.method != 'GET':
     return JsonResponseWrapper.errormethod()
   
+  if not JWTGetUserID(request):
+    return render(request, '_landingpage', props={
+      'title': 'Temukan buku favoritmu'
+    })
+  
   return render(request, 'index', props={
     'title': 'Beranda',
     'user': JWTGetUserData(request)

@@ -2,16 +2,12 @@ import jwt
 from perpus import settings
 from .common_response import JsonResponseWrapper
 from rest_framework import status
-from inertia import render
+from django.shortcuts import redirect
 
 def JSONWebTokenAuthentication(get_response):
   def middleware(request):
     def renderView():
-      return render(request, '_401', props={
-        'code': status.HTTP_401_UNAUTHORIZED,
-        'status': 'Unauthorized',
-        'message': 'Please login first !',
-      })
+      return redirect('index')
     
     isView = False
     if request.path == '/login' or request.path == '/register':
