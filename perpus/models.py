@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from datetime import datetime
 
 class kelamin(models.TextChoices):
   L = 'L', 'Laki-Laki'
@@ -14,6 +15,7 @@ class User(models.Model):
   telepon = models.CharField(max_length=16)
   password = models.CharField(max_length=255)
   petugas = models.BooleanField(default=False)
+  join_at = models.DateTimeField(default=datetime.now())
 
 class Penulis(models.Model):
   id = models.CharField(primary_key=True, default=uuid.uuid4, max_length=36)

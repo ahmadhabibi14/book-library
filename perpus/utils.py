@@ -20,7 +20,7 @@ def JWTGetUserData(request) -> dict:
   user_id = decoded_token['id']
 
   userData = {}
-  query = '''SELECT nama, email, jenis_kelamin, alamat, telepon, petugas,
+  query = '''SELECT nama, email, jenis_kelamin, alamat, telepon, join_at, petugas,
               COUNT(CASE WHEN perpus_peminjaman.dikembalikan = FALSE THEN perpus_peminjaman.id END)
     	        AS `total_peminjaman`
             FROM perpus_user

@@ -62,7 +62,7 @@
     <label for={id} class="text-sm text-zinc-600 ml-2">
       <span>{label}</span>
       {#if required}
-        <span class="text-red-500"> *</span>
+        <span class="text-red-500 !text-lg"> *</span>
       {/if}
     </label>
     <select

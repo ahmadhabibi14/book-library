@@ -18,6 +18,7 @@ urlpatterns = [
     path('notifikasi', views.Notifikasi, name='notifikasi'),
     path('profile', views.Profile, name='profile'),
     path('koleksi', views.Koleksi, name='koleksi'),
+    path('help', views.Help, name='help'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
@@ -29,7 +30,8 @@ urlpatterns += [
   path('api/books', apis.Books.as_view()),
   path('api/pinjam-buku', apis.PinjamBuku.as_view()),
   path('api/kembalikan-buku', apis.KembalikanBuku.as_view()),
-  path('api/debug-protect', apis.DebugProtect.as_view()),
+  path('api/debug', apis.Debug.as_view()),
+  # path('api/media/book-cover', apis.BookCover.as_view()),
 ]
 
 handler404 = views.Handler404

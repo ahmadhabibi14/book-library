@@ -5,6 +5,7 @@
   import Growl from './components/growl.svelte';
   import axios from 'axios';
   import { onMount } from 'svelte';
+  import { inertia } from '@inertiajs/inertia-svelte';
 
   export let title = '';
   const kelamin = [
@@ -118,7 +119,7 @@
             <span>Register</span>
           {/if}
         </button>
-        <span class="text-sm text-center">Sudah punya akun? <a href="/login" class="text-sky-700 hover:text-sky-500">Login</a></span>
+        <span class="text-sm text-center">Sudah punya akun? <a use:inertia href="/login" class="text-sky-700 hover:text-sky-500">Login</a></span>
       </div>
     </div>
   </main>

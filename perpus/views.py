@@ -176,6 +176,15 @@ def Koleksi(request):
     'title': 'Koleksi'
   })
 
+@ratelimit(key='user_or_ip', rate='30/m')
+def Help(request):
+  if request.method != 'GET':
+    return JsonResponseWrapper.errormethod()
+  
+  return render(request, 'help', props={
+    'title': 'Pusat Bantuan'
+  })
+
 # ERROR Pages
 @ratelimit(key='user_or_ip', rate='30/m')
 def Handler404(request, exception):

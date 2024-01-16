@@ -4,6 +4,7 @@
   import Inputbox from './components/inputbox.svelte';
   import Growl from './components/growl.svelte';
   import axios from 'axios';
+  import { inertia } from '@inertiajs/inertia-svelte';
 
   export let title = '';
   let growl;
@@ -74,7 +75,7 @@
             <span>Login</span>
           {/if}
         </button>
-        <span class="text-sm text-center">Belum punya akun? <a href="/register" class="text-sky-700 hover:text-sky-500">Register</a></span>
+        <span class="text-sm text-center">Belum punya akun? <a use:inertia href="/register" class="text-sky-700 hover:text-sky-500">Register</a></span>
       </div>
     </div>
   </main>

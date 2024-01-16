@@ -57,6 +57,7 @@ MIDDLEWARE = [
   'corsheaders.middleware.CorsMiddleware',
   'django_ratelimit.middleware.RatelimitMiddleware',
   'perpus.authentication.JSONWebTokenAuthentication',
+  'perpus.middleware.ContentTypeMiddleware',
 ]
 
 RATELIMIT_VIEW = 'perpus.views.ratelimited_error'

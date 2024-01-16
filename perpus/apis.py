@@ -230,7 +230,7 @@ class KembalikanBuku(APIView):
   def post(self, request):
     return JsonResponseWrapper.success(message='Berhasil mengembalikan buku !')
 
-class DebugProtect(APIView):
+class Debug(APIView):
   throttle_classes = [AnonRateThrottle]
   def post(self, request):
     return JsonResponseWrapper.created(message='successful !')

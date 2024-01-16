@@ -7,5 +7,5 @@
 </svelte:head>
 
 <div>
-  <h1>Koleksi</h1>
+  <h1>Pusat Bantuan</h1>
 </div>
