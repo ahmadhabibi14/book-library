@@ -25,8 +25,8 @@
 
   let eventSource;
   function startSSE() {
-    eventSource = new EventSource('/api/debug-sse');
-    eventSource.onmessage = event => console.log(event.data);
+    eventSource = new EventSource('/api/notifikasi');
+    eventSource.onmessage = event => console.log(JSON.parse(event.data));
   }
 
   onMount(() => {

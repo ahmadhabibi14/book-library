@@ -233,21 +233,29 @@ class KembalikanBuku(APIView):
   def post(self, request):
     return JsonResponseWrapper.success(message='Berhasil mengembalikan buku !')
 
+async def Notifikasi(request):
+  async def event_stream():
+    while True:
+      notification = {
+        'message': f"{random.choice(['🎉', '💡', '🚀', '❤️', '💀', '😹', '👨🏻‍💻', '🤖', '🤡'])}"
+      }
+      yield f"data: {json.dumps(notification)}\n\n"
+      await asyncio.sleep(2)
+  
+  return StreamingHttpResponse(event_stream(), content_type='text/event-stream')
+
 class Debug(APIView):
   throttle_classes = [AnonRateThrottle]
   def post(self, request):
     return JsonResponseWrapper.created(message='successful !')
 
 async def DebugSSE(request):
-  """
-  Sends server-sent events to the client.
-  """
   async def event_stream():
     emojis = ["🚀", "🐎", "🌅", "🦾", "🍇"]
     i = 0
     while True:
       yield f'data: {random.choice(emojis)} {i}\n\n'
       i += 1
-      await asyncio.sleep(1)
+      await asyncio.sleep(5)
 
   return StreamingHttpResponse(event_stream(), content_type='text/event-stream')
