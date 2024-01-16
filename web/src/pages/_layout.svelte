@@ -2,6 +2,7 @@
   import { inertia } from '@inertiajs/inertia-svelte';
   import { router } from '@inertiajs/svelte';
   import NProgress from 'nprogress';
+  import { onMount } from 'svelte';
 
   import Icon from 'svelte-icons-pack';
   import FaSolidUserCircle from 'svelte-icons-pack/fa/FaSolidUserCircle'
@@ -16,11 +17,22 @@
 
   NProgress.configure({ easing: 'ease', speed: 500 });
 
-  router.on('start', () => NProgress.start())
+  router.on('start', () => NProgress.start());
   router.on('finish', () => {
     NProgress.done()
     path = window.location.pathname;
-  })
+  });
+
+  let eventSource;
+  function startSSE() {
+    eventSource = new EventSource('/api/debug-sse');
+    eventSource.onmessage = event => console.log(event.data);
+  }
+
+  onMount(() => {
+    startSSE();
+  });
+
 </script>
 
 <section class="w-full min-h-screen text-zinc-700 bg-zinc-50">

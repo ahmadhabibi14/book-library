@@ -3,6 +3,8 @@ import uuid
 import json
 import time
 import jwt
+import asyncio
+import random
 from rest_framework.views import APIView
 from rest_framework.throttling import AnonRateThrottle
 from .models import *
@@ -13,6 +15,7 @@ from .common_response import JsonResponseWrapper
 from .utils import hashPassword, verifyPassword, JWTGetUserID
 from .models import *
 from django.db import connection, OperationalError, Error
+from django.http import StreamingHttpResponse
 
 class Register(APIView):
   throttle_classes = [AnonRateThrottle]
@@ -234,3 +237,17 @@ class Debug(APIView):
   throttle_classes = [AnonRateThrottle]
   def post(self, request):
     return JsonResponseWrapper.created(message='successful !')
+
+async def DebugSSE(request):
+  """
+  Sends server-sent events to the client.
+  """
+  async def event_stream():
+    emojis = ["🚀", "🐎", "🌅", "🦾", "🍇"]
+    i = 0
+    while True:
+      yield f'data: {random.choice(emojis)} {i}\n\n'
+      i += 1
+      await asyncio.sleep(1)
+
+  return StreamingHttpResponse(event_stream(), content_type='text/event-stream')

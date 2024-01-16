@@ -31,6 +31,7 @@ urlpatterns += [
   path('api/pinjam-buku', apis.PinjamBuku.as_view()),
   path('api/kembalikan-buku', apis.KembalikanBuku.as_view()),
   path('api/debug', apis.Debug.as_view()),
+  path('api/debug-sse', apis.DebugSSE),
   # path('api/media/book-cover', apis.BookCover.as_view()),
 ]
 
