@@ -240,7 +240,7 @@ async def Notifikasi(request):
         'message': f"{random.choice(['🎉', '💡', '🚀', '❤️', '💀', '😹', '👨🏻‍💻', '🤖', '🤡'])}"
       }
       yield f"data: {json.dumps(notification)}\n\n"
-      await asyncio.sleep(2)
+      await asyncio.sleep(60)
   
   return StreamingHttpResponse(event_stream(), content_type='text/event-stream')
 
