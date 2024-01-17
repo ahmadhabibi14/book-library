@@ -2,12 +2,6 @@
 
 ![My Dotties](/web/assets/img/Covers.png)
 
-#### Migration
-```shell
-python manage.py makemigrations perpus
-python manage.py migrate perpus
-```
-
 ##### Connect Docker
 ```shell
 docker-compose up -d
@@ -35,6 +29,12 @@ make install-dep
 make update-dep
 ```
 
+#### Migration
+```shell
+python manage.py makemigrations perpus
+python manage.py migrate perpus
+```
+
 #### Install NodeJS dependencies
 ```shell
 npm install
@@ -50,8 +50,9 @@ cd scripts
 
 ##### Start development
 ```shell
+# Run Django server
 ./start.sh
 
-# And run Vite + Svelte
+# And run Vite + Svelte in seperate terminal
 pnpm dev
 ```
