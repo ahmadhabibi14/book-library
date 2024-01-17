@@ -1,5 +1,5 @@
 setup-python:
-	python3 -m pip install pip==21.3.1
+	pip install --upgrade pip
 	python -m venv .venv
 	source .venv/bin/activate
 	pip install -r requirements.txt
