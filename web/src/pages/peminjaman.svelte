@@ -1,6 +1,6 @@
 <script>
   import Icon from 'svelte-icons-pack';
-  import RiSystemShareBoxLine from "svelte-icons-pack/ri/RiSystemShareBoxLine";
+  import RiSystemShareBoxLine from 'svelte-icons-pack/ri/RiSystemShareBoxLine';
   import RiSystemLoader4Fill from 'svelte-icons-pack/ri/RiSystemLoader4Fill';
 
   import { onMount } from 'svelte';

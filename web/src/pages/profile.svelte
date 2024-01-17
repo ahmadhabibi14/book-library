@@ -4,6 +4,7 @@
   import AiOutlineSetting from 'svelte-icons-pack/ai/AiOutlineSetting';
   import RiSystemLockPasswordLine from 'svelte-icons-pack/ri/RiSystemLockPasswordLine';
   import RiSystemLogoutBoxRLine from 'svelte-icons-pack/ri/RiSystemLogoutBoxRLine';
+  import RiSystemLoader4Fill from 'svelte-icons-pack/ri/RiSystemLoader4Fill';
   export let title = '';
 
   const MODE_ACCOUNT = `account`, MODE_SETTINGS = `settings`, MODE_PASSWORD = `password`;
@@ -27,8 +28,14 @@
     }
   ]
 
+  let showLogoutPopup = false;
   function logout() {
-    console.log('logout');
+    showLogoutPopup = true;
+    document.cookie = `access_token=; expires=2010-05-08T08:46:04.844Z; path=/;`;
+    console.log('Cookie: ', document.cookie)
+    setTimeout(()=>{
+      window.location.href = '/';
+    }, 1200);
   }
 </script>
 
@@ -36,6 +43,14 @@
   <title>{title} | ePerpus</title>
 </svelte:head>
 
+{#if showLogoutPopup}
+  <div class="top-0 right-0 bottom-0 left-0 h-full w-full bg-zinc-950/30 flex justify-center fixed z-[99999]">
+    <div class="bg-white w-[300px] flex flex-col justify-center items-center gap-2 p-5 rounded shadow-lg h-fit mt-24">
+      <Icon size="40" src={RiSystemLoader4Fill} className="fill-sky-600 -mt-1 animate-spin" />
+      <span>Loging out...</span>
+    </div>
+  </div>
+{/if}
 <div class="flex flex-row gap-5 relative">
   <div class="text-sm w-60 bg-white rounded p-5 flex flex-col gap-4 shadow sticky top-24">
     {#if MENU && MENU.length}

@@ -1,4 +1,4 @@
-import datetime
+from datetime import timedelta, datetime
 import uuid
 import json
 import time
@@ -57,9 +57,9 @@ class Register(APIView):
       
       token = jwt.encode({
         'id': user_id,
-        'iat': datetime.datetime.utcnow(),
-        'nbf': datetime.datetime.utcnow() + datetime.timedelta(minutes=-5),
-        'exp': datetime.datetime.utcnow() + datetime.timedelta(weeks=16)
+        'iat': datetime.utcnow(),
+        'nbf': datetime.utcnow() + timedelta(minutes=-5),
+        'exp': datetime.utcnow() + timedelta(weeks=16)
       }, settings.SECRET_KEY)
 
       resp = JsonResponseWrapper.created(
@@ -120,9 +120,9 @@ class Login(APIView):
 
     token = jwt.encode({
       'id': sqlData[2],
-      'iat': datetime.datetime.utcnow(),
-      'nbf': datetime.datetime.utcnow() + datetime.timedelta(minutes=-5),
-      'exp': datetime.datetime.utcnow() + datetime.timedelta(weeks=16)
+      'iat': datetime.utcnow(),
+      'nbf': datetime.utcnow() + timedelta(minutes=-5),
+      'exp': datetime.utcnow() + timedelta(weeks=16)
     }, settings.SECRET_KEY)
 
     resp = JsonResponseWrapper.success(
