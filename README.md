@@ -35,6 +35,13 @@ make install-dep
 make update-dep
 ```
 
+#### Install NodeJS dependencies
+```shell
+npm install
+# OR
+pnpm install
+```
+
 ##### Import books
 ```shell
 cd scripts
@@ -43,5 +50,8 @@ cd scripts
 
 ##### Start development
 ```shell
-python manage.py runserver
+./start.sh
+
+# And run Vite + Svelte
+pnpm dev
 ```
