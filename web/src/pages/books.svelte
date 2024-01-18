@@ -2,7 +2,6 @@
   import { inertia } from '@inertiajs/inertia-svelte';
   import Icon from 'svelte-icons-pack';
   import RiSystemLoader4Fill from 'svelte-icons-pack/ri/RiSystemLoader4Fill';
-
   import axios from 'axios';
   import { onMount } from 'svelte';
   import Growl from './components/growl.svelte';

@@ -31,11 +31,10 @@
   let showLogoutPopup = false;
   function logout() {
     showLogoutPopup = true;
-    document.cookie = `access_token=; expires=2010-05-08T08:46:04.844Z; path=/;`;
-    console.log('Cookie: ', document.cookie)
-    setTimeout(()=>{
-      window.location.href = '/';
-    }, 1200);
+    var expiry = new Date(), cookieName = 'access_token';
+    expiry.setTime(expiry.getTime() - 3600);
+    document.cookie = cookieName + "=; expires=" + expiry.toUTCString() + "; path=/"
+    setTimeout(()=> window.location.href = '/', 1200);
   }
 </script>
 
@@ -52,12 +51,12 @@
   </div>
 {/if}
 <div class="flex flex-row gap-5 relative">
-  <div class="text-sm w-60 bg-white rounded p-5 flex flex-col gap-4 shadow sticky top-24">
+  <div class="w-60 bg-white rounded p-5 flex flex-col gap-4 shadow sticky top-24">
     {#if MENU && MENU.length}
       {#each MENU as m}
-        <button class="flex flex-row justify-between w-full items-centerh-fit hover:underline" on:click={() => MODE = m.mode}>
+        <button class="flex flex-row justify-between w-full items-center h-fit hover:underline" on:click={() => MODE = m.mode}>
           <div class="flex flex-row gap-3 items-center">
-            <Icon size="18" src={m.icon} className="fill-orange-600 -mt-1" />
+            <Icon size="22" src={m.icon} className="fill-orange-600 -mt-1" />
             <span>{m.title}</span>
           </div>
           {#if MODE === m.mode}
@@ -68,7 +67,7 @@
     {/if}
     <button class="flex flex-row justify-between w-full items-centerh-fit hover:underline" on:click={logout}>
       <div class="flex flex-row gap-3 items-center">
-        <Icon size="18" src={RiSystemLogoutBoxRLine} className="fill-orange-600 -mt-1" />
+        <Icon size="22" src={RiSystemLogoutBoxRLine} className="fill-orange-600 -mt-1" />
         <span>Logout</span>
       </div>
     </button>

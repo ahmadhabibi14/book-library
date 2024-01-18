@@ -2,50 +2,56 @@
   import Icon from 'svelte-icons-pack';
   import RiSystemShareBoxLine from 'svelte-icons-pack/ri/RiSystemShareBoxLine';
   import RiSystemLoader4Fill from 'svelte-icons-pack/ri/RiSystemLoader4Fill';
-
   import { onMount } from 'svelte';
   import { formatDate } from './components/xFormatter.js';
   import { inertia } from '@inertiajs/inertia-svelte';
   import axios from 'axios';
   import Growl from './components/growl.svelte';
+  import { writable } from 'svelte/store';
 
   export let title = '';
-
   /**
     * @typedef {Object} pinjam
     * @property {string} buku
     * @property {string} id
     * @property {string} slug
-    * @property {string} tgl_kembali
-    * @property {string} tgl_pinjam
-    * @property {string} dikembalikan
+    * @property {Date} tgl_kembali
+    * @property {Date} tgl_pinjam
+    * @property {boolean} dikembalikan
     */
-  /**
-    * @type {Array<pinjam>}
-    */
+  /** @type {Array<pinjam>} */
   export let peminjaman = [];
+  let W_peminjaman = writable(peminjaman);
   let growl;
 
-  onMount(() => {
-    console.log('peminjaman', peminjaman)
-  })
+  onMount(() => $W_peminjaman = peminjaman )
 
+  const updatePeminjaman = function(/** @type {string} */ id) {
+    let pem = $W_peminjaman;
+    for (var i in pem) if (pem[i].id === id) pem[i].dikembalikan = true;
+    return pem
+  }
+
+  /** @type {boolean} */
   let isSubmitKembalikan = false;
-  async function kembalikanBuku() {
+  async function kembalikanBuku(/** @type {pinjam} */ peminjaman) {
     isSubmitKembalikan = true;
-    await axios.post('/api/kembalikan-buku', {
-      Headers: { 'Content-Type': 'application/json' }
+    let id_resp = ''
+    await axios({
+      method: 'post',
+      url: '/api/kembalikan-buku',
+      data: { peminjaman_id: peminjaman.id },
+      headers: { 'Content-Type': 'application/json' },
     }).then((res) => {
       isSubmitKembalikan = false;
-      growl.showSuccess(res.data.message)
-      setTimeout(() => {
-        window.location.reload();
-      }, 1300)
+      id_resp = res.data.data
+      $W_peminjaman = updatePeminjaman(id_resp);
+      growl.showSuccess(res.data.message);
     }).catch((err) => {
       isSubmitKembalikan = false;
-      growl.showError(err.response.data.errors)
-      console.log(err.response)
-    })
+      growl.showError(err.response.data.message)
+      console.log(err.response);
+    });
   }
 </script>
 
@@ -56,7 +62,7 @@
 <Growl bind:this={growl} />
 
 <div>
-  {#if peminjaman && peminjaman.length}
+  {#if $W_peminjaman && $W_peminjaman.length}
     <table class="w-full text-left text-sm shadow-md bg-white rounded-md overflow-hidden">
       <thead class="bg-sky-400/10 text-sky-700">
         <tr class="border-b border-sky-400/30">
@@ -73,7 +79,7 @@
         </tr>
       </thead>
       <tbody>
-      {#each peminjaman as pinjam, idx}
+      {#each $W_peminjaman as pinjam, idx}
         <tr>
           <td class="py-3 px-4 max-w-10 font-semibold">{idx+1}</td>
           <td class="py-3 px-4">
@@ -89,7 +95,7 @@
               <span>Dikembalikan</span>
             {/if}
             {#if !pinjam.dikembalikan}
-              <button on:click={kembalikanBuku} class="py-1 px-3 text-xs rounded-full bg-sky-700 hover:bg-sky-600 text-white">
+              <button on:click={()=>kembalikanBuku(pinjam)} class="py-1 px-3 text-xs rounded-full bg-sky-700 hover:bg-sky-600 text-white">
                 Kembalikan
               </button>
             {/if}

@@ -5,6 +5,7 @@ from inertia import render
 from .utils import JWTGetUserData, JWTGetUserID
 from django.db import connection, OperationalError, Error
 from .serializers import *
+from perpus import settings
 
 def ratelimited_error(request, exception):
   return JsonResponseWrapper.error(
@@ -46,7 +47,18 @@ def About(request):
   if request.method != 'GET':
     return JsonResponseWrapper.errormethod()
   
-  return render(request, 'about')
+  return render(request, 'about', props={
+    'title': 'Tentang Kami'
+  })
+
+@ratelimit(key='user_or_ip', rate='30/m')
+def Contact(request):
+  if request.method != 'GET':
+    return JsonResponseWrapper.errormethod()
+  
+  return render(request, 'contact', props={
+    'title': 'Kontak Kami'
+  })
 
 @ratelimit(key='user_or_ip', rate='30/m')
 def Books(request):
@@ -101,6 +113,10 @@ def Peminjaman(request):
     return JsonResponseWrapper.errormethod()
   
   user_id = JWTGetUserID(request)
+  if user_id == '':
+    resp = JsonResponseWrapper.error(message="User ID not found, login required !", errors='Unauthorized', status_code=status.HTTP_401_UNAUTHORIZED)
+    resp.delete_cookie(settings.JWT['AUTH_COOKIE'])
+
   peminjaman = []
   query = '''SELECT
               perpus_peminjaman.id AS `id`,
@@ -114,6 +130,7 @@ def Peminjaman(request):
             WHERE perpus_user.id = perpus_peminjaman.user_id
 	            AND perpus_buku.id = perpus_peminjaman.buku_id
               AND perpus_user.id = %s
+            ORDER BY perpus_peminjaman.tgl_pinjam DESC
           '''
   
   c = connection.cursor()

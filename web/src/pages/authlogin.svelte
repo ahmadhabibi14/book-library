@@ -37,7 +37,7 @@
 <div class="w-full min-h-screen bg-zinc-100 text-zinc-800">
   <main class="flex flex-row justify-between w-[70%] items-center h-fit mx-auto py-20">
     <div class="w-[400px]">
-      <img src="/static/img/woman-book.png" alt="" />
+      <img src="/static/img/man-book.png" alt="" />
     </div>
     <div class="w-[450px] bg-white shadow-lg flex flex-col gap-4 p-5 rounded-md">
       <header class="w-full">

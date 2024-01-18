@@ -2,17 +2,24 @@ import jwt
 from perpus import settings
 from .common_response import JsonResponseWrapper
 from rest_framework import status
-from django.shortcuts import redirect
 from inertia import render
 
 def JSONWebTokenAuthentication(get_response):
   def middleware(request):
     def renderView():
       if request.path == '/' and request.method == 'GET':
-        return render(request, '_landingpage', props={
+        resp = render(request, '_landingpage', props={
           'title': 'Temukan buku favoritmu'
         })
-      return redirect('index')
+        resp.delete_cookie(settings.JWT['AUTH_COOKIE'])
+        return resp
+      
+      resp = render(request, '_404', props={
+        'title': '404 Page not found'
+      })
+      resp.delete_cookie(settings.JWT['AUTH_COOKIE'])
+      resp.status_code = status.HTTP_404_NOT_FOUND
+      return resp
     
     isView = False
     if request.path == '/login' or request.path == '/register':

@@ -3,7 +3,6 @@
   import Icon from 'svelte-icons-pack';
   import RiSystemLoader4Fill from 'svelte-icons-pack/ri/RiSystemLoader4Fill';
   import BsSearch from 'svelte-icons-pack/bs/BsSearch';
-
   import axios from 'axios';
   import { onMount } from 'svelte';
   import Growl from './components/growl.svelte';
@@ -14,7 +13,6 @@
   export let title = '';
 
   let growl;
-
   let books = [], isLoadBook = false;
   let OFFSET = 0, LIMIT = 10;
 
@@ -41,9 +39,7 @@
 
   onMount(async () => await getBooks());
 
-  const init = (el) => el.focus()
-
-  console.log('User: ', user)
+  const init = (/** @type {HTMLInputElement} */ el) => el.focus();
 </script>
 
 <svelte:head>

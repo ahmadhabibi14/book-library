@@ -2,7 +2,6 @@
   import Icon from 'svelte-icons-pack';
   import IoBagHandle from 'svelte-icons-pack/io/IoBagHandle';
   import RiSystemLoader4Fill from 'svelte-icons-pack/ri/RiSystemLoader4Fill';
-
   import { onMount } from 'svelte';
   import { formatDate } from './components/xFormatter.js';
   import Growl from './components/growl.svelte';
@@ -10,16 +9,13 @@
 
   export let book = {};
   let title = 'Book';
-  let growl;
+  let growl, deskripsi = '';
 
-  let deskripsi = '';
   onMount(() => {
     if (book.deskripsi) {
       deskripsi = book.deskripsi;
       title = `${book.judul}`;
     }
-
-    console.log('book', book);
   })
 
   let isPinjamBuku = false;
@@ -29,7 +25,7 @@
       method: 'post',
       url: '/api/pinjam-buku',
       data: { buku_id: book.id },
-      headers: { 'Content-Type': 'multipart/form-data' },
+      headers: { 'Content-Type': 'application/json' },
     }).then((res) => {
       isPinjamBuku = false;
       console.log(res.data);
@@ -56,7 +52,6 @@
       <h1 class="font-bold text-zinc-300 text-3xl">Buku tidak ditemukan !!</h1>
     </div>
   {/if}
-
   {#if Object.keys(book).length !== 0}
     <div class="grid grid-cols-4 gap-10 relative">
       <div class="col-span-1 flex flex-col gap-4 items-end h-fit sticky top-24">

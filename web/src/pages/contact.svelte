@@ -7,5 +7,5 @@
 </svelte:head>
 
 <div>
-  <h1>Tentang</h1>
+  <h1>Kontak ....</h1>
 </div>

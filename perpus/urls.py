@@ -12,6 +12,7 @@ urlpatterns = [
     path('login', views.Login, name='login'),
     path('register', views.Register, name='register'),
     path('about', views.About, name='about'),
+    path('contact', views.Contact, name='contact'),
     path('books', views.Books, name='books'),
     path('books/<str:id>/', views.Book, name='book'),
     path('peminjaman', views.Peminjaman, name='peminjaman'),

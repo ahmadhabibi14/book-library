@@ -187,11 +187,16 @@ class PinjamBuku(APIView):
   def post(self, request):
     user_id = JWTGetUserID(request)
     if user_id == '':
-      return JsonResponseWrapper.error(message="User ID not found, login required !", errors='Unauthorized', status_code=status.HTTP_401_UNAUTHORIZED)
+      resp = JsonResponseWrapper.error(message="User ID not found, login required !", errors='Unauthorized', status_code=status.HTTP_401_UNAUTHORIZED)
+      resp.delete_cookie(settings.JWT['AUTH_COOKIE'])
     
     c = connection.cursor()
 
-    buku_id = request.POST.get('buku_id', None)
+    body = json.loads(request.body.decode("utf-8"))
+    buku_id = body['buku_id']
+    if buku_id == None or '':
+      return JsonResponseWrapper.error(message="Buku id tidak ditemukan !", errors='Invalid payload', status_code=status.HTTP_400_BAD_REQUEST)
+     
     isError = False
     try:
       c.execute('SELECT user_id, buku_id FROM perpus_peminjaman WHERE user_id = %s AND buku_id = %s', (user_id, buku_id,))
@@ -204,7 +209,7 @@ class PinjamBuku(APIView):
       isError = False
     
     peminjaman_id = str(uuid.uuid4())
-    tgl_kembali = datetime.datetime.utcfromtimestamp(time.time() + 90 * 24 * 60 * 60) # 3 bulan
+    tgl_kembali = datetime.utcfromtimestamp(time.time() + 90 * 24 * 60 * 60) # 3 bulan
     query = '''INSERT INTO perpus_peminjaman (id, tgl_pinjam, tgl_kembali, user_id, buku_id, dikembalikan)
             VALUES (%s, CURRENT_TIMESTAMP, %s, %s, %s, FALSE)'''
     
@@ -231,7 +236,41 @@ class PinjamBuku(APIView):
 class KembalikanBuku(APIView):
   throttle_classes = [AnonRateThrottle]
   def post(self, request):
-    return JsonResponseWrapper.success(message='Berhasil mengembalikan buku !')
+    user_id = JWTGetUserID(request)
+    if user_id == '':
+      resp = JsonResponseWrapper.error(message="User ID not found, login required !", errors='Unauthorized', status_code=status.HTTP_401_UNAUTHORIZED)
+      resp.delete_cookie(settings.JWT['AUTH_COOKIE'])
+    
+    c = connection.cursor()
+    body = json.loads(request.body.decode("utf-8"))
+    peminjaman_id = body['peminjaman_id']
+    if peminjaman_id == None or '':
+      return JsonResponseWrapper.error(message="Peminjaman id tidak ditemukan !", errors='Invalid payload', status_code=status.HTTP_400_BAD_REQUEST)
+
+    isError = False
+    try:
+      c.execute('SELECT id FROM perpus_peminjaman WHERE id = %s', (peminjaman_id,))
+      sqlData = c.fetchone()
+      if sqlData == None:
+        c.close()
+        return JsonResponseWrapper.error(message=f"Tidak ada peminjaman dengan ID: {peminjaman_id} !", errors='Invalid payload', status_code=status.HTTP_409_CONFLICT)
+      pass
+    except Exception as e:
+      isError = False
+    
+    query = '''UPDATE perpus_peminjaman SET dikembalikan = TRUE WHERE id = %s'''
+    try:
+      c.execute(query, ( peminjaman_id,))
+      pass
+    except Exception as e:
+      isError = True
+    finally:
+      c.close()
+      
+    if isError:
+      return JsonResponseWrapper.errorserver(message='Tidak bisa mengembalikan buku !', errors='Unknown error')
+    
+    return JsonResponseWrapper.success(message='Berhasil mengembalikan buku !', data=peminjaman_id)
 
 async def Notifikasi(request):
   async def event_stream():
