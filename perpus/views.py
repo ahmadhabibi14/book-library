@@ -171,8 +171,42 @@ def Notifikasi(request):
   if request.method != 'GET':
     return JsonResponseWrapper.errormethod()
   
+  user_id = JWTGetUserID(request)
+  query = '''SELECT id, pesan, tanggal, dibaca
+          FROM perpus_notifikasi
+          WHERE perpus_notifikasi.user_id = %s AND tanggal <= NOW()
+          ORDER BY tanggal DESC'''
+  c = connection.cursor()
+  isError = False; sqlData = None
+  try:
+    c.execute(query, (user_id,))
+    sqlData = c.fetchall()
+    pass
+  except OperationalError as e:
+    isError = True
+  except Error as e:
+    isError = True
+  except:
+    isError = True
+  finally:
+    c.close()
+  
+  notifikasi = []
+  if sqlData == None or isError == True:
+    notifikasi = []
+  
+  notifikasi_list = [
+    {'id': item[0], 'pesan': item[1], 'tanggal': item[2], 'dibaca': item[3]} for item in sqlData
+  ]
+  serial_notif = Serial_Notifikasi(data=notifikasi_list, many=True)
+  if serial_notif.is_valid():
+    notifikasi = serial_notif.data
+  else:
+    notifikasi = []
+
   return render(request, 'notifikasi', props={
-    'title': 'Notifikasi'
+    'title': 'Notifikasi',
+    'notifikasi': notifikasi
   })
 
 @ratelimit(key='user_or_ip', rate='30/m')

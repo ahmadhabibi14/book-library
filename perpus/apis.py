@@ -217,7 +217,7 @@ class PinjamBuku(APIView):
     
     try:
       c.execute(query, ( peminjaman_id, tgl_kembali, user_id, buku_id))
-      c.execute(query2, ( notifikasi_id, 'Buku yang anda pinjam melewati batas waktu !!', tgl_kembali, user_id,))
+      c.execute(query2, ( notifikasi_id, f"Buku dengan peminjaman ID: {peminjaman_id} telah melewati batas waktu !!", tgl_kembali, user_id,))
       pass
     except OperationalError as e:
       print(e)
@@ -244,12 +244,12 @@ class KembalikanBuku(APIView):
       resp = JsonResponseWrapper.error(message="User ID not found, login required !", errors='Unauthorized', status_code=status.HTTP_401_UNAUTHORIZED)
       resp.delete_cookie(settings.JWT['AUTH_COOKIE'])
     
-    c = connection.cursor()
     body = json.loads(request.body.decode("utf-8"))
     peminjaman_id = body['peminjaman_id']
     if peminjaman_id == None or '':
       return JsonResponseWrapper.error(message="Peminjaman id tidak ditemukan !", errors='Invalid payload', status_code=status.HTTP_400_BAD_REQUEST)
 
+    c = connection.cursor()
     isError = False
     try:
       c.execute('SELECT id FROM perpus_peminjaman WHERE id = %s', (peminjaman_id,))
@@ -305,6 +305,47 @@ class TotalNotifikasi(APIView):
       return JsonResponseWrapper.errorserver(message="Cannot get notifivation !", errors=errorState)
     
     return JsonResponseWrapper.success(data=notification, message="Success !")
+
+class HapusNotifikasi(APIView):
+  def post(self, request):
+    user_id = JWTGetUserID(request)
+    if user_id == '':
+      resp = JsonResponseWrapper.error(message="User ID not found, login required !", errors='Unauthorized', status_code=status.HTTP_401_UNAUTHORIZED)
+      resp.delete_cookie(settings.JWT['AUTH_COOKIE'])
+    
+    body = json.loads(request.body.decode("utf-8"))
+    notifikasi_id = body['notifikasi_id']
+    if notifikasi_id == None or '':
+      return JsonResponseWrapper.error(message="Notifikasi id tidak ditemukan !", errors='Invalid payload', status_code=status.HTTP_400_BAD_REQUEST)
+    
+    c = connection.cursor()
+    isError = False
+    try:
+      c.execute('SELECT id FROM perpus_notifikasi WHERE id = %s', (notifikasi_id,))
+      sqlData = c.fetchone()
+      if sqlData == None:
+        c.close()
+        return JsonResponseWrapper.error(message=f"Tidak ada Notifikasi dengan ID: {notifikasi_id} !", errors='Invalid payload', status_code=status.HTTP_409_CONFLICT)
+      pass
+    except Exception as e:
+      isError = False
+    
+    query = '''UPDATE perpus_notifikasi SET dibaca = TRUE WHERE id = %s AND user_id = %s'''
+    try:
+      c.execute(query, ( notifikasi_id, user_id,))
+      pass
+    except Exception as e:
+      isError = True
+    finally:
+      c.close()
+      
+    if isError:
+      return JsonResponseWrapper.errorserver(message='Tidak bisa menghapus notifikasi !', errors='Unknown error')
+    
+    return JsonResponseWrapper.success(message='Berhasil menghapus notifikasi !', data=notifikasi_id)
+
+
+    
 
 class Debug(APIView):
   throttle_classes = [AnonRateThrottle]

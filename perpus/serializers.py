@@ -36,3 +36,9 @@ class Serial_Peminjaman(serializers.Serializer):
   tgl_kembali = serializers.DateTimeField()
   slug = serializers.CharField()
   dikembalikan = serializers.BooleanField()
+
+class Serial_Notifikasi(serializers.Serializer):
+  id = serializers.CharField()
+  pesan = serializers.CharField()
+  tanggal = serializers.DateTimeField()
+  dibaca = serializers.BooleanField()
