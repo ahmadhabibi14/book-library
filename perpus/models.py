@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 from datetime import datetime
+from django.utils import timezone
 
 class kelamin(models.TextChoices):
   L = 'L', 'Laki-Laki'
@@ -15,7 +16,7 @@ class User(models.Model):
   telepon = models.CharField(max_length=16)
   password = models.CharField(max_length=255)
   petugas = models.BooleanField(default=False)
-  join_at = models.DateTimeField(default=datetime.now())
+  join_at = models.DateTimeField(default=timezone.now)
 
 class Penulis(models.Model):
   id = models.CharField(primary_key=True, default=uuid.uuid4, max_length=36)
@@ -41,6 +42,6 @@ class Peminjaman(models.Model):
 class Notifikasi(models.Model):
   id = models.CharField(primary_key=True, default=uuid.uuid4, max_length=36)
   pesan = models.TextField(default='Tidak ada pesan notifikasi')
-  tanggal = models.DateTimeField(default=datetime.now())
+  tanggal = models.DateTimeField(default=timezone.now)
   dibaca = models.BooleanField(default=False)
   user = models.ForeignKey(User, on_delete=models.CASCADE)

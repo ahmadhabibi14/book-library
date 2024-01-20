@@ -17,6 +17,10 @@ migration:
 	python manage.py makemigrations perpus
 	python manage.py migrate
 
+build:
+	pnpm build
+	python manage.py collectstatic
+
 setup-linux:
 	sudo apt update \
 	sudo apt install \

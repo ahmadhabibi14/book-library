@@ -185,10 +185,12 @@ STATIC_URL = '/static/'
 # Where ViteJS assets are built.
 DJANGO_VITE_ASSETS_PATH = BASE_DIR / 'web' / 'dist'
 DJANGO_VITE_DEV_MODE = True
+if os.environ.get('WEB_ENV') == 'prod':
+  DJANGO_VITE_DEV_MODE = False
 DJANGO_VITE_DEV_SERVER_PORT = 3000
 
 # Name of static files folder (after called python manage.py collectstatic)
-STATIC_ROOT = BASE_DIR / 'web' / 'dist' / '.vite' 
+STATIC_ROOT = BASE_DIR
 
 # Include DJANGO_VITE_ASSETS_PATH into STATICFILES_DIRS to be copied inside
 # when run command python manage.py collectstatic

@@ -56,3 +56,7 @@ cd scripts
 # And run Vite + Svelte in seperate terminal
 pnpm dev
 ```
+
+##### How to deploy ?
+
+Im still learning... that's gotta be hard
