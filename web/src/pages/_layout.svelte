@@ -3,18 +3,16 @@
   import { router } from '@inertiajs/svelte';
   import NProgress from 'nprogress';
   import { onMount } from 'svelte';
-
+  import axios from 'axios';
   import Icon from 'svelte-icons-pack';
   import FaSolidUserCircle from 'svelte-icons-pack/fa/FaSolidUserCircle'
   import BsSearch from 'svelte-icons-pack/bs/BsSearch';
   import IoNotifications from 'svelte-icons-pack/io/IoNotifications';
   import FaSolidSwatchbook from 'svelte-icons-pack/fa/FaSolidSwatchbook';
   import Footer from './partials/footer.svelte';
-
-  let notifTotal = 0;
+  
   let path = '/';
   $: path = window.location.pathname;
-
   NProgress.configure({ easing: 'ease', speed: 500 });
 
   router.on('start', () => NProgress.start());
@@ -23,15 +21,20 @@
     path = window.location.pathname;
   });
 
-  let eventSource;
-  function startSSE() {
-    eventSource = new EventSource('/api/notifikasi');
-    eventSource.onmessage = event => console.log(JSON.parse(event.data));
+  let notifTotal = 0;
+  async function getTotalNotifikasi() {
+    await axios.post('/api/total-notifikasi',
+      {Headers: { 'Content-Type': 'application/json' }}
+    ).then((res) => {
+      notifTotal = res.data.data.total_notifikasi;
+    }).catch((err) => {
+      console.log(err.response);
+    })
   }
 
-  onMount(() => {
-    startSSE();
-  });
+  onMount( async ()=> {
+    await getTotalNotifikasi();
+  })
 
 </script>
 

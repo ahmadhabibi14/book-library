@@ -31,10 +31,9 @@ urlpatterns += [
   path('api/books', apis.Books.as_view()),
   path('api/pinjam-buku', apis.PinjamBuku.as_view()),
   path('api/kembalikan-buku', apis.KembalikanBuku.as_view()),
-  path('api/notifikasi', apis.Notifikasi),
+  path('api/total-notifikasi', apis.TotalNotifikasi.as_view()),
   path('api/debug', apis.Debug.as_view()),
   path('api/debug-sse', apis.DebugSSE),
-  # path('api/media/book-cover', apis.BookCover.as_view()),
 ]
 
 handler404 = views.Handler404

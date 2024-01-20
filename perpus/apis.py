@@ -208,13 +208,16 @@ class PinjamBuku(APIView):
     except Exception as e:
       isError = False
     
-    peminjaman_id = str(uuid.uuid4())
+    peminjaman_id = str(uuid.uuid4()); notifikasi_id = str(uuid.uuid4())
     tgl_kembali = datetime.utcfromtimestamp(time.time() + 90 * 24 * 60 * 60) # 3 bulan
     query = '''INSERT INTO perpus_peminjaman (id, tgl_pinjam, tgl_kembali, user_id, buku_id, dikembalikan)
             VALUES (%s, CURRENT_TIMESTAMP, %s, %s, %s, FALSE)'''
+    query2 = '''INSERT INTO perpus_notifikasi (id, pesan, tanggal, dibaca, user_id)
+            VALUES (%s, %s, %s, FALSE, %s)'''
     
     try:
       c.execute(query, ( peminjaman_id, tgl_kembali, user_id, buku_id))
+      c.execute(query2, ( notifikasi_id, 'Buku yang anda pinjam melewati batas waktu !!', tgl_kembali, user_id,))
       pass
     except OperationalError as e:
       print(e)
@@ -272,16 +275,36 @@ class KembalikanBuku(APIView):
     
     return JsonResponseWrapper.success(message='Berhasil mengembalikan buku !', data=peminjaman_id)
 
-async def Notifikasi(request):
-  async def event_stream():
-    while True:
-      notification = {
-        'message': f"{random.choice(['🎉', '💡', '🚀', '❤️', '💀', '😹', '👨🏻‍💻', '🤖', '🤡'])}"
-      }
-      yield f"data: {json.dumps(notification)}\n\n"
-      await asyncio.sleep(60)
-  
-  return StreamingHttpResponse(event_stream(), content_type='text/event-stream')
+class TotalNotifikasi(APIView):
+  def post(self, request):
+    user_id = JWTGetUserID(request)
+    if user_id == '':
+      resp = JsonResponseWrapper.error(message="User ID not found, login required !", errors='Unauthorized', status_code=status.HTTP_401_UNAUTHORIZED)
+      resp.delete_cookie(settings.JWT['AUTH_COOKIE'])
+   
+    c = connection.cursor()
+    query = '''SELECT COUNT(CASE WHEN perpus_notifikasi.dibaca = FALSE
+            AND perpus_notifikasi.tanggal <= NOW()
+              THEN perpus_notifikasi.id END)
+            AS `total_notifikasi` 
+            FROM perpus_user LEFT JOIN perpus_notifikasi
+            ON perpus_user.id = perpus_notifikasi.user_id
+            WHERE perpus_user.id = %s'''
+      
+    isError = False; errorState = ''; notification = {}
+    try:
+      c.execute(query, (user_id,))
+      row_headers=[x[0] for x in c.description]
+      res = c.fetchone()
+      notification = dict(zip(row_headers, res))
+      pass
+    except Exception as e:
+      isError = True; errorState = e
+    
+    if isError:
+      return JsonResponseWrapper.errorserver(message="Cannot get notifivation !", errors=errorState)
+    
+    return JsonResponseWrapper.success(data=notification, message="Success !")
 
 class Debug(APIView):
   throttle_classes = [AnonRateThrottle]

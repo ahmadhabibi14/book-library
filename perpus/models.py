@@ -37,3 +37,10 @@ class Peminjaman(models.Model):
   dikembalikan = models.BooleanField(default=False)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   buku = models.ForeignKey(Buku, on_delete=models.CASCADE, default=None)
+
+class Notifikasi(models.Model):
+  id = models.CharField(primary_key=True, default=uuid.uuid4, max_length=36)
+  pesan = models.TextField(default='Tidak ada pesan notifikasi')
+  tanggal = models.DateTimeField(default=datetime.now())
+  dibaca = models.BooleanField(default=False)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
