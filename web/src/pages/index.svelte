@@ -51,10 +51,10 @@
 
 <Growl bind:this={growl} />
 
-<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-6 md:gap-8">
   <div class="relative">
-    <header class="flex flex-col w-full justify-center items-center h-full gap-9 absolute text-white mx-auto">
-      <h1 class="drop-shadow-2xl text-5xl font-semibold text-center w-3/5 mx-auto">
+    <header class="flex flex-col w-full justify-center items-center h-full gap-4 md:gap-9 absolute text-white mx-auto">
+      <h1 class="drop-shadow-2xl text-xl md:text-5xl font-semibold text-center w-10/12 md:w-3/5 mx-auto">
         Temukan buku favoritmu dan nikmati berbagai fitur menarik
       </h1>
       <div>
@@ -63,21 +63,21 @@
             on:keydown={enterSearchInput}
             use:init
             type="text"
-            class="bg-zinc-100 py-3 pl-6 pr-10 rounded-full w-[500px] focus:outline-none"
+            class="bg-zinc-100 py-2 md:py-3 pl-4 md:pl-6 pr-10 rounded-full w-[300px] md:w-[500px] focus:outline-none"
             placeholder="Cari buku ..."
           />
-          <Icon src={BsSearch} size="18" className="absolute top-4 right-4 fill-orange-600"/>
+          <Icon src={BsSearch} size="18" className="absolute top-3 md:top-4 right-3 md:right-4 fill-orange-600"/>
         </div>
       </div>
     </header>
-    <div class="w-full h-[400px] rounded-lg overflow-hidden">
+    <div class="w-full h-[180px] md:h-[400px] rounded-lg overflow-hidden">
       <img src="/static/img/book-lib.jpg" alt="" />
     </div>
   </div>
-  <div class="flex flex-row gap-10 justify-between relative">
-    <div class="flex flex-col gap-6 w-fit">
+  <div class="flex flex-col-reverse md:flex-row gap-5 md:gap-10 justify-between relative">
+    <div class="flex flex-col gap-5 md:gap-6 w-fit">
       <h1 class="text-2xl text-orange-600 font-bold">Rekomendasi...</h1>
-      <div class="grid grid-cols-5 gap-4">
+      <div class="md:grid flex flex-wrap md:grid-cols-5 gap-4 justify-between md:gap-4">
         {#if books && books.length}
           {#each books as book}
             <a use:inertia href={'books/'+book.slug} class="flex flex-col gap-2 w-40 p-3 bg-white rounded shadow group">

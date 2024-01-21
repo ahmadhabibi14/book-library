@@ -11,7 +11,7 @@
   export let user = {};
 </script>
 
-<aside class="w-[300px] flex flex-col gap-4 sticky top-24 h-fit">
+<aside class="w-full md:w-[300px] flex flex-col gap-4 md:sticky top-24 h-fit">
   <div class="bg-orange-100 text-orange-900 p-5 rounded shadow h-fit flex flex-col gap-3">
     <h2 class="font-semibold text-lg pb-3 border-b border-orange-300">{user.nama}</h2>
     <div class="flex flex-col gap-4">
