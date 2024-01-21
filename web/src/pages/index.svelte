@@ -40,6 +40,9 @@
   onMount(async () => await getBooks());
 
   const init = (/** @type {HTMLInputElement} */ el) => el.focus();
+  function enterSearchInput(e) {
+		if (e.key == 'Enter') window.location.href = '/search?query=' + e.target.value;
+	}
 </script>
 
 <svelte:head>
@@ -57,10 +60,11 @@
       <div>
         <div class="relative h-fit w-fit text-zinc-800">
           <input
+            on:keydown={enterSearchInput}
             use:init
             type="text"
             class="bg-zinc-100 py-3 pl-6 pr-10 rounded-full w-[500px] focus:outline-none"
-            placeholder="Cari buku, penulis ..."
+            placeholder="Cari buku ..."
           />
           <Icon src={BsSearch} size="18" className="absolute top-4 right-4 fill-orange-600"/>
         </div>

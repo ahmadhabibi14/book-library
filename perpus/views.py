@@ -236,6 +236,47 @@ def Help(request):
     'title': 'Pusat Bantuan'
   })
 
+def Search(request):
+  if request.method != 'GET':
+    return JsonResponseWrapper.errormethod()
+
+  SEARCH = request.GET.get('query', '')
+  PAGE = int(request.GET.get('page', 1))
+  
+  query = '''SELECT B.id, B.judul, B.rilis, B.thumbnail, B.slug, P.nama AS `penulis`
+            FROM perpus_buku B
+            LEFT JOIN perpus_penulis P ON B.penulis_id = P.id'''
+  
+  if SEARCH != '':
+    query = query + ''' WHERE B.judul LIKE '%''' + SEARCH + '''%'
+            LIMIT 20 OFFSET ''' + str((PAGE - 1) * 20)
+  else:
+    query = query + ''' LIMIT 20 OFFSET ''' + str((PAGE - 1) * 20)
+            
+  c = connection.cursor()
+  isError = False; sqlData = None
+  try:
+    c.execute(query)
+    sqlData = c.fetchall()
+    pass
+  except Exception as e:
+    isError = True
+  finally:
+    c.close()
+  
+  booksResult = []
+  if not isError:
+    row_headers=[x[0] for x in c.description]
+    for result in sqlData:
+      booksResult.append(dict(zip(row_headers, result)))
+  
+  resp = render(request, 'search', props={
+    'title': 'Cari Buku',
+    'books': booksResult
+  })
+  resp.status_code = status.HTTP_200_OK
+  return resp
+
 # ERROR Pages
 @ratelimit(key='user_or_ip', rate='30/m')
 def Handler404(request, exception):

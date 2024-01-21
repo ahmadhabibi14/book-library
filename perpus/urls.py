@@ -20,6 +20,7 @@ urlpatterns = [
     path('profile', views.Profile, name='profile'),
     path('koleksi', views.Koleksi, name='koleksi'),
     path('help', views.Help, name='help'),
+    path('search', views.Search, name='search'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

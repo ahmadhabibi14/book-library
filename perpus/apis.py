@@ -344,9 +344,6 @@ class HapusNotifikasi(APIView):
     
     return JsonResponseWrapper.success(message='Berhasil menghapus notifikasi !', data=notifikasi_id)
 
-
-    
-
 class Debug(APIView):
   throttle_classes = [AnonRateThrottle]
   def post(self, request):

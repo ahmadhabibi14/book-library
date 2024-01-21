@@ -73,6 +73,16 @@
     </button>
   </div>
   <div class="grow">
-    <p>Haloo</p>
+    {#if MODE === MODE_ACCOUNT}
+    <div>
+      Profil
+    </div>
+    {/if}
+    {#if MODE === MODE_SETTINGS}
+      <div>Pengaturan</div>
+    {/if}
+    {#if MODE === MODE_PASSWORD}
+      <div>Ganti Password</div>
+    {/if}
   </div>
 </div>

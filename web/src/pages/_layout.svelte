@@ -32,10 +32,11 @@
     })
   }
 
-  onMount( async ()=> {
-    await getTotalNotifikasi();
-  })
+  onMount( async ()=> await getTotalNotifikasi());
 
+  function enterSearchInput(e) {
+		if (e.key == 'Enter') window.location.href = '/search?query=' + e.target.value;
+	}
 </script>
 
 <section class="w-full min-h-screen text-zinc-700 bg-zinc-50">
@@ -75,9 +76,10 @@
     
     <div class="relative h-fit w-fit">
       <input
+        on:keydown={enterSearchInput}
         type="text"
         class="bg-zinc-100 py-2 px-5 rounded-full w-96 focus:outline-none"
-        placeholder="Cari buku, penulis ..."
+        placeholder="Cari buku ..."
       />
       <Icon src={BsSearch} size="16" className="absolute top-3 right-3 fill-zinc-500"/>
     </div>
