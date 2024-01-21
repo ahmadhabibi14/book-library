@@ -17,6 +17,10 @@ migration:
 	python manage.py makemigrations perpus
 	python manage.py migrate
 
+venv:
+	python -m venv .venv
+	source .venv/bin/activate
+
 build:
 	pnpm build
 	python manage.py collectstatic
