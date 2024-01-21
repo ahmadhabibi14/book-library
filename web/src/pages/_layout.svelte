@@ -40,7 +40,8 @@
 </script>
 
 <section class="w-full min-h-screen text-zinc-700 bg-zinc-50">
-  <header class="md:px-28 w-full flex items-center justify-between fixed z-50 h-16 bg-white shadow-md">
+  <header class="w-full fixed z-50 h-16 bg-white shadow-md">
+    <div class="container mx-auto px-4 lg:max-w-7xl flex h-full items-center justify-between">
     <div class="flex items-center gap-20 h-full">
       <a on:click={() => path = '/'} use:inertia href="/" class="hover:bg-zinc-100 px-2 h-full flex items-center gap-2 font-bold text-2xl">
         <img src="/static/favicons/favicon.png" alt="" class="w-9 h-auto"/>
@@ -100,8 +101,9 @@
         <Icon src={FaSolidUserCircle} size="24" className="fill-orange-600 group-hover:fill-orange-500"/>
       </a>
     </div>
+    </div>
   </header>
-  <main class="md:px-28 mx-auto pt-24 pb-7 min-h-[95vh]">
+  <main class="md:px-16 lg:px-0 lg:max-w-[1200px] mx-auto pt-24 pb-7 min-h-[95vh]">
     <slot />
   </main>
   <Footer />

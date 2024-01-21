@@ -68,6 +68,15 @@
           {/if}
         </div>
       {/each}
+    {:else}
+      <div class="text-center flex justify-center">
+        <div class="text-zinc-400 text-2xl font-bold flex flex-row gap-5 items-center mt-6">
+          <div class="w-[80px]">
+            <img src="/static/img/notification.png" alt="" />
+          </div>
+          <h1>Tidak ada notifikasi !!</h1>
+        </div>
+      </div>
     {/if}
   </div>
 </div>
