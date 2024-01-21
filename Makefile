@@ -5,7 +5,7 @@ setup-python:
 	pip install -r requirements.txt
 
 setup-js:
-	npm install
+	pnpm install
 
 update-dep:
 	pip freeze > requirements.txt
