@@ -13,7 +13,7 @@
 </script>
 
 <svelte:head>
-  <title>{title} | ePerpus</title>
+  <title>{title} | Bacaku</title>
 </svelte:head>
 
 <div class="flex justify-center items-center h-screen w-full text-zinc-800">

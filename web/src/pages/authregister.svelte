@@ -42,7 +42,7 @@
 </script>
 
 <svelte:head>
-  <title>Register | ePerpus</title>
+  <title>Register | Bacaku</title>
 </svelte:head>
 
 <Growl bind:this={growl} />

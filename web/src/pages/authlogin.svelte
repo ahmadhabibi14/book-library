@@ -29,7 +29,7 @@
 </script>
 
 <svelte:head>
-  <title>Login | ePerpus</title>
+  <title>Login | Bacaku</title>
 </svelte:head>
 
 <Growl bind:this={growl} />

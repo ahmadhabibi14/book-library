@@ -1,6 +1,6 @@
-## ePerpus
+## Bacaku
 
-![My Dotties](/web/assets/img/Covers.png)
+![My Dotties](/web/assets/img/Cover.png)
 
 ##### Connect Docker
 ```shell

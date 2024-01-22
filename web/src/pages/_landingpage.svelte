@@ -11,14 +11,14 @@
 </script>
 
 <svelte:head>
-  <title>{title} | ePerpus</title>
+  <title>{title} | Bacaku</title>
 </svelte:head>
 
 <div class="w-full min-h-screen text-zinc-700 bg-white">
   <header class="h-16 w-full flex items-center justify-between px-28 shadow-lg">
     <a use:inertia href="/" class="hover:grayscale px-2 h-full flex items-center gap-2 font-bold text-2xl">
       <img src="/static/favicons/favicon.png" alt="" class="w-9 h-auto"/>
-      <span>ePerpus</span>
+      <span>Bacaku</span>
     </a>
     <nav class="flex flex-row items-center gap-6 text-sky-700">
       <a use:inertia href="/about" class="text-lg hover:text-sky-600">

@@ -46,7 +46,7 @@
       <div class="flex items-center gap-20 h-full">
         <a on:click={() => path = '/'} use:inertia href="/" class="hover:bg-zinc-100 px-2 h-full flex items-center gap-2 font-bold text-2xl">
           <img src="/static/favicons/favicon.png" alt="" class="w-9 h-auto"/>
-          <span>ePerpus</span>
+          <span>Bacaku</span>
         </a>
         <nav class="hidden md:flex items-center gap-6 text-lg font-semibold text-sky-700 h-full">
           <a on:click={() => path = '/'} use:inertia href="/" class="hover:text-sky-600 relative h-full w-fit flex items-center">
