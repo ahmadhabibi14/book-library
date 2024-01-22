@@ -215,7 +215,8 @@ def Profile(request):
     return JsonResponseWrapper.errormethod()
   
   return render(request, 'profile', props={
-    'title': 'Profil'
+    'title': 'Profil',
+    'user': JWTGetUserData(request)
   })
 
 @ratelimit(key='user_or_ip', rate='30/m')

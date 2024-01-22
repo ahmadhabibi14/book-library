@@ -42,7 +42,7 @@
 
 <section class="w-full min-h-screen text-zinc-700 bg-zinc-50">
   <header class="w-full md:fixed z-50 h-16 md:bg-white md:shadow-md">
-    <div class="container mx-auto px-4 lg:max-w-7xl flex h-full items-center justify-between">
+    <div class="container mx-auto px-1 md:px-4 lg:max-w-7xl flex h-full items-center justify-between">
       <div class="flex items-center gap-20 h-full">
         <a on:click={() => path = '/'} use:inertia href="/" class="hover:bg-zinc-100 px-2 h-full flex items-center gap-2 font-bold text-2xl">
           <img src="/static/favicons/favicon.png" alt="" class="w-9 h-auto"/>
@@ -84,7 +84,7 @@
         />
         <Icon src={BsSearch} size="16" className="absolute top-3 right-3 fill-zinc-500"/>
       </div>
-      <div class="flex flex-row items-center gap-4">
+      <div class="flex flex-row items-center gap-4 mr-4 md:mr-0">
         <a use:inertia href="/notifikasi" class="relative flex font-semibold flex-row group items-center text-sm gap-2">
           <Icon src={IoNotifications} size="24" className="fill-orange-600 group-hover:fill-orange-500"/>
           {#if notifTotal > 0}

@@ -351,7 +351,7 @@ class Debug(APIView):
 
 async def DebugSSE(request):
   async def event_stream():
-    emojis = ["🚀", "🐎", "🌅", "🦾", "🍇"]
+    emojis = ["🚀", "🐎", "🌅", "🦾", "🍇", "👨🏻‍💻", "🤖", "🤡", "🥗", "💀"]
     i = 0
     while True:
       yield f'data: {random.choice(emojis)} {i}\n\n'

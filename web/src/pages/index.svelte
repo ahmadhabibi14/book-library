@@ -43,6 +43,10 @@
   function enterSearchInput(e) {
 		if (e.key == 'Enter') window.location.href = '/search?query=' + e.target.value;
 	}
+  let inputSearch = '';
+  function searchBook() {
+    window.location.href = '/search?query=' + inputSearch;
+  }
 </script>
 
 <svelte:head>
@@ -60,13 +64,18 @@
       <div>
         <div class="relative h-fit w-fit text-zinc-800">
           <input
+            bind:value={inputSearch}
             on:keydown={enterSearchInput}
             use:init
             type="text"
-            class="bg-zinc-100 py-2 md:py-3 pl-4 md:pl-6 pr-10 rounded-full w-[300px] md:w-[500px] focus:outline-none"
+            class="bg-zinc-100 py-2 md:py-3 pl-4 md:pl-6 pr-16 rounded-full w-[300px] md:w-[500px] focus:outline-none"
             placeholder="Cari buku ..."
           />
-          <Icon src={BsSearch} size="18" className="absolute top-3 md:top-4 right-3 md:right-4 fill-orange-600"/>
+          <button
+            on:click={searchBook}
+            class="flex justify-center items-center py-[6px] md:py-2 px-3 md:px-4 rounded-full bg-orange-600 hover:bg-orange-500 h-fit w-fit absolute top-[5px] md:top-[7px] right-[6px] md:right-2">
+            <Icon src={BsSearch} size="18" className=" fill-white"/>
+          </button>
         </div>
       </div>
     </header>

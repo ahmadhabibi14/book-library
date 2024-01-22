@@ -5,7 +5,11 @@
   import RiSystemLockPasswordLine from 'svelte-icons-pack/ri/RiSystemLockPasswordLine';
   import RiSystemLogoutBoxRLine from 'svelte-icons-pack/ri/RiSystemLogoutBoxRLine';
   import RiSystemLoader4Fill from 'svelte-icons-pack/ri/RiSystemLoader4Fill';
+  import RiDesignBallPenLine from 'svelte-icons-pack/ri/RiDesignBallPenLine';
+  import Inputbox from './components/inputbox.svelte';
+
   export let title = '';
+  export let user = {};
 
   const MODE_ACCOUNT = `account`, MODE_SETTINGS = `settings`, MODE_PASSWORD = `password`;
   let MODE = MODE_ACCOUNT;
@@ -36,6 +40,8 @@
     document.cookie = cookieName + "=; expires=" + expiry.toUTCString() + "; path=/"
     setTimeout(()=> window.location.href = '/', 1200);
   }
+
+  let oldPassword = '', newPassword = '', newPasswordConfirm = '';
 </script>
 
 <svelte:head>
@@ -51,7 +57,7 @@
   </div>
 {/if}
 <div class="flex flex-row gap-5 relative">
-  <div class="w-60 bg-white rounded p-5 flex flex-col gap-4 shadow sticky top-24">
+  <div class="h-fit w-72 bg-white rounded p-5 flex flex-col gap-4 shadow sticky top-24">
     {#if MENU && MENU.length}
       {#each MENU as m}
         <button class="flex flex-row justify-between w-full items-center h-fit hover:underline" on:click={() => MODE = m.mode}>
@@ -74,15 +80,89 @@
   </div>
   <div class="grow">
     {#if MODE === MODE_ACCOUNT}
-    <div>
-      Profil
+    <div class="flex flex-col gap-4 p-5 bg-white rounded shadow">
+      <div class="flex flex-row gap-4 items-center">
+        <div class="grow flex flex-col gap-1">
+          <span class="text-xs text-orange-600">Nama</span>
+          <p>{user.nama}</p>
+        </div>
+        <button title="Edit nama" class="w-fit p-2 hover:bg-zinc-100 active:bg-zinc-200 rounded-full flex h-fit items-center justify-center">
+          <Icon size="16" src={RiDesignBallPenLine} className="fill-orange-600" />
+        </button>
+      </div>
+      <div class="flex flex-row gap-4 items-center">
+        <div class="grow flex flex-col gap-1">
+          <span class="text-xs text-orange-600">Alamat</span>
+          <p>{user.alamat}</p>
+        </div>
+        <button title="Edit alamat" class="w-fit p-2 hover:bg-zinc-100 active:bg-zinc-200 rounded-full flex h-fit items-center justify-center">
+          <Icon size="16" src={RiDesignBallPenLine} className="fill-orange-600" />
+        </button>
+      </div>
+      <div class="flex flex-row gap-4 items-center">
+        <div class="grow flex flex-col gap-1">
+          <span class="text-xs text-orange-600">Email</span>
+          <p>{user.email}</p>
+        </div>
+        <button title="Edit email" class="w-fit p-2 hover:bg-zinc-100 active:bg-zinc-200 rounded-full flex h-fit items-center justify-center">
+          <Icon size="16" src={RiDesignBallPenLine} className="fill-orange-600" />
+        </button>
+      </div>
+      <div class="flex flex-row gap-4 items-center">
+        <div class="grow flex flex-col gap-1">
+          <span class="text-xs text-orange-600">No. Telepon</span>
+          <p>{user.telepon}</p>
+        </div>
+        <button title="Edit No. Telepon" class="w-fit p-2 hover:bg-zinc-100 active:bg-zinc-200 rounded-full flex h-fit items-center justify-center">
+          <Icon size="16" src={RiDesignBallPenLine} className="fill-orange-600" />
+        </button>
+      </div>
+      <div class="flex flex-row gap-4 items-center">
+        <div class="grow flex flex-col gap-1">
+          <span class="text-xs text-orange-600">Jenis Kelamin</span>
+          <p>{user.jenis_kelamin === 'L' ? 'Laki - Laki' : 'Perempuan'}</p>
+        </div>
+        <button title="Edit Jenis Kelamin" class="w-fit p-2 hover:bg-zinc-100 active:bg-zinc-200 rounded-full flex h-fit items-center justify-center">
+          <Icon size="16" src={RiDesignBallPenLine} className="fill-orange-600" />
+        </button>
+      </div>
     </div>
     {/if}
     {#if MODE === MODE_SETTINGS}
       <div>Pengaturan</div>
     {/if}
     {#if MODE === MODE_PASSWORD}
-      <div>Ganti Password</div>
+      <div class="flex flex-col gap-4 p-5 bg-white rounded shadow">
+        <div class="flex flex-col gap-4 w-2/4">
+          <Inputbox
+            id="oldPassword"
+            label="Password Lama"
+            type="password"
+            placeholder="passwordlama1234"
+            bind:value={oldPassword}
+            required
+          />
+          <Inputbox
+            id="newPassword"
+            label="Password Baru"
+            type="password"
+            placeholder="passwordbaru1234"
+            bind:value={newPassword}
+            required
+          />
+          <Inputbox
+            id="newPasswordConfirm"
+            label="Konfirmasi Password Baru"
+            type="password"
+            placeholder="passwordbaru1234"
+            bind:value={newPasswordConfirm}
+            required
+          />
+          <button class="w-fit text-sm py-2 px-5 bg-sky-700 text-white hover:bg-sky-600 rounded">
+            Ganti Password
+          </button>
+        </div>
+      </div>
     {/if}
   </div>
 </div>
