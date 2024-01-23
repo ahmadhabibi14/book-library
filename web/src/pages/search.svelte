@@ -45,7 +45,7 @@
   </div>
   <h1 class="text-lg md:text-xl">Hasil pencarian buku dengan kata kunci <span class="text-orange-600">"{queryParamValue}"</span></h1>
   <div class="flex flex-col gap-6 w-fit">
-    <div class="md:grid flex flex-wrap md:grid-cols-5 gap-4 justify-between md:gap-4">
+    <div class="md:grid flex flex-wrap md:grid-cols-7 gap-4 justify-between md:gap-4">
       {#if books && books.length}
         {#each books as book}
           <a use:inertia href={'books/'+book.slug} class="flex flex-col gap-2 w-40 p-3 bg-white rounded shadow group">
