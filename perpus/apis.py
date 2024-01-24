@@ -6,7 +6,7 @@ import jwt
 import asyncio
 import random
 from rest_framework.views import APIView
-from rest_framework.throttling import AnonRateThrottle
+from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
 from .models import *
 from rest_framework import status
 from perpus import settings
@@ -143,7 +143,7 @@ class Login(APIView):
     return resp
 
 class Books(APIView):
-  throttle_classes = [AnonRateThrottle]
+  throttle_classes = [UserRateThrottle]
   def post(self, request):
     OFFSET = request.GET.get('offset', 0)
     LIMIT = request.GET.get('limit', 10)
@@ -183,7 +183,7 @@ class Books(APIView):
     return JsonResponseWrapper.error(message="Cannot get books !", errors=books.errors)
 
 class PinjamBuku(APIView):
-  throttle_classes = [AnonRateThrottle]
+  throttle_classes = [UserRateThrottle]
   def post(self, request):
     user_id = JWTGetUserID(request)
     if user_id == '':
@@ -237,7 +237,7 @@ class PinjamBuku(APIView):
     return JsonResponseWrapper.success(message='Berhasil meminjam buku !')
 
 class KembalikanBuku(APIView):
-  throttle_classes = [AnonRateThrottle]
+  throttle_classes = [UserRateThrottle]
   def post(self, request):
     user_id = JWTGetUserID(request)
     if user_id == '':
@@ -276,6 +276,7 @@ class KembalikanBuku(APIView):
     return JsonResponseWrapper.success(message='Berhasil mengembalikan buku !', data=peminjaman_id)
 
 class TotalNotifikasi(APIView):
+  throttle_classes = [UserRateThrottle]
   def post(self, request):
     user_id = JWTGetUserID(request)
     if user_id == '':
@@ -307,6 +308,7 @@ class TotalNotifikasi(APIView):
     return JsonResponseWrapper.success(data=notification, message="Success !")
 
 class HapusNotifikasi(APIView):
+  throttle_classes = [UserRateThrottle]
   def post(self, request):
     user_id = JWTGetUserID(request)
     if user_id == '':
@@ -344,8 +346,52 @@ class HapusNotifikasi(APIView):
     
     return JsonResponseWrapper.success(message='Berhasil menghapus notifikasi !', data=notifikasi_id)
 
+class EditProfile(APIView):
+  throttle_classes = [UserRateThrottle]
+  def post(self, request):
+    user_id = JWTGetUserID(request)
+    if user_id == '':
+      resp = JsonResponseWrapper.error(message="User ID not found, login required !", errors='Unauthorized', status_code=status.HTTP_401_UNAUTHORIZED)
+      resp.delete_cookie(settings.JWT['AUTH_COOKIE'])
+    
+    serializer = Serial_EditProfile(data=request.data)
+    if serializer.is_valid():
+      print(serializer.data['nama'])
+      query = '''UPDATE perpus_user
+        SET nama = %s, alamat = %s, telepon = %s, jenis_kelamin = %s
+        WHERE id = %s'''
+      c = connection.cursor()
+      isError = False; errorState = ''
+      try:
+        c.execute(query, (
+          serializer.data['nama'],
+          serializer.data['alamat'],
+          serializer.data['telepon'],
+          serializer.data['jenis_kelamin'],
+          user_id
+        ))
+        pass
+      except OperationalError as e:
+        isError = True
+        errorState = str(e)
+      except Error as e:
+        isError = True
+        errorState = str(e)
+      except:
+        isError = True
+        errorState = 'Unknown error'
+      finally:
+        c.close()
+      
+      if isError:
+        return JsonResponseWrapper.errorserver(message="Failed to update user profile", errors=errorState)
+    else:
+      return JsonResponseWrapper.error(message="Failed to update user profile", errors=serializer.errors)
+    
+    return JsonResponseWrapper.success(message="Profile updated !", data=serializer.data)
+
 class Debug(APIView):
-  throttle_classes = [AnonRateThrottle]
+  throttle_classes = [UserRateThrottle]
   def post(self, request):
     return JsonResponseWrapper.created(message='successful !')
 

@@ -42,3 +42,9 @@ class Serial_Notifikasi(serializers.Serializer):
   pesan = serializers.CharField()
   tanggal = serializers.DateTimeField()
   dibaca = serializers.BooleanField()
+
+class Serial_EditProfile(serializers.Serializer):
+  nama = serializers.CharField()
+  alamat = serializers.CharField()
+  telepon = serializers.CharField()
+  jenis_kelamin = serializers.CharField()

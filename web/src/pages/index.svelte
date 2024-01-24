@@ -12,8 +12,7 @@
   export let user = {};
   export let title = '';
 
-  let growl;
-  let books = [], isLoadBook = false;
+  let growl, books = [], isLoadBook = false;
   let OFFSET = 0, LIMIT = 10;
 
   async function getBooks() {
@@ -40,13 +39,11 @@
   onMount(async () => await getBooks());
 
   const init = (/** @type {HTMLInputElement} */ el) => el.focus();
-  function enterSearchInput(e) {
+  function enterSearchInput(/** @type {any} */ e) {
 		if (e.key == 'Enter') window.location.href = '/search?query=' + e.target.value;
 	}
   let inputSearch = '';
-  function searchBook() {
-    window.location.href = '/search?query=' + inputSearch;
-  }
+  const searchBook = () => window.location.href = '/search?query=' + inputSearch;
 </script>
 
 <svelte:head>

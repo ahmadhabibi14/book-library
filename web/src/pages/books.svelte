@@ -10,7 +10,7 @@
   export let title = 'Buku';
 
   let growl;
-  let books = [], isLoadBook = false;
+  let books = [], isLoadBook = false, noMoreBook = false;
   let OFFSET = 0, LIMIT = 20;
 
   async function getBooks() {
@@ -27,6 +27,7 @@
         const DATA = res.data.data;
         books = [...books, ...DATA];
       }
+      if ((res.data.data).length < 1) noMoreBook = true;
     }).catch((err) => {
       isLoadBook = false;
       growl.showError(err.response.data.errors)
@@ -61,14 +62,18 @@
       {/if}
     </div>
     <div class="flex justify-center text-sm">
-      {#if isLoadBook}
-        <div class="flex flex-row items-center gap-2">
-          <Icon size="14" src={RiSystemLoader4Fill} className="fill-orange-600 -mt-1 animate-spin" />
-          <span>Loading more</span>
-        </div>
-      {/if}
-      {#if !isLoadBook}
-        <button on:click={getBooks} class="text-orange-600 bg-white shadow py-2 px-5 rounded hover:bg-zinc-50">Load more</button>
+      {#if noMoreBook}
+        <div class="text-orange-600 bg-white shadow py-2 px-5 rounded cursor-default">Tidak ada buku lagi</div>
+      {:else}
+        {#if isLoadBook}
+          <div class="flex flex-row items-center gap-2 cursor-progress">
+            <Icon size="14" src={RiSystemLoader4Fill} className="fill-orange-600 -mt-1 animate-spin" />
+            <span>Loading more</span>
+          </div>
+        {/if}
+        {#if !isLoadBook}
+          <button on:click={getBooks} class="text-orange-600 bg-white shadow py-2 px-5 rounded hover:bg-zinc-50">Load more</button>
+        {/if}
       {/if}
     </div>
   </div>

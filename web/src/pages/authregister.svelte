@@ -22,13 +22,11 @@
 
     await axios.post(
       '/api/register',
-      { email, password, nama, jenis_kelamin, alamat, telepon}
+      { email, password, nama, jenis_kelamin, alamat, telepon }
     ).then((res) => {
       isSubmitted = false;
       growl.showSuccess(res.data.message);
-      setTimeout(() => {
-        window.location.href = '/';
-      }, 1200);
+      setTimeout(() => window.location.href = '/', 1200);
     }).catch((err) => {
       console.log(err.response.data);
       isSubmitted = false;

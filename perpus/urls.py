@@ -34,6 +34,7 @@ urlpatterns += [
   path('api/kembalikan-buku', apis.KembalikanBuku.as_view()),
   path('api/total-notifikasi', apis.TotalNotifikasi.as_view()),
   path('api/hapus-notifikasi', apis.HapusNotifikasi.as_view()),
+  path('api/edit-profile', apis.EditProfile.as_view()),
   path('api/debug', apis.Debug.as_view()),
   path('api/debug-sse', apis.DebugSSE),
 ]

@@ -52,7 +52,7 @@
             name={label}
             value={r.value}
           />
-          <label for={r.value}>{r.label}</label>
+          <label for={r.label}>{r.label}</label>
         </div>
       {/each}
     </div>
