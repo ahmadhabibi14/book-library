@@ -54,17 +54,11 @@
   }
 
   async function submitEditProfile() {
-    isAjaxSubmiited = true;
-    if (!user.nama || !user.alamat || !user.telepon || !user.jenis_kelamin) {
-      isAjaxSubmiited = false;
-      return growl.showWarning('Input tidak boleh kosong');
-    }
+    if (!user.nama || !user.alamat || !user.telepon || !user.jenis_kelamin) return growl.showWarning('Input tidak boleh kosong');
     if (user.nama == userOld.nama || user.alamat == userOld.alamat
       || user.telepon == userOld.telepon || user.jenis_kelamin == userOld.jenis_kelamin
-    ) {
-      isAjaxSubmiited = false;
-      return growl.showWarning('Tidak ada perubahan !!');
-    }
+    ) return growl.showWarning('Tidak ada perubahan !!');
+    isAjaxSubmiited = true;
     await axios({
       method: 'post',
       url: '/api/edit-profile',
