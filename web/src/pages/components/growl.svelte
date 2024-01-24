@@ -58,7 +58,7 @@
     display        : flex;
     flex-direction : row;
     align-items    : center;
-    gap            : 8px;
+    gap            : 10px;
     font-size      : 14px;
     bottom         : 20px;
     right          : 20px;

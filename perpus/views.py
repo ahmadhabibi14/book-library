@@ -175,7 +175,7 @@ def Notifikasi(request):
   query = '''SELECT id, pesan, tanggal, dibaca
           FROM perpus_notifikasi
           WHERE perpus_notifikasi.user_id = %s AND tanggal <= NOW()
-          ORDER BY tanggal DESC'''
+          ORDER BY tanggal DESC LIMIT 20'''
   c = connection.cursor()
   isError = False; sqlData = None
   try:
