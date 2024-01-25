@@ -19,13 +19,12 @@ export default defineConfig({
     },
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.svelte'],
+    extensions: ['.js', '.json', '.svelte'],
   },
   build: {
-    outDir: resolve('./web/dist'),
+    outDir: resolve('./static'),
     assetsDir: '',
-    manifest: 'manifest.json',
-    emptyOutDir: true,
+    manifest: true,
     target: 'es2015',
     rollupOptions: {
       input: {
