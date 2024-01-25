@@ -22,7 +22,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - name: Upload with rsync 🔁 
-        run: rsync --delete -avz --exclude=".git" --exclude=".github" ./ {{secrets.SERVER_USER}}@${{ secrets.SERVER_IP }}:/bacaku
+        run: rsync --delete -avz --exclude=".git" --exclude=".github" ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/bacaku
       
       # Execute command ke VPS
       - name: Execute Command ☣️
