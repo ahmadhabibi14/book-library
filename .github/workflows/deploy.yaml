@@ -20,9 +20,16 @@ jobs:
       
       - name: Add known_hosts 🖥️
         run: ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
-
+      
       - name: Upload with rsync 🔁 
-        run: rsync --delete -avz --exclude=".git" --exclude=".github" ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/bacaku
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avzr --delete --exclude=".git" --exclude=".github"
+          path: ./
+          remote_path: /bacaku
+          remote_host: ${{ secrets.SERVER_IP }}
+          remote_user: ${{ secrets.SERVER_USER }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
       
       # Execute command ke VPS
       - name: Execute Command ☣️
