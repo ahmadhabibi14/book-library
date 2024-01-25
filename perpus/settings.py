@@ -196,7 +196,7 @@ if os.environ.get('WEB_ENV') == 'prod':
 DJANGO_VITE_DEV_SERVER_PORT = 3000
 
 # Name of static files folder (after called python manage.py collectstatic)
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = '/home/root_admin/bacaku/static'
 
 # Include DJANGO_VITE_ASSETS_PATH into STATICFILES_DIRS to be copied inside
 # when run command python manage.py collectstatic
