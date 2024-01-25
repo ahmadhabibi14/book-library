@@ -32,6 +32,8 @@ ALLOWED_HOSTS = [
   'http://193.111.124.179'
 ]
 
+print(ALLOWED_HOSTS)
+
 # Application definition
 
 INSTALLED_APPS = [
