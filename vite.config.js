@@ -24,7 +24,7 @@ export default defineConfig({
   build: {
     outDir: resolve('./web/dist'),
     assetsDir: '',
-    manifest: true,
+    manifest: 'manifest.json',
     emptyOutDir: true,
     target: 'es2015',
     rollupOptions: {
