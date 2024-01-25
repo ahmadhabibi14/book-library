@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gunicorn --bind 0.0.0.0:8000 perpus.wsgi
+python manage.py runserver 0.0.0.0:8000 --noreload

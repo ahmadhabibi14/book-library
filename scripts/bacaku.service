@@ -1,0 +1,12 @@
+[Unit]
+Description=Bacaku
+
+[Service]
+User=root
+Type=simple
+Restart=on-failure
+WorkingDirectory=/home/root_admin/bacaku
+ExecStart=/home/root_admin/bacaku/start_prod.sh
+
+[Install]
+WantedBy=multi-user.target
