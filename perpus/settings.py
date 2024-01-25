@@ -62,6 +62,8 @@ MIDDLEWARE = [
   'perpus.middleware.ContentTypeMiddleware',
 ]
 
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+
 RATELIMIT_VIEW = 'perpus.views.ratelimited_error'
 
 ROOT_URLCONF = 'perpus.urls'

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python manage.py runserver
+gunicorn --bind 0.0.0.0:8000 perpus.wsgi
