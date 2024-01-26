@@ -34,4 +34,4 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             cd ~/bacaku
-            echo 'Haloo'
+            make migration

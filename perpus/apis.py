@@ -25,8 +25,8 @@ class Register(APIView):
       user_id = str(uuid.uuid4())
       user_password = hashPassword(serializer.data['password'])
       query = ''' INSERT INTO perpus_user
-        (id, nama, jenis_kelamin, alamat, email, telepon, password)
-        VALUES (%s, %s, %s, %s, %s, %s, %s)'''
+        (id, nama, jenis_kelamin, alamat, email, telepon, password, petugas, join_at)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, FALSE, CURRENT_TIMESTAMP)'''
       c = connection.cursor()
       isError = False; errorState = ''
       try:

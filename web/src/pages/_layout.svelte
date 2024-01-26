@@ -77,6 +77,7 @@
       </div>
       <div class="hidden md:block relative h-fit w-fit">
         <input
+          autocomplete="off"
           on:keydown={enterSearchInput}
           type="text"
           class="bg-zinc-100 py-2 px-5 rounded-full w-96 focus:outline-none"

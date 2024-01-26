@@ -55,9 +55,9 @@
 
   async function submitEditProfile() {
     if (!user.nama || !user.alamat || !user.telepon || !user.jenis_kelamin) return growl.showWarning('Input tidak boleh kosong');
-    if (user.nama == userOld.nama || user.alamat == userOld.alamat
-      || user.telepon == userOld.telepon || user.jenis_kelamin == userOld.jenis_kelamin
-    ) return growl.showWarning('Tidak ada perubahan !!');
+    // if (user.nama == userOld.nama || user.alamat == userOld.alamat
+    //   || user.telepon == userOld.telepon || user.jenis_kelamin == userOld.jenis_kelamin
+    // ) return growl.showWarning('Tidak ada perubahan !!');
     isAjaxSubmiited = true;
     await axios({
       method: 'post',

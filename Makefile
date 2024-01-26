@@ -14,8 +14,8 @@ install-dep:
 	pip install -r requirements.txt
 
 migration:
-	python manage.py makemigrations perpus
-	python manage.py migrate
+	python3 manage.py makemigrations perpus
+	python3 manage.py migrate
 
 venv:
 	python -m venv .venv
@@ -23,7 +23,7 @@ venv:
 
 build:
 	pnpm build
-	python manage.py collectstatic
+	python3 manage.py collectstatic
 
 setup-linux:
 	sudo apt update \
