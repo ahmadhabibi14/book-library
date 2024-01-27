@@ -22,7 +22,7 @@ export default defineConfig({
     extensions: ['.js', '.json', '.svelte'],
   },
   build: {
-    outDir: resolve('./static'),
+    outDir: resolve('./web/dist'),
     assetsDir: '',
     manifest: true,
     target: 'es2015',

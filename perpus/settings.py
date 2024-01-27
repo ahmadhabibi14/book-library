@@ -189,7 +189,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # Where ViteJS assets are built.
-DJANGO_VITE_ASSETS_PATH = BASE_DIR / 'web' / 'assets'
+DJANGO_VITE_ASSETS_PATH = BASE_DIR / 'web' / 'dist'
 DJANGO_VITE_DEV_MODE = True
 if os.environ.get('WEB_ENV') == 'prod':
   DJANGO_VITE_DEV_MODE = False
