@@ -23,7 +23,7 @@ venv:
 
 build:
 	pnpm build
-	python3 manage.py collectstatic -y
+	python3 manage.py collectstatic
 
 setup-linux:
 	sudo apt update \
