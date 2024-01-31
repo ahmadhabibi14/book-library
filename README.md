@@ -2,6 +2,8 @@
 
 ![My Dotties](/web/assets/img/Cover.png)
 
+Wait.... don't
+
 ##### Connect Docker
 ```shell
 docker-compose up -d

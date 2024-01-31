@@ -1,0 +1,13 @@
+_tmpdb
+*.log
+*.pot
+*.pyc
+perpus/__pycache__
+perpus/migrations/__pycache__
+node_modules
+web/dist
+collectedstatic
+perpus-env
+.venv
+.env
+static
