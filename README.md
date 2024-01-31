@@ -1,6 +1,6 @@
 ## Bacaku
 
-![My Dotties](/web/assets/img/Cover.png)
+![Bacaku](/app/web/assets/img/Cover.png)
 
 Wait.... don't
 
